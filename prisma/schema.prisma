@@ -1,0 +1,503 @@
+// ============================================================
+// HIS VOICE — Complete Database Schema
+// SQLite for development, PostgreSQL for production
+// ============================================================
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// ============================================================
+// AUTH & USER MODELS
+// ============================================================
+
+model User {
+  id                String    @id @default(cuid())
+  email             String    @unique
+  name              String
+  passwordHash      String
+  role              String    @default("USER") // ADMIN, STAFF, USER
+  avatar            String?
+  phone             String?
+  emailVerified     Boolean   @default(false)
+  isActive          Boolean   @default(true)
+  lastLoginAt       DateTime?
+  notificationPrefs String?   // JSON: { email: true, push: true, telegram: false }
+  language          String    @default("en")
+  theme             String    @default("light")
+  createdAt         DateTime  @default(now())
+  updatedAt         DateTime  @updatedAt
+
+  notifications        Notification[]
+  bookmarks            Bookmark[]
+  explorationHistory   ExplorationHistory[]
+  curiositySessions    CuriositySession[]
+  errorLogs            ErrorLog[]
+}
+
+// ============================================================
+// CORE NARRATIVE MODELS
+// ============================================================
+
+model Act {
+  id          String   @id @default(cuid())
+  number      Int      @unique
+  slug        String   @unique
+  title       String
+  subtitle    String
+  timeRange   String
+  description String?
+  icon        String?
+  color       String?
+  sortOrder   Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  scenes Scene[]
+}
+
+model Scene {
+  id               String   @id @default(cuid())
+  slug             String   @unique
+  actId            String
+  title            String
+  subtitle         String?
+  dateApprox       String?
+  era              String?
+  convergenceScore Int      @default(1)
+  summary          String?
+  sortOrder        Int      @default(0)
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+
+  act             Act              @relation(fields: [actId], references: [id])
+  accounts        Account[]
+  jesusWords      JesusWord[]
+  fulfillments    Fulfillment[]
+  sourceParallels SourceParallel[]
+  gapNotes        GapNote[]
+  location        Location?
+  bookmarks       Bookmark[]
+
+  @@index([actId])
+  @@index([slug])
+  @@index([era])
+}
+
+model Account {
+  id        String   @id @default(cuid())
+  sceneId   String
+  gospel    String
+  reference String
+  sortOrder Int      @default(0)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  scene        Scene         @relation(fields: [sceneId], references: [id], onDelete: Cascade)
+  translations Translation[]
+
+  @@unique([sceneId, gospel])
+  @@index([sceneId])
+}
+
+model Translation {
+  id        String   @id @default(cuid())
+  accountId String
+  version   String // "kjv", "web", "asv"
+  text      String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  account Account @relation(fields: [accountId], references: [id], onDelete: Cascade)
+
+  @@unique([accountId, version])
+  @@index([accountId])
+}
+
+model JesusWord {
+  id        String   @id @default(cuid())
+  sceneId   String
+  text      String
+  reference String
+  note      String?
+  sortOrder Int      @default(0)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  scene Scene @relation(fields: [sceneId], references: [id], onDelete: Cascade)
+
+  @@index([sceneId])
+}
+
+// ============================================================
+// PROPHECY MODELS
+// ============================================================
+
+model Prophecy {
+  id              String   @id @default(cuid())
+  slug            String   @unique
+  label           String
+  reference       String
+  dateWritten     String?
+  textKjv         String
+  textWeb         String?
+  textAsv         String?
+  fulfillmentType String? // "direct", "typological", "allusion", "verbal_echo"
+  probabilityNote String?
+  sortOrder       Int      @default(0)
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  fulfillments Fulfillment[]
+  bookmarks    Bookmark[]
+}
+
+model Fulfillment {
+  id         String   @id @default(cuid())
+  prophecyId String
+  sceneId    String
+  note       String?
+  createdAt  DateTime @default(now())
+
+  prophecy Prophecy @relation(fields: [prophecyId], references: [id], onDelete: Cascade)
+  scene    Scene    @relation(fields: [sceneId], references: [id], onDelete: Cascade)
+
+  @@unique([prophecyId, sceneId])
+  @@index([prophecyId])
+  @@index([sceneId])
+}
+
+// ============================================================
+// WORLD SOURCES MODELS
+// ============================================================
+
+model SourceCategory {
+  id          String   @id @default(cuid())
+  code        String   @unique // "A" through "J"
+  slug        String   @unique
+  name        String
+  description String?
+  color       String?
+  sortOrder   Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  sources WorldSource[]
+}
+
+model WorldSource {
+  id          String   @id @default(cuid())
+  slug        String   @unique
+  categoryId  String
+  title       String
+  type        String?
+  date        String?
+  content     String?
+  fullText    String?
+  reliability String?
+  sortOrder   Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  category  SourceCategory   @relation(fields: [categoryId], references: [id])
+  parallels SourceParallel[]
+  bookmarks Bookmark[]
+
+  @@index([categoryId])
+}
+
+model SourceParallel {
+  id        String   @id @default(cuid())
+  sourceId  String
+  sceneId   String
+  note      String?
+  createdAt DateTime @default(now())
+
+  source WorldSource @relation(fields: [sourceId], references: [id], onDelete: Cascade)
+  scene  Scene       @relation(fields: [sceneId], references: [id], onDelete: Cascade)
+
+  @@unique([sourceId, sceneId])
+  @@index([sourceId])
+  @@index([sceneId])
+}
+
+// ============================================================
+// EVIDENCE & INTELLIGENCE MODELS
+// ============================================================
+
+model ScientificStudy {
+  id        String   @id @default(cuid())
+  title     String
+  authors   String?
+  year      String?
+  journal   String?
+  summary   String
+  category  String? // "NDE", "consciousness", "archaeology", "prophecy_math"
+  url       String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model ArchaeologicalEvidence {
+  id           String   @id @default(cuid())
+  title        String
+  location     String?
+  dateFound    String?
+  description  String
+  significance String?
+  sceneRef     String?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+model PhilosophicalArgument {
+  id         String   @id @default(cuid())
+  name       String
+  type       String? // "cosmological", "moral", "teleological", "information"
+  summary    String
+  premises   String? // JSON array
+  conclusion String?
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+}
+
+model AgentReasoning {
+  id           String   @id @default(cuid())
+  skepticLevel Int // 0-4
+  topic        String
+  reasoning    String
+  sources      String? // JSON array of source references
+  sortOrder    Int      @default(0)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+model CuriosityPreset {
+  id          String   @id @default(cuid())
+  question    String
+  category    String? // "existence", "crucifixion", "resurrection", "prophecy", etc.
+  level       Int      @default(0) // 0-4 skeptic level
+  pageContext String? // Which page this is relevant on
+  sortOrder   Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+// ============================================================
+// SUPPLEMENTARY NARRATIVE MODELS
+// ============================================================
+
+model GapNote {
+  id        String   @id @default(cuid())
+  sceneId   String
+  note      String
+  sortOrder Int      @default(0)
+  createdAt DateTime @default(now())
+
+  scene Scene @relation(fields: [sceneId], references: [id], onDelete: Cascade)
+
+  @@index([sceneId])
+}
+
+model Location {
+  id        String   @id @default(cuid())
+  sceneId   String   @unique
+  label     String
+  lat       Float
+  lng       Float
+  createdAt DateTime @default(now())
+
+  scene Scene @relation(fields: [sceneId], references: [id], onDelete: Cascade)
+}
+
+model TimelineNode {
+  id        String   @id @default(cuid())
+  sceneSlug String?
+  era       String?
+  label     String
+  dateApprox String?
+  positionX Float?
+  positionY Float?
+  sortOrder Int      @default(0)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+// ============================================================
+// ANALYTICS & TRACKING MODELS
+// ============================================================
+
+model AnalyticsVisitor {
+  id          String   @id @default(cuid())
+  fingerprint String   @unique
+  ip          String?
+  country     String?
+  city        String?
+  region      String?
+  browser     String?
+  os          String?
+  device      String?
+  screenRes   String?
+  language    String?
+  referrer    String?
+  utmSource   String?
+  utmMedium   String?
+  utmCampaign String?
+  firstSeenAt DateTime @default(now())
+  lastSeenAt  DateTime @default(now())
+
+  sessions AnalyticsSession[]
+}
+
+model AnalyticsSession {
+  id        String    @id @default(cuid())
+  visitorId String
+  startedAt DateTime  @default(now())
+  endedAt   DateTime?
+  pageViews Int       @default(0)
+  duration  Int       @default(0) // seconds
+
+  visitor   AnalyticsVisitor  @relation(fields: [visitorId], references: [id], onDelete: Cascade)
+  pageViewRecords AnalyticsPageView[]
+  events    AnalyticsEvent[]
+
+  @@index([visitorId])
+}
+
+model AnalyticsPageView {
+  id          String   @id @default(cuid())
+  sessionId   String
+  path        String
+  title       String?
+  duration    Int?     // seconds on page
+  scrollDepth Int?     // percentage
+  createdAt   DateTime @default(now())
+
+  session AnalyticsSession @relation(fields: [sessionId], references: [id], onDelete: Cascade)
+
+  @@index([sessionId])
+  @@index([path])
+}
+
+model AnalyticsEvent {
+  id         String   @id @default(cuid())
+  sessionId  String
+  name       String
+  properties String?  // JSON
+  createdAt  DateTime @default(now())
+
+  session AnalyticsSession @relation(fields: [sessionId], references: [id], onDelete: Cascade)
+
+  @@index([sessionId])
+  @@index([name])
+}
+
+// ============================================================
+// NOTIFICATION MODELS
+// ============================================================
+
+model Notification {
+  id        String    @id @default(cuid())
+  userId    String
+  type      String    // SYSTEM, WELCOME, BOOKMARK, AI_INSIGHT, CONTENT_UPDATE, ADMIN_ALERT, ERROR_ALERT
+  title     String
+  content   String?
+  link      String?
+  readAt    DateTime?
+  createdAt DateTime  @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([userId, readAt])
+}
+
+// ============================================================
+// ERROR & SYSTEM MODELS
+// ============================================================
+
+model ErrorLog {
+  id           String   @id @default(cuid())
+  level        String   // ERROR, WARN, CRITICAL
+  source       String   // "api", "client", "system", "auth"
+  message      String
+  stack        String?
+  userId       String?
+  path         String?
+  userAgent    String?
+  ip           String?
+  metadata     String?  // JSON
+  telegramSent Boolean  @default(false)
+  createdAt    DateTime @default(now())
+
+  user User? @relation(fields: [userId], references: [id], onDelete: SetNull)
+
+  @@index([level])
+  @@index([source])
+  @@index([createdAt])
+}
+
+model SystemHealth {
+  id           String   @id @default(cuid())
+  service      String   // "database", "api", "ai", "tts", "search"
+  status       String   // "healthy", "degraded", "down"
+  responseTime Int?     // ms
+  lastChecked  DateTime @default(now())
+  metadata     String?  // JSON
+}
+
+// ============================================================
+// USER CONTENT MODELS
+// ============================================================
+
+model Bookmark {
+  id         String   @id @default(cuid())
+  userId     String
+  sceneId    String?
+  prophecyId String?
+  sourceId   String?
+  note       String?
+  createdAt  DateTime @default(now())
+
+  user     User         @relation(fields: [userId], references: [id], onDelete: Cascade)
+  scene    Scene?       @relation(fields: [sceneId], references: [id], onDelete: Cascade)
+  prophecy Prophecy?    @relation(fields: [prophecyId], references: [id], onDelete: Cascade)
+  source   WorldSource? @relation(fields: [sourceId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+}
+
+model ExplorationHistory {
+  id        String   @id @default(cuid())
+  userId    String
+  path      String
+  title     String?
+  duration  Int?     // seconds
+  createdAt DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([createdAt])
+}
+
+model CuriositySession {
+  id          String    @id @default(cuid())
+  userId      String?
+  visitorId   String?
+  question    String
+  level       Int       @default(0) // 0-4 skeptic level
+  cardsShown  String?   // JSON array
+  followUps   String?   // JSON array
+  completedAt DateTime?
+  createdAt   DateTime  @default(now())
+
+  user User? @relation(fields: [userId], references: [id], onDelete: SetNull)
+
+  @@index([userId])
+}

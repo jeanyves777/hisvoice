@@ -2,26 +2,89 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+/* ============================================================
+   HIS VOICE — Design Tokens
+   Light theme is DEFAULT. Dark theme via .dark class.
+   ============================================================ */
 
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    /* LIGHT THEME — DEFAULT */
+    --bg-primary: 250 246 240;
+    --bg-surface: 255 255 255;
+    --gold: 139 105 20;
+    --gold-bright: 184 134 11;
+    --parchment: 61 43 31;
+    --text-body: 44 36 22;
+    --text-dim: 122 108 90;
+    --matthew: 43 94 167;
+    --mark: 160 123 46;
+    --luke: 58 122 82;
+    --john: 122 77 160;
+    --prophecy: 179 88 64;
+    --border: 218 210 196;
+    --ring: 139 105 20;
+  }
+
+  .dark {
+    --bg-primary: 8 6 4;
+    --bg-surface: 17 14 10;
+    --gold: 201 169 110;
+    --gold-bright: 245 200 66;
+    --parchment: 232 213 163;
+    --text-body: 212 201 176;
+    --text-dim: 138 125 101;
+    --matthew: 91 143 212;
+    --mark: 212 168 83;
+    --luke: 107 174 132;
+    --john: 166 126 200;
+    --prophecy: 212 130 107;
+    --border: 42 36 28;
+    --ring: 201 169 110;
+  }
+
+  * {
+    @apply border-[rgb(var(--border))];
+  }
+
+  body {
+    @apply bg-[rgb(var(--bg-primary))] text-[rgb(var(--text-body))];
+    font-family: var(--font-crimson-text), Georgia, serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-cinzel), serif;
+    color: rgb(var(--parchment));
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-}
-
 @layer utilities {
-  .text-balance {
-    text-wrap: balance;
+  .text-gold { color: rgb(var(--gold)); }
+  .text-gold-bright { color: rgb(var(--gold-bright)); }
+  .text-parchment { color: rgb(var(--parchment)); }
+  .text-dim { color: rgb(var(--text-dim)); }
+  .bg-surface { background-color: rgb(var(--bg-surface)); }
+  .bg-primary { background-color: rgb(var(--bg-primary)); }
+  .border-gold { border-color: rgb(var(--gold)); }
+
+  .text-matthew { color: rgb(var(--matthew)); }
+  .text-mark { color: rgb(var(--mark)); }
+  .text-luke { color: rgb(var(--luke)); }
+  .text-john { color: rgb(var(--john)); }
+  .text-prophecy { color: rgb(var(--prophecy)); }
+
+  .bg-matthew { background-color: rgb(var(--matthew)); }
+  .bg-mark { background-color: rgb(var(--mark)); }
+  .bg-luke { background-color: rgb(var(--luke)); }
+  .bg-john { background-color: rgb(var(--john)); }
+
+  .font-display { font-family: var(--font-cinzel-decorative), serif; }
+  .font-heading { font-family: var(--font-cinzel), serif; }
+  .font-body { font-family: var(--font-crimson-text), Georgia, serif; }
+  .font-ui { font-family: var(--font-inter), system-ui, sans-serif; }
+
+  .jesus-words {
+    color: rgb(var(--gold-bright));
+    font-style: italic;
   }
 }
