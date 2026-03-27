@@ -4,6 +4,8 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useTheme } from "next-themes";
 import { useSession } from "next-auth/react";
+import { useEffect, useState } from "react";
+import { SearchOverlay } from "@/components/ui/search-overlay";
 
 const NAV_LINKS = [
   { href: "/timeline", label: "Timeline" },
@@ -18,6 +20,14 @@ export function TopNav() {
   const pathname = usePathname();
   const { theme, setTheme } = useTheme();
   const { data: session } = useSession();
+  const [searchItems, setSearchItems] = useState<Array<{ type: "scene" | "prophecy" | "source"; slug: string; title: string; subtitle?: string; href: string }>>([]);
+
+  useEffect(() => {
+    fetch("/api/search")
+      .then((r) => r.json())
+      .then(setSearchItems)
+      .catch(() => {});
+  }, []);
 
   return (
     <nav className="sticky top-0 z-50 bg-surface/80 backdrop-blur-md border-b">
@@ -49,6 +59,9 @@ export function TopNav() {
 
           {/* Right side */}
           <div className="flex items-center gap-3">
+            {/* Search */}
+            <SearchOverlay items={searchItems} />
+
             {/* Theme toggle */}
             <button
               onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
