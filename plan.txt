@@ -1,0 +1,3293 @@
+================================================================================
+                              HIS VOICE
+                    Every Word He Spoke — From Prophecy to Resurrection
+                         DEVELOPER MASTER PLAN  —  Version 1.0
+                    Full-Stack Web & Mobile Application
+                         General Computing Solutions (GCS)
+================================================================================
+
+  "In the beginning was the Word, and the Word was with God, and the Word was God."
+                                                                      — John 1:1
+
+================================================================================
+
+
+================================================================================
+  SECTION 1 — VISION & PROJECT SCOPE
+================================================================================
+
+His Voice is a web and mobile application that presents the complete story of
+Jesus Christ — from the first prophecy spoken in the Garden of Eden through every
+recorded word He spoke, to the post-resurrection commission. It is not a Bible
+app. It is a living, visual, interactive harmony — a single cohesive journey
+through the most documented life in human history.
+
+
+1.1  CORE MISSION STATEMENT
+-------------------------------------------------------------------------------
+What This App Does That Nothing Else Does:
+
+  1. Starts before the birth — from Genesis 3:15 through every Messianic
+     prophecy across 1,500 years
+  2. Shows prophecy fulfilled in real-time as the story progresses
+  3. Harmonizes all four Gospels word-by-word — aligning parallel accounts,
+     flagging gaps, filling missing context
+  4. Displays 3 translations side by side (KJV / WEB / ASV) for every
+     passage — ALL public domain, zero licensing cost
+  5. Labels convergence score — how many gospels record each event (1–4)
+  6. Integrates removed books (Gospel of Thomas, Gospel of Peter, Mary, etc.)
+     as parallel witnesses
+  7. Anchors every event in secular history (Josephus, Tacitus, Pliny,
+     Roman census records)
+  8. Animates the entire journey as a cinematic, scroll-driven visual experience
+
+
+1.2  AUDIENCE
+-------------------------------------------------------------------------------
+  - Bible scholars and seminarians seeking a harmony tool
+  - Christians who want to read the red letters in full chronological context
+  - Skeptics and researchers who want secular confirmation alongside scripture
+  - New believers or the curious seeking an accessible entry point
+  - Students of history, comparative religion, and ancient literature
+
+
+1.3  SCOPE BOUNDARIES
+-------------------------------------------------------------------------------
+IN SCOPE                                      OUT OF SCOPE
+--------------------------------------------  ----------------------------------
+All 66 canonical books (OT prophecies + NT)   Full commentary on non-Jesus text
+70+ world sources across 10 traditions        Denominational theological debate
+  (Christian, Islamic, Jewish, Roman,         (present evidence, not argument)
+   Mandaean, Bahá'í, Eastern, Manichaean)
+Secular historical sources (10+ authors)      Audio Bible narration (Phase 3+)
+3 translations: KJV, WEB, ASV (all free)      User accounts / social (Phase 3+)
+Prophecy → Fulfillment tracking engine        Selling Bible study courses
+Interactive animated timeline & map           Daily devotional scheduling
+
+
+================================================================================
+  SECTION 2 — CONTENT ARCHITECTURE: THE FULL JOURNEY
+================================================================================
+
+The application is organized as a single continuous narrative arc across
+seven Acts. Each Act contains multiple Scenes. Each Scene is a structured
+data object containing gospel accounts, Jesus's words, prophecy links,
+gap analysis, and external witnesses.
+
+
+================================================================================
+  ACT I — THE PROMISE: Before the Birth (1,500+ Years of Prophecy)
+================================================================================
+
+Time range: Genesis (c. 1446 BC) through Malachi (c. 430 BC).
+This Act establishes the prophetic DNA that every listener in 1st-century
+Judea would have carried. The app presents each prophecy as a "seed" that
+visually "sprouts" when fulfilled later in the story.
+
+PROPHECY                                   REFERENCE               FULFILLMENT
+-----------------------------------------  ----------------------  ----------------------------
+The Seed of Woman crushes the serpent      Genesis 3:15            The entire ministry — first
+                                           (c. 1446 BC)            Messianic promise
+A great nation — all families blessed      Genesis 12:3            The Abrahamic line to Mary
+                                           (c. 2000 BC)
+The scepter shall not depart from Judah    Genesis 49:10           Jesus born of Judah's tribe
+                                           (c. 1689 BC)
+A star shall come out of Jacob             Numbers 24:17           Star of Bethlehem / Magi
+                                           (c. 1406 BC)
+I will raise up a Prophet like Moses       Deuteronomy 18:15       Jesus as the New Moses
+                                           (c. 1406 BC)
+His throne shall be established forever    2 Samuel 7:12–13        Jesus as Son of David
+                                           (c. 1000 BC)
+You are my Son; today I begot You          Psalm 2:7               Voice at Baptism &
+                                           (c. 1000 BC)            Transfiguration
+My God, why have you forsaken me?          Psalm 22:1              The Cry from the Cross —
+                                           (c. 1000 BC)            verbatim
+Not one of his bones shall be broken       Psalm 34:20             Soldiers did not break His
+                                           (c. 1000 BC)            legs
+They divided my garments among them        Psalm 22:18             Soldiers cast lots at
+                                           (c. 1000 BC)            crucifixion
+The stone the builders rejected            Psalm 118:22            Jesus quotes this of Himself
+                                           (c. 1000 BC)            (Matt 21:42)
+Born of a virgin — Immanuel, God with us   Isaiah 7:14             The Virgin Birth
+                                           (c. 740 BC)
+Galilee of the Gentiles — great light      Isaiah 9:1–2            Jesus begins ministry
+                                           (c. 740 BC)             in Galilee
+Unto us a child is born; Counselor         Isaiah 9:6              The Incarnation
+                                           (c. 740 BC)
+The Spirit of the Lord is upon me...       Isaiah 61:1–2           Jesus reads this in Nazareth
+                                           (c. 700 BC)             synagogue (Luke 4)
+He was wounded for our transgressions      Isaiah 53:5             The Passion — entire chapter
+                                           (c. 700 BC)
+He was led as a lamb to the slaughter      Isaiah 53:7             The trial — Jesus silent
+                                           (c. 700 BC)             before Pilate
+He made his grave with the wicked          Isaiah 53:9             Buried in Joseph of
+                                           (c. 700 BC)             Arimathea's new tomb
+Born in Bethlehem Ephrathah                Micah 5:2               The Nativity location
+                                           (c. 735 BC)
+Your king comes riding on a donkey         Zechariah 9:9           The Triumphal Entry
+                                           (c. 520 BC)
+Betrayed for 30 pieces of silver           Zechariah 11:12–13      Judas's betrayal price
+                                           (c. 520 BC)
+They will look on me whom they pierced     Zechariah 12:10         The spear thrust at
+                                           (c. 520 BC)             crucifixion
+A messenger will prepare the way           Malachi 3:1             John the Baptist
+                                           (c. 430 BC)
+Elijah will come before the great day      Malachi 4:5             Jesus identifies John as
+                                           (c. 430 BC)             the Elijah figure
+
+  NOTE: Each prophecy object in the database links bidirectionally — from the OT
+  prophecy node to its fulfillment event, and from the fulfillment event back to
+  its prophecy seeds. The UI shows a glowing thread connecting them on the timeline.
+
+
+================================================================================
+  ACT II — THE ARRIVAL: Nativity & Childhood (c. 5 BC – AD 12)
+================================================================================
+
+EVENT / SCENE                    GOSPEL SOURCES               UNIQUE CONTENT
+-------------------------------  ---------------------------  ----------------------------
+Annunciation to Mary             Luke 1:26–38                 Gabriel's words
+Mary's Magnificat                Luke 1:46–55                 Mary's song — earliest
+                                                              recorded female hymn
+Birth in Bethlehem               Matt 1:18–25; Luke 2:1–7     Matt: Joseph's dream
+                                                              Luke: no room in inn
+Angels to the Shepherds          Luke 2:8–20                  Unique to Luke
+The Magi from the East           Matt 2:1–12                  Unique to Matthew
+Flight to Egypt                  Matt 2:13–15                 Fulfills Hosea 11:1
+Massacre of the Innocents        Matt 2:16–18                 Fulfills Jeremiah 31:15
+Boy Jesus in the Temple          Luke 2:41–52                 Only recorded childhood
+                                                              word of Jesus
+400 Years of Silence broken      Contextual intro             Bridge: Malachi to Matthew
+
+  EXTERNAL SOURCES: Protoevangelium of James (birth narrative),
+  Infancy Gospel of Thomas (childhood miracles), Josephus Antiquities XVII
+  (Herod context), Roman census records under Quirinius.
+
+
+================================================================================
+  ACT III — THE PREPARATION: Forerunner & Baptism (c. AD 26–27)
+================================================================================
+
+EVENT / SCENE                    GOSPEL SOURCES               KEY DETAILS
+-------------------------------  ---------------------------  ----------------------------
+Ministry of John the Baptist     All 4 Gospels                Isaiah 40:3 fulfilled
+John's preaching                 Matt 3:1–12; Luke 3:7–18     Luke adds soldiers/tax
+                                                              collectors asking questions
+Baptism of Jesus                 All 4 Gospels                Convergence 4/4 — heavens
+                                                              open, Spirit as dove, Voice
+The Genealogies                  Matt 1:1–17; Luke 3:23–38    Matt → Abraham (Covenant)
+                                                              Luke → Adam (Universal)
+Temptation in the Wilderness     Matt 4:1–11; Mark 1:12–13;   3 temptations — Jesus quotes
+                                 Luke 4:1–13                  Deuteronomy each time
+
+
+================================================================================
+  ACT IV — THE MINISTRY: Galilean Phase (c. AD 27–29)
+================================================================================
+
+  NOTE: This is the largest act — the heart of the application. Jesus's most
+  famous teachings occur here. The Gospel Harmony engine is most active here.
+
+SCENE                            ACCOUNTS                     HARMONY NOTES
+-------------------------------  ---------------------------  ----------------------------
+Calling of the first disciples   Matt 4:18–22; Mark 1:16–20;  John places this differently
+                                 Luke 5:1–11; John 1:35–51    — Andrew/Peter encounter
+                                                              predates the Galilean call
+Wedding at Cana — first sign     John 2:1–11                  Unique to John
+Clearing the Temple (early)      John 2:13–22                 John places this at START;
+                                                              Synoptics at Passion Week —
+                                                              possibly two events
+Nicodemus — Born Again           John 3:1–21                  Unique to John
+Woman at the Well                John 4:1–42                  Unique to John — Samaria
+Sermon on the Mount / Plain      Matt 5–7; Luke 6:17–49        Matt: mountain, 8 beatitudes
+                                                              Luke: plain, 4 bless + 4 woes
+Healing the Centurion's Servant  Matt 8:5–13; Luke 7:1–10;    Same event or different?
+                                 John 4:46–54
+Calming the Storm                Matt 8:23–27; Mark 4:35–41;  Mark: Jesus on a cushion —
+                                 Luke 8:22–25                 eyewitness detail (Peter)
+Feeding the 5,000                All 4 Gospels                Only miracle in all 4 besides
+                                                              the Resurrection
+Walking on Water                 Matt 14:22–33; Mark 6:45–52; Matt uniquely includes Peter
+                                 John 6:16–21                 walking on water
+Transfiguration                  Matt 17:1–13; Mark 9:2–13;   Luke: Moses/Elijah discuss
+                                 Luke 9:28–36                 the 'exodus' in Jerusalem
+Raising of Lazarus               John 11:1–44                 Unique to John — 7th sign
+The Lord's Prayer                Matt 6:9–13; Luke 11:1–4     Matt: sermon context
+                                                              Luke: disciples ask how
+Parables of the Kingdom          Matt 13; Mark 4; Luke 8      Matt: 7 parables; Mark: 3;
+                                                              Luke: 4 — cross-ref matrix
+
+
+================================================================================
+  ACT V — THE CONFRONTATION: Judean & Perean Ministry (c. AD 29–30)
+================================================================================
+
+SCENE                            ACCOUNTS                     KEY DETAILS
+-------------------------------  ---------------------------  ----------------------------
+Good Samaritan                   Luke 10:25–37                Unique to Luke
+Prodigal Son                     Luke 15:11–32                Unique to Luke — greatest
+                                                              parable
+Rich Young Ruler                 Matt 19:16–30; Mark 10:17;   Luke identifies him as a
+                                 Luke 18:18–30                'ruler'
+Zacchaeus                        Luke 19:1–10                 Unique to Luke
+Blind Bartimaeus                 Matt 20:29–34; Mark 10:46;   Mark names him — eyewitness
+                                 Luke 18:35–43                memory
+The Olivet Discourse             Matt 24–25; Mark 13;         Jesus's longest prophetic
+                                 Luke 21                      speech — end times, Temple
+                                                              destruction, Second Coming
+
+
+================================================================================
+  ACT VI — THE PASSION: Holy Week (c. AD 30, Passover Week)
+================================================================================
+
+DAY          SCENE                              ACCOUNTS
+-----------  ---------------------------------  -----------------------------------
+Sunday       Triumphal Entry (Zech 9:9)         All 4 Gospels
+Monday       Cleansing of the Temple (2nd)      Matt 21; Mark 11; Luke 19
+Tuesday      Temple debates                     Matt 21–23; Mark 11–12; Luke 20
+Tuesday      The Widow's Mite                   Mark 12:41–44; Luke 21:1–4
+Wednesday    Anointing at Bethany               Matt 26:6–13; Mark 14:3–9; John 12
+Wednesday    Judas agrees to betray Jesus       Matt 26:14–16; Mark 14:10; Luke 22:3
+Thursday     Last Supper — Passover Seder       All 4 Gospels
+Thursday     Institution of Communion           Matt 26; Mark 14; Luke 22
+             (John records Foot Washing instead)  John 13
+Thursday     Gethsemane                         Matt 26:36–46; Mark 14:32–42;
+                                                Luke 22:39–46 (angel + sweat as blood)
+Thur. night  The Arrest                         All 4 Gospels (John names Malchus)
+Friday       Trials (Annas, Caiaphas,           All 4 Gospels
+             Pilate, Herod, Pilate again)
+Friday       The Crucifixion — 7 Last Words     All 4 Gospels
+Friday       The Death — Supernatural events    Matt 27:51–54 (earthquake, torn veil,
+                                                raised saints — unique to Matthew)
+Friday       The Burial                         All 4 Gospels (John adds Nicodemus)
+
+
+THE 7 LAST WORDS OF CHRIST — COMPLETE MATRIX
+-------------------------------------------------------------------------------
+  1. "Father, forgive them; for they know not what they do."
+     Luke 23:34  —  UNIQUE TO LUKE
+
+  2. "Verily I say unto thee, Today shalt thou be with me in paradise."
+     Luke 23:43  —  UNIQUE TO LUKE
+
+  3. "Woman, behold thy son... Behold thy mother."
+     John 19:26–27  —  UNIQUE TO JOHN
+
+  4. "My God, my God, why hast thou forsaken me?"
+     Matt 27:46; Mark 15:34  —  PSALM 22:1 FULFILLED (in both accounts)
+
+  5. "I thirst."
+     John 19:28  —  UNIQUE TO JOHN (fulfills Psalm 69:21)
+
+  6. "It is finished."
+     John 19:30  —  UNIQUE TO JOHN (tetelestai — "paid in full")
+
+  7. "Father, into thy hands I commend my spirit."
+     Luke 23:46  —  UNIQUE TO LUKE (Psalm 31:5)
+
+
+================================================================================
+  ACT VII — THE VICTORY: Resurrection & Commission (c. AD 30)
+================================================================================
+
+EVENT                              ACCOUNTS                  UNIQUE DETAILS
+---------------------------------  ------------------------  ----------------------
+The Empty Tomb                     All 4 Gospels             John names 'the other
+                                                             disciple' who outran Peter
+Mary Magdalene sees Risen Christ   John 20:11–18             She mistakes Him for the
+                                                             gardener
+Road to Emmaus                     Luke 24:13–35             Unique to Luke — Jesus
+                                                             expounds all Scripture
+Appearance to disciples (no Thom.) Luke 24:36–49; John 20    Jesus breathes Holy Spirit
+                                                             — echoes Genesis 2:7
+Appearance to Thomas               John 20:24–29             "My Lord and my God"
+Breakfast on the Beach             John 21:1–19              Peter's triple restoration
+The Great Commission               All 4 + Acts 1            Each gospel records a
+                                                             different commission —
+                                                             complementary, not
+                                                             contradictory
+The Ascension                      Luke 24:50–53; Acts 1     Only Luke records in detail
+Post-Resurrection summary          1 Cor 15:3–8 (Paul)       Earliest written account —
+                                                             predates all 4 Gospels
+
+
+================================================================================
+  SECTION 3 — DATA ARCHITECTURE
+================================================================================
+
+3.1  DATABASE SCHEMA — CORE TABLES
+-------------------------------------------------------------------------------
+TABLE NAME          PURPOSE
+------------------  -----------------------------------------------------------
+acts                The 7 narrative acts (Pre-birth → Resurrection)
+scenes              Individual events / passages within each act
+accounts            One row per gospel per scene (up to 4 per scene)
+translations        KJV / WEB / ASV text per account
+jesus_words         Extracted direct speech of Jesus with cross-references
+prophecies          OT prophecy records with fulfillment scene links
+fulfillments        Join table linking prophecy → scene
+world_sources       70+ sources from 10 traditions (Islamic, Jewish,
+                    Roman, Christian apocryphal, Mandaean, Bahá'í, etc.)
+source_categories   The 10 tradition categories (A through J)
+source_parallels    Join table linking world source → canonical scene
+scientific_studies  Peer-reviewed studies (NDEs, consciousness, archaeology)
+archaeological_ev   Archaeological discoveries confirming biblical events
+philosophical_args  Logical arguments (cosmological, moral, teleological)
+agent_reasoning     Pre-built reasoning chains for each skeptic level (0–4)
+curiosity_presets   70+ preset questions with category + level tagging
+gap_notes           Analytical notes on what each gospel adds or omits
+locations           Geographic data (lat/lng) for map integration
+timeline_nodes      Rendered timeline objects with era/position data
+
+
+3.2  PRIMARY SCENE OBJECT — JSON STRUCTURE
+-------------------------------------------------------------------------------
+{
+  "id": "sermon_mount",
+  "act_id": "act_4",
+  "era": "galilean",
+  "title": "Sermon on the Mount",
+  "subtitle": "The Beatitudes and Kingdom Ethics",
+  "date_approx": "c. AD 28",
+  "location": {
+    "label": "Mount of Beatitudes",
+    "lat": 32.879,
+    "lng": 35.551
+  },
+  "convergence_score": 2,
+  "accounts": {
+    "matthew": {
+      "ref": "Matthew 5:1–12",
+      "kjv": "...",
+      "web": "...",
+      "amp": "..."
+    },
+    "luke": {
+      "ref": "Luke 6:17–26",
+      "kjv": "...",
+      "web": "...",
+      "amp": "..."
+    }
+  },
+  "jesus_words": [
+    {
+      "text": "Blessed are the poor in spirit...",
+      "ref": "Matt 5:3",
+      "note": "Matthew's version — spiritual poverty"
+    }
+  ],
+  "prophecy_links": [
+    { "prophecy_id": "isa_61_1", "type": "allusion" }
+  ],
+  "gap_notes": [
+    "Matthew sets on mountain; Luke on plain — possibly different occasions",
+    "Matthew: 8 beatitudes; Luke: 4 beatitudes + 4 woes",
+    "Luke's beatitudes: 2nd person 'you'; Matthew's: 3rd person 'they'"
+  ],
+  "external_sources": [
+    {
+      "source": "Gospel of Thomas",
+      "ref": "Saying 54",
+      "text": "Blessed are the poor, for yours is the Kingdom of Heaven."
+    }
+  ]
+}
+
+
+3.3  PROPHECY OBJECT — JSON STRUCTURE
+-------------------------------------------------------------------------------
+{
+  "id": "isa_53_5",
+  "label": "He was wounded for our transgressions",
+  "reference": "Isaiah 53:5",
+  "date_written": "c. 700 BC",
+  "text_kjv": "But he was wounded for our transgressions...",
+  "fulfillment_scene_id": "crucifixion_main",
+  "fulfillment_type": "direct",
+  "probability_of_coincidence": "1 in 10^28 (Peter Stoner calculation)"
+}
+
+
+3.4  EXTERNAL SOURCES LIBRARY — COMPLETE WORLD INVENTORY
+-------------------------------------------------------------------------------
+  PRINCIPLE: Jesus is the most referenced figure in human history — not just
+  in Christianity, but across Islam, Judaism, Gnostic traditions, Roman
+  records, Eastern religions, and more. His Voice will present EVERY major
+  historical and religious witness to His life. We are not limited to one
+  tradition. Every religion, every historian, every ancient text that speaks
+  of Jesus belongs in this app.
+
+  "No other figure in history is attested by this many independent sources
+   across this many civilizations, languages, and religious traditions."
+
+
+CATEGORY A — REMOVED / APOCRYPHAL CHRISTIAN TEXTS
+-------------------------------------------------------------------------------
+SOURCE                              TYPE                    CONTENT
+----------------------------------  ----------------------  --------------------
+Gospel of Thomas                    Removed — Gnostic       114 sayings of Jesus;
+                                                            ~65 parallel canonical
+Gospel of Peter                     Removed — Passion       Crucifixion & tomb
+Gospel of Mary Magdalene            Removed — Gnostic       Post-resurrection
+                                                            teachings to Mary
+Gospel of Philip                    Removed — Gnostic       Sayings & sacraments
+Gospel of Nicodemus / Acts of       Removed — Apocryphal    Extended trial; Pilate's
+Pilate                                                      report to Emperor
+Protoevangelium of James            Removed — Infancy       Birth of Mary; Nativity
+Infancy Gospel of Thomas            Removed — Infancy       Childhood miracles
+                                                            ages 5–12
+Gospel of the Ebionites             Fragment                Baptism variant — great
+                                                            light shone
+Gospel of the Nazarenes             Fragment                Sermon variant sayings
+Gospel of the Hebrews               Fragment                Baptism + post-resurrection
+                                                            appearance to James
+Gospel of Judas                     Removed — Gnostic       Alternate view of Judas's
+                                                            role — Judas as chosen
+Apocalypse of Peter                 Removed — Visionary     Jesus reveals heaven and
+                                                            hell to Peter on the mount
+Epistle of Barnabas                 Early Church, c. 100 AD Interprets OT as prophecy
+                                                            of Jesus — allegorical
+Shepherd of Hermas                  Early Church, c. 140 AD Visions, parables — Jesus
+                                                            as the Son of God revealed
+Acts of Thomas                      Apocryphal Acts         Thomas's mission to India;
+                                                            Hymn of the Pearl
+Acts of Peter                       Apocryphal Acts         Peter in Rome; "Quo Vadis"
+                                                            — Jesus appears to Peter
+Acts of John                        Apocryphal Acts         John's ministry; mystical
+                                                            theology of the Cross
+
+
+CATEGORY B — EARLY CHURCH FATHERS & WITNESSES
+-------------------------------------------------------------------------------
+SOURCE                              TYPE                    CONTENT
+----------------------------------  ----------------------  --------------------
+Didache (The Teaching)              Early Church, c. 50 AD  Lord's Prayer variant;
+                                                            Eucharist liturgy; ethics
+1 Clement                           Early Church, c. 96 AD  Quotes Jesus as scripture;
+                                                            resurrection witness
+Ignatius of Antioch — Letters       Early Church, c. 110 AD 7 letters; Jesus as God
+                                                            incarnate; real suffering
+Polycarp — Letter to Philippians    Early Church, c. 110 AD Disciple of John; quotes
+                                                            Jesus's teachings directly
+Justin Martyr — First Apology       Early Church, c. 155 AD Describes Christian worship;
+                                                            Jesus as Logos (Word)
+Irenaeus — Against Heresies         Early Church, c. 180 AD Defends gospel accounts;
+                                                            links to apostolic witness
+Origen — Contra Celsum              Early Church, c. 248 AD Responds to pagan critic
+                                                            Celsus — defends historicity
+
+
+CATEGORY C — ISLAMIC SOURCES (Quran & Hadith)
+-------------------------------------------------------------------------------
+  Jesus (Isa ibn Maryam / عيسى بن مريم) is one of the most important
+  prophets in Islam. He is mentioned BY NAME in 25 Quranic chapters,
+  referenced in 93+ verses. The Quran confirms His virgin birth, miracles,
+  ascension, and return — while presenting a distinct theological view.
+  These are invaluable HISTORICAL witnesses from a separate tradition.
+
+SOURCE                              TYPE                    CONTENT
+----------------------------------  ----------------------  --------------------
+Quran — Surah 3 (Al-Imran)         Islamic scripture,      The birth of Mary; angel
+  "The Family of Imran"            c. 610–632 AD           announces Jesus; miracles;
+                                                            disciples; ascension
+Quran — Surah 5 (Al-Ma'idah)       Islamic scripture       The Table — Jesus's
+  "The Table Spread"                                        disciples ask for a miracle;
+                                                            Jesus denies being God
+Quran — Surah 19 (Maryam)          Islamic scripture       Full nativity narrative —
+  "Mary"                                                    Mary gives birth under palm
+                                                            tree; infant Jesus speaks
+                                                            from the cradle
+Quran — Surah 4:157–158            Islamic scripture       Crucifixion account — "they
+  (An-Nisa)                                                 did not kill him... Allah
+                                                            raised him up" — alternate
+                                                            view of the Passion
+Quran — Surah 61:6 (As-Saff)       Islamic scripture       Jesus foretells the coming
+                                                            of Ahmad (Muhammad)
+Quran — Surah 2:87, 253            Islamic scripture       Jesus given "clear proofs"
+  (Al-Baqarah)                                              and strengthened by the
+                                                            Holy Spirit (Ruh al-Qudus)
+Quran — Surah 43:57–65             Islamic scripture       Jesus as a servant of God,
+  (Az-Zukhruf)                                              a sign for the Hour
+Sahih al-Bukhari — Hadith          Islamic tradition,       Jesus's return (Second
+  collections                      c. 846 AD               Coming), breaking the cross,
+                                                            killing the swine
+Sahih Muslim — Hadith              Islamic tradition,       Jesus descends near white
+  collections                      c. 875 AD               minaret in Damascus at
+                                                            end of days
+Ibn Kathir — Stories of the        Islamic scholarship,     Comprehensive Islamic
+  Prophets (Qisas al-Anbiya)       c. 1350 AD              biography of Jesus/Isa
+
+  NOTE: The app presents Islamic sources with the same scholarly integrity
+  as all other sources — factual, respectful, non-polemical.
+
+
+CATEGORY D — JEWISH SOURCES
+-------------------------------------------------------------------------------
+SOURCE                              TYPE                    CONTENT
+----------------------------------  ----------------------  --------------------
+Josephus — Antiquities 18.3.3       Jewish historian, 94 AD Testimonium Flavianum —
+                                                            Jesus, James, John Baptist
+Josephus — Antiquities 18.5.2       Jewish historian, 94 AD Full account of John the
+                                                            Baptist's execution
+Josephus — Antiquities 20.9.1       Jewish historian, 94 AD Death of "James, the brother
+                                                            of Jesus who was called
+                                                            Christ" — independent
+Babylonian Talmud — Sanhedrin 43a   Jewish legal, 200–500   Records execution of
+                                    AD                      'Yeshu' on Passover eve;
+                                                            5 disciples named
+Babylonian Talmud — Sanhedrin 107b  Jewish legal text       "Yeshu the Nazarene" —
+                                                            practiced sorcery
+Toledot Yeshu                       Jewish counter-         Medieval Jewish retelling
+                                    narrative, c. 500+ AD   of Jesus's life — hostile
+                                                            but confirms key events
+Philo of Alexandria                 Jewish philosopher,     Contemporary of Jesus — no
+                                    c. 20 BC–50 AD         direct mention, but context
+                                                            for Messianic expectation
+Dead Sea Scrolls — Isaiah (1QIsa)   Jewish — 125 BC copy    Confirms Isaiah 53 predates
+                                                            Jesus by 125 years
+Dead Sea Scrolls — 4Q246            Jewish — c. 100 BC      'He shall be called Son
+                                                            of God' — Messianic context
+Dead Sea Scrolls — 11Q13            Jewish — c. 100 BC      Melchizedek as divine
+  (Melchizedek Scroll)                                      redeemer — compare Heb 7
+Dead Sea Scrolls — War Scroll       Jewish — c. 100 BC      Messianic warfare — context
+  (1QM)                                                     for 1st-century expectations
+
+
+CATEGORY E — ROMAN & GREEK HISTORICAL SOURCES
+-------------------------------------------------------------------------------
+SOURCE                              TYPE                    CONTENT
+----------------------------------  ----------------------  --------------------
+Tacitus — Annals XV.44              Roman historian, 116 AD Crucifixion under Pilate,
+                                                            Tiberius's reign confirmed
+Pliny the Younger — Letter X.96     Roman governor, 112 AD  Christians sing hymns to
+                                                            Christ 'as to a god'
+Suetonius — Claudius 25             Roman historian, 121 AD Jews expelled over 'Chrestus'
+                                                            — possible Christ ref.
+Mara bar Serapion — Letter          Syriac philosopher,     'Wise king of the Jews'
+                                    c. 73 AD               executed unjustly
+Thallus — Histories (fragment)      Greek historian,        Darkness at crucifixion —
+                                    c. 52 AD               earliest pagan reference;
+                                                            explains it as eclipse
+Celsus — The True Word              Greek philosopher,      Hostile critique of Jesus —
+  (via Origen)                      c. 178 AD              admits miracles but calls
+                                                            them sorcery; confirms
+                                                            virgin birth tradition
+Lucian of Samosata —                Greek satirist,         Mocks Christians but confirms
+  The Death of Peregrine            c. 170 AD              they worship a "crucified
+                                                            sophist" — Palestine origin
+Emperor Trajan — Rescript           Roman emperor,          Official policy response to
+  to Pliny                          c. 112 AD              Pliny about Christians —
+                                                            confirms movement's spread
+Pontius Pilate — Reported           Roman governor,         Referenced by Justin Martyr
+  Acts (referenced)                 c. 30–36 AD            and Tertullian as existing
+                                                            in Roman archives
+
+
+CATEGORY F — MANDAEAN SOURCES
+-------------------------------------------------------------------------------
+  The Mandaeans are the last surviving Gnostic religion (Iraq/Iran). They
+  revere John the Baptist as their central prophet and reference Jesus
+  in their scriptures — making them a unique independent witness.
+
+SOURCE                              TYPE                    CONTENT
+----------------------------------  ----------------------  --------------------
+Ginza Rabba (Great Treasure)        Mandaean scripture,     References Jesus (Yeshu
+                                    c. 200–700 AD          Msihia) — complex view;
+                                                            acknowledges baptism,
+                                                            John's relationship
+Haran Gawaita                       Mandaean historical     Migration narrative —
+                                    text                    references Jesus's era and
+                                                            early Christian movement
+Book of John (Drasha d-Yahya)       Mandaean scripture      John the Baptist narratives;
+                                                            Jesus appears as figure
+                                                            who received baptism
+
+
+CATEGORY G — BAHÁ'Í SOURCES
+-------------------------------------------------------------------------------
+  The Bahá'í Faith (founded 1844) regards Jesus as a Manifestation of God
+  — one of many divine messengers. Their scriptures contain extensive
+  theological commentary on Jesus's life, teachings, and significance.
+
+SOURCE                              TYPE                    CONTENT
+----------------------------------  ----------------------  --------------------
+Kitáb-i-Íqán (Book of Certitude)   Bahá'í scripture,       Bahá'u'lláh interprets
+  — Bahá'u'lláh                     c. 1861                Jesus's prophecies, return,
+                                                            and spiritual sovereignty
+Some Answered Questions             Bahá'í commentary,      'Abdu'l-Bahá explains
+  — 'Abdu'l-Bahá                    c. 1904–1906           Jesus's miracles, nature,
+                                                            crucifixion, resurrection
+                                                            — detailed theological view
+Gleanings from the Writings of      Bahá'í scripture        Multiple passages on Jesus
+  Bahá'u'lláh                                               as "Spirit of God," His
+                                                            suffering and sacrifice
+
+
+CATEGORY H — EASTERN RELIGIOUS REFERENCES
+-------------------------------------------------------------------------------
+  While not central to Eastern traditions, references to Jesus appear in
+  Hindu, Buddhist, and other Eastern texts — particularly in the context
+  of comparative spirituality and historical contact between traditions.
+
+SOURCE                              TYPE                    CONTENT
+----------------------------------  ----------------------  --------------------
+Bhavishya Purana                    Hindu scripture,        Contains a passage where
+                                    dating disputed         a king meets "Isha-putra"
+                                                            (son of God) in a foreign
+                                                            land — debated reference
+                                                            to Jesus
+Ahmadiyya tradition — Jesus in      Islamic sect / South    Claim Jesus survived
+  India (Rozabal shrine)            Asian tradition         crucifixion and traveled
+                                                            to Kashmir — controversial
+                                                            but historically attested
+                                                            as a tradition
+Nicolas Notovitch — The Unknown     Controversial claim,    Claims to have found
+  Life of Jesus (Hemis monastery)   1894                    Buddhist monastery records
+                                                            of "Issa" — disputed but
+                                                            culturally significant
+Tibetan Buddhist parallels          Comparative religion    Scholarly parallels between
+                                                            Jesus's teachings and
+                                                            Buddhist Dharma — compassion,
+                                                            non-attachment, suffering
+
+
+CATEGORY I — MANICHAEAN SOURCES
+-------------------------------------------------------------------------------
+  Manichaeism (founded c. 240 AD by Mani) was a major world religion that
+  regarded Jesus as a divine figure. It spread from Persia to China.
+
+SOURCE                              TYPE                    CONTENT
+----------------------------------  ----------------------  --------------------
+Mani's Living Gospel                Manichaean scripture,   Mani claims to complete
+                                    c. 240 AD              Jesus's revelation — Jesus
+                                                            as "Jesus the Luminous"
+Kephalaia (Chapters)                Manichaean teaching     Jesus as one of the great
+                                    text                    prophets; light theology
+Manichaean Psalm-Book               Coptic Manichaean,      Hymns to "Jesus the
+                                    c. 300 AD              Splendour" — worship text
+
+
+CATEGORY J — ZOROASTRIAN CONTEXT
+-------------------------------------------------------------------------------
+SOURCE                              TYPE                    CONTENT
+----------------------------------  ----------------------  --------------------
+Avesta — Saoshyant prophecy         Zoroastrian scripture,  The "Saoshyant" (World
+                                    c. 1000+ BC            Savior) born of a virgin —
+                                                            scholars debate influence
+                                                            on Jewish Messianic thought
+Bundahishn                          Zoroastrian cosmology   End-times redeemer figure;
+                                                            parallels to Christian
+                                                            eschatology noted by scholars
+
+
+================================================================================
+  THE UNIVERSAL JESUS MATRIX — ALL OF HUMANITY'S TESTIMONY
+================================================================================
+
+  This is the heart of what makes His Voice unique. No other app, website,
+  or book has ever assembled a single comparison matrix showing how EVERY
+  major tradition in human history describes the same events of Jesus's life.
+
+  The matrix below is rendered in the app as an interactive, filterable grid.
+  Users can click any cell to see the full source text. Color-coded by
+  tradition. Sortable by event, tradition, or agreement level.
+
+  "He is the only figure in history that ALL of humanity wrote about."
+
+
+MATRIX 1 — LIFE EVENTS: How Each Tradition Records Jesus
+-------------------------------------------------------------------------------
+
+EVENT                  GOSPELS       QURAN         TALMUD        GNOSTIC       ROMAN/GREEK    BAHÁ'Í        MANDAEAN      MANICHAEAN    ZOROASTRIAN
+─────────────────────  ────────────  ────────────  ────────────  ────────────  ─────────────  ────────────  ────────────  ────────────  ────────────
+Virgin birth           Yes           Yes           Denied —      Mixed —       Not mentioned  Affirmed —    Not mentioned Yes —         Parallel:
+                       Matt 1:18–25  Surah 19:     "illegitimate" some affirm,                 spiritual     in surviving  "Jesus born   Saoshyant
+                       Luke 1:26–38  16–35         (Sanhedrin    some deny                     meaning       texts         of a virgin"  born of
+                                                   106a)                                       emphasized                               virgin in
+                                                                                                                                        prophecy
+
+Born of Mary           Yes           Yes — "Maryam Yes —         Yes           Not mentioned  Yes           Mentioned     Yes           N/A
+                       All 4 Gospels  bint Imran"   "Miriam"                                                 indirectly
+
+Childhood miracles     Only Luke     Yes — spoke   Referenced    Yes —         Not mentioned  Not specific  Not mentioned Yes           N/A
+                       2:41–52       as infant     as "sorcery"  Infancy Gosp.
+                       (Temple at 12) Surah 19:30  (implied)     of Thomas —
+                                     Clay birds                  clay birds
+                                     Surah 3:49                  (parallel!)
+
+Baptism by John        Yes           Not mentioned Not mentioned Some Gnostic  Not mentioned  Acknowledged  Yes —         Not mentioned N/A
+                       All 4 Gospels                              texts mention                as historical John is their
+                                                                  variant                                    prophet;
+                                                                                                             Jesus baptized
+
+Miracles / Healing     Yes           Yes — healed  Acknowledged  Yes           Acknowledged   Affirmed —    Not detailed  Yes —         N/A
+                       Extensive     blind, lepers, as real but   (expanded     by Celsus —    "divine       in surviving  "miracles
+                       in all 4      raised dead   called         supernatural  called them    power"        texts         of the
+                       Gospels       Surah 3:49,   "sorcery"     miracles)     "sorcery"                                  Luminous One"
+                                     5:110         (Sanh. 43a)                 (Contra Celsum)
+
+Teaching ministry      Yes           Yes — Jesus   Referenced    Yes — 114     Not mentioned  Affirmed —    Not detailed  Not detailed  N/A
+                       Extensive     taught Torah,  (teachings    sayings in    directly       "divine
+                       sermons,      Gospel (Injil) considered    Gospel of                    teachings"
+                       parables      Surah 3:48,   heretical)    Thomas;
+                                     5:46, 57:27                 many parallel
+
+Had disciples          Yes — 12      Yes — "al-    Referenced    Yes — named   Confirmed      Acknowledged  Referenced    Referenced    N/A
+                       named in all  Hawariyyun"   (5 named in   differently   by Pliny —     as historical indirectly    — followers
+                       4 Gospels     Surah 3:52,   Sanhedrin     in various    "Christians"                               of "Jesus
+                                     5:111–112     43a)          texts                                                    the Splendour"
+
+Entry to Jerusalem     Yes           Not mentioned Not mentioned Some          Not mentioned  Not mentioned Not mentioned Not mentioned N/A
+                       All 4 Gospels                              apocryphal    directly
+                       (Zech 9:9)                                 texts mention
+
+Last Supper            Yes           Not mentioned Not mentioned Mentioned     Not mentioned  Not mentioned Not mentioned Referenced    N/A
+                       All 4 Gospels                              in some       directly                                   — Eucharist
+                       + John 13–17                               Gnostic Acts                                             imagery
+
+Trial / Arrest         Yes           Not mentioned Referenced    Extended in   Confirmed —    Referenced    Not mentioned Not mentioned N/A
+                       All 4 Gospels                (Sanhedrin    Acts of       Tacitus:
+                                                    43a — trial)  Pilate /      "suffered
+                                                                  Gospel of     under Pontius
+                                                                  Nicodemus     Pilate"
+
+Crucifixion            Yes — died    DENIED —      Confirmed —   Mixed —       Confirmed —    Affirmed —    Not mentioned Mixed —       N/A
+                       on the cross  "they did not  "hanged on    Gospel of     Tacitus,       spiritual     in detail     Docetic view
+                       All 4 Gospels  kill him"     Passover eve" Peter has     Mara bar                                   in some
+                                     Surah 4:157   (Sanh. 43a)   extended      Serapion,                                  Manichaean
+                                     "it was made                 Passion;      Lucian                                     texts
+                                     to appear so"               some Gnostic
+                                                                  texts deny
+                                                                  physical death
+
+Death on the cross     Yes           Denied        Confirmed     Some deny     Confirmed      Affirmed —    Not mentioned Debated       N/A
+                       All 4 Gospels  Surah 4:157  (execution    (Docetism:                    but meaning
+                                                    confirmed)    "appeared                     is spiritual
+                                                                  to suffer")
+
+Darkness at death      Yes           Not mentioned Not mentioned Not mentioned Confirmed —    Not mentioned Not mentioned Not mentioned N/A
+                       Matt 27:45    directly                                  Thallus
+                       Mark 15:33                                              (c. 52 AD) —
+                       Luke 23:44                                              calls it an
+                                                                               "eclipse"
+
+Burial                 Yes — tomb    Not mentioned Not mentioned Extended in   Not mentioned  Not mentioned Not mentioned Not mentioned N/A
+                       of Joseph of                               Gospel of     directly
+                       Arimathea                                  Peter
+
+Resurrection           Yes           Not affirmed  Not mentioned Mixed —       Not confirmed  Affirmed —    Not mentioned Not mentioned Parallel:
+                       All 4 Gospels  (not denied   (Toledot     some affirm,  directly       spiritual                                Saoshyant
+                       + Paul         explicitly    Yeshu has     some present  (but early                                              brings
+                       (1 Cor 15)     either)       alternate     it differently)Christians                                             resurrection
+                                                    explanation)               worship Him                                              of the dead
+                                                                               "as a god"
+                                                                               — Pliny
+
+Ascension to heaven    Yes           YES —         Not mentioned Some Gnostic  Not mentioned  Affirmed      Not mentioned Not mentioned N/A
+                       Luke 24:51    "Allah raised               texts describe directly
+                       Acts 1:9      him up"                     mystical
+                                     Surah 4:158                 ascension
+
+Second Coming          Yes           YES —         Not mentioned Not a focus   Not mentioned  YES —         Not mentioned Not mentioned Parallel:
+                       Matt 24–25    Returns at                  in surviving  directly       Jesus will                                Saoshyant
+                       Rev 19        end of days                 texts                        return in                                 returns at
+                                     (Hadith:                                                 "the glory                                end of
+                                     Bukhari,                                                 of the                                    days
+                                     Muslim)                                                  Father"
+
+
+MATRIX 2 — IDENTITY & TITLES: What Each Tradition Calls Jesus
+-------------------------------------------------------------------------------
+
+TITLE / IDENTITY       GOSPELS       QURAN         TALMUD        GNOSTIC       ROMAN/GREEK    BAHÁ'Í        MANDAEAN      MANICHAEAN    ZOROASTRIAN
+─────────────────────  ────────────  ────────────  ────────────  ────────────  ─────────────  ────────────  ────────────  ────────────  ────────────
+Messiah / Christ       YES           YES —         Denied        Some affirm   "Christus" —   YES —         Not affirmed  Not central   N/A
+                       Central claim "al-Masih"    (Messiah has  others reject Tacitus uses    Manifestation
+                                     (11 times)    not come)                   the title      of God
+
+Son of God             YES           DENIED —      Denied        Mixed — some  Not mentioned  DENIED —      Not mentioned Not central   N/A
+                       Central claim Surah 4:171,  (blasphemy)   affirm        directly       "Son" is
+                                     9:30                        mystically                    metaphorical
+
+Word of God (Logos)    YES —         YES —         Not mentioned Some Gnostic  Not mentioned  YES —         Not mentioned Not mentioned N/A
+                       John 1:1      "Kalimatullah" (not in      texts affirm                  "Word of
+                       "The Word     Surah 4:171   this context)                               God"
+                       was God"
+
+Spirit from God        Implied       YES —         Not mentioned Affirmed      Not mentioned  Affirmed      Not mentioned Affirmed —    N/A
+                                     "Ruh minhu"                 extensively                                               "Spirit"
+                                     Surah 4:171
+
+Prophet                Yes — but     YES —         Acknowledged  Varies        Not mentioned  YES —         Referenced    Referenced    N/A
+                       more than     one of the    as false      in different  directly       a "Prophet
+                       a prophet     greatest      prophet/      texts                        of God"
+                                     prophets      teacher
+
+God incarnate          YES —         DENIED —      DENIED        Debated —     Pliny: worship Spiritual —   Not affirmed  "Jesus the    N/A
+                       John 1:14,    Surah 5:72,   (blasphemy)   some Gnostic  "as to a god"  "Manifestation               Luminous" —
+                       John 10:30,   5:116–117                   texts affirm                 of God," not                 divine figure
+                       Col 1:15–20                               divine nature                God Himself                  but theology
+                                                                                                                           differs
+
+Miracle worker         YES           YES           YES — but     YES           YES — Celsus   YES           Not detailed  YES           N/A
+                                     Surah 3:49    "sorcery"                   calls it
+                                                                               "sorcery"
+
+Teacher / Rabbi        YES           YES —         YES —         YES — 114     Not mentioned  YES           Not detailed  Not detailed  N/A
+                                     taught Injil  "led astray"  sayings in
+                                                                 Gosp. Thomas
+
+Healer                 YES           YES           YES (as       YES           YES — Celsus   YES           Not detailed  YES           N/A
+                                     Surah 3:49    sorcery)                    acknowledges
+
+Judge at End Times     YES           YES —         N/A           Not central   N/A            YES           N/A           Not central   Parallel:
+                       Matt 25:31    returns to                                                                                         Saoshyant
+                                     judge                                                                                              judges
+
+
+MATRIX 3 — UNIQUE CLAIMS: What ONLY This Tradition Says
+-------------------------------------------------------------------------------
+
+TRADITION              UNIQUE CLAIM ABOUT JESUS              SOURCE
+─────────────────────  ─────────────────────────────────────  ────────────────────
+Canonical Gospels      Died AND rose bodily on 3rd day       Matt 28; Mark 16;
+                                                             Luke 24; John 20
+Canonical Gospels      "I and the Father are one"            John 10:30
+Quran                  Spoke from the cradle as an infant    Surah 19:29–33
+Quran                  Did NOT die on the cross — raised     Surah 4:157–158
+                       alive to heaven by Allah
+Quran                  Created living birds from clay         Surah 3:49
+Infancy Gosp. Thomas   Also created birds from clay          Inf. Thomas 2:1–5
+                       (parallel to Quran — independent!)
+Talmud                 Practiced "sorcery" and led Israel    Sanhedrin 43a
+                       astray; executed on Passover eve
+Toledot Yeshu          Body was moved from the tomb by       Toledot Yeshu
+                       a gardener (counter-resurrection)      (medieval)
+Gospel of Judas        Judas was the CHOSEN disciple —       Gospel of Judas
+                       asked by Jesus to betray Him            (c. 280 AD)
+Gospel of Thomas       "Split a piece of wood; I am there.   Gospel of Thomas,
+                       Lift a stone; you will find me."       Saying 77
+Mandaean texts         Jesus received baptism from John      Ginza Rabba
+                       but is viewed with ambivalence
+Bahá'í writings        Jesus is one of MANY divine           Kitáb-i-Íqán
+                       "Manifestations" — Buddha, Muhammad,
+                       Bahá'u'lláh continue the same line
+Manichaean texts       "Jesus the Luminous" — a being of     Manichaean
+                       pure light, not physical flesh         Psalm-Book
+Bhavishya Purana       A king meets "Isha-putra" (son of     Bhavishya Purana
+                       God) in a foreign land                 (dating disputed)
+Ahmadiyya tradition    Jesus survived crucifixion, traveled  Ahmadiyya sources
+                       to Kashmir, India; tomb in Srinagar
+Zoroastrian parallel   A virgin-born Saoshyant (Savior)      Avesta
+                       will raise the dead at end of days    (c. 1000+ BC)
+Thallus (Greek)        The darkness at Jesus's death was     Thallus, Histories
+                       a solar eclipse (earliest pagan        c. 52 AD (via
+                       attempt to explain it naturally)       Julius Africanus)
+Celsus (Greek)         Jesus's miracles were real but were   The True Word,
+                       learned sorcery from Egypt              c. 178 AD
+Pliny (Roman)          Christians sing hymns to Christ       Letter X.96,
+                       "as to a god" before dawn              c. 112 AD
+
+
+THE AGREEMENT SCORE — Where Humanity Converges
+-------------------------------------------------------------------------------
+  The app will calculate and display an "Agreement Score" for each major
+  event — how many independent traditions confirm it happened:
+
+  EVENT                         TRADITIONS THAT CONFIRM    SCORE
+  ────────────────────────────  ─────────────────────────  ─────
+  Jesus existed as a person     ALL 10 traditions          10/10
+  Born of Mary                  Gospels, Quran, Talmud,    7/10
+                                Gnostic, Bahá'í, Manich.,
+                                Mandaean
+  Virgin birth                  Gospels, Quran, Gnostic,   5/10
+                                Bahá'í, Manichaean
+  Performed miracles            Gospels, Quran, Talmud,    7/10
+                                Gnostic, Roman, Bahá'í,
+                                Manichaean
+  Had followers / disciples     Gospels, Quran, Talmud,    8/10
+                                Gnostic, Roman, Bahá'í,
+                                Mandaean, Manichaean
+  Was executed / crucified      Gospels, Talmud, Roman,    6/10
+                                Gnostic (some), Bahá'í,
+                                Manichaean (some)
+  Crucifixion DENIED            Quran, some Gnostic        2/10
+                                (Docetism)
+  Rose from the dead            Gospels, Bahá'í (spiritual)2/10
+  Ascended to heaven            Gospels, Quran, Bahá'í     3/10
+  Will return (Second Coming)   Gospels, Quran, Bahá'í,    4/10
+                                Zoroastrian (parallel)
+  Called Messiah / Christ       Gospels, Quran, Bahá'í     3/10
+  Was a teacher / prophet       ALL traditions that         9/10
+                                mention Him
+
+  INSIGHT: Jesus's EXISTENCE, MIRACLES, and FOLLOWING are confirmed by
+  7–10 independent traditions. His CRUCIFIXION is confirmed by 6 traditions
+  and denied by 2. His RESURRECTION is the most uniquely Christian claim.
+  His ASCENSION is shared with Islam. His SECOND COMING is shared with
+  Islam, Bahá'í, and has parallels in Zoroastrianism.
+
+  This is the most comprehensive cross-tradition attestation of any figure
+  in human history. The app renders this as an interactive, filterable grid
+  that no other tool has ever assembled.
+
+
+TOTAL SOURCE COUNT — UPDATED INVENTORY
+-------------------------------------------------------------------------------
+  CATEGORY                              SOURCES    KEY TEXTS
+  A. Removed / Apocryphal Christian     18         Gospels, Acts, Apocalypses
+  B. Early Church Fathers               7+         Didache through Origen
+  C. Islamic (Quran + Hadith)           10+        25 Quranic chapters, Hadith
+  D. Jewish (Josephus + Talmud + DSS)   11+        Josephus, Talmud, Dead Sea
+  E. Roman & Greek Historical           9+         Tacitus, Pliny, Thallus
+  F. Mandaean                           3          Ginza Rabba, Book of John
+  G. Bahá'í                             3          Kitáb-i-Íqán, Some Answered Q
+  H. Eastern Religious                  4          Hindu, Buddhist, Ahmadiyya
+  I. Manichaean                         3          Living Gospel, Psalms
+  J. Zoroastrian Context                2          Avesta, Bundahishn
+  ─────────────────────────────────────────────────────────────────────
+  TOTAL                                 70+ independent sources
+
+  This is the most comprehensive collection of historical and religious
+  witnesses to the life of Jesus ever assembled in a single application.
+
+  EDITORIAL STANDARD FOR ALL SOURCES:
+  - Every source clearly labeled with its tradition and date
+  - No tradition presented as superior or inferior to another
+  - Each source's reliability and scholarly consensus noted
+  - Disputed texts marked as "disputed" or "debated" with context
+  - Cross-links to canonical gospel events where parallels exist
+  - The goal: present the FULLEST possible picture, let the reader decide
+
+
+================================================================================
+  SECTION 4 — TECHNICAL ARCHITECTURE
+================================================================================
+
+4.1  TECH STACK — 100% FREE DECISION MATRIX
+-------------------------------------------------------------------------------
+  CORE PRINCIPLE: Every service, API, library, and data source used in this
+  project must be completely free — no paid tiers, no commercial licenses,
+  no API key costs. This will be the most advanced FREE web application
+  available to the public.
+
+LAYER                   CHOICE                      RATIONALE
+----------------------  --------------------------  ----------------------------
+Frontend Framework      Next.js 14 (App Router)     SSG, SEO, streaming, routing
+                                                    (open source — MIT license)
+Styling                 Tailwind CSS 3              Utility-first, responsive
+                                                    (open source — MIT license)
+Animation               Framer Motion 10            Scroll-driven, layout anims
+                                                    (open source — MIT license)
+3D / Map                Three.js + r3f              Ancient map intro, 3D globe
+                                                    (open source — MIT license)
+Database                Supabase (FREE tier)        500MB PostgreSQL, 50K reads/
+                                                    day, full-text search, auth
+ORM                     Prisma                      Type-safe queries, migrations
+                                                    (open source — Apache 2.0)
+Search                  Fuse.js (client) +          Fuzzy search client-side;
+                        Supabase FTS (server)       Postgres full-text — free
+Bible Text Source       Bundled public domain text   KJV + WEB + ASV all public
+                        + bible-api.com (free,      domain — no API key, no
+                        no key required)            licensing, no cost ever
+State Management        Zustand                     Lightweight global state
+                                                    (open source — MIT license)
+Frontend Hosting        Vercel (FREE tier)          100GB bandwidth/mo, edge CDN,
+                                                    serverless functions, SSL
+VPS (AI + Services)     Ubuntu VPS (own server)     Self-hosted AI models, DB,
+                                                    analytics, search engine —
+                                                    full control, unlimited usage
+Domain                  Custom domain + SSL         hisvoice.app or similar —
+                                                    Cloudflare DNS (free) + SSL
+Reverse Proxy           Caddy or Nginx              Auto-SSL, route traffic to
+                                                    VPS services (free, open src)
+Mobile (Phase 2)        Expo + React Native Web     One codebase → web + app
+                                                    (open source — MIT license)
+Analytics               Umami (self-hosted on VPS)  Open source, privacy-first,
+                                                    no cookie banner, GDPR, $0
+CMS                     Sanity.io (FREE tier) OR    Non-dev content editing;
+                        Strapi (self-hosted on VPS) Strapi = unlimited, self-hosted
+Intelligence Engine     Ollama + Transformers.js    FULL AI models on VPS (server)
+                        + Custom NLP + WebLLM       + browser-side ML for instant
+                                                    client features — hybrid power
+Database                PostgreSQL (self-hosted     Full Postgres on VPS — no
+                        on VPS) + Supabase backup   500MB limit, unlimited queries,
+                                                    pgvector for embeddings
+Search Engine           Meilisearch (self-hosted)   Blazing fast full-text search,
+                                                    typo-tolerant, instant results
+                                                    (open source — MIT license)
+Vector DB               ChromaDB or Qdrant          Semantic search at scale —
+                        (self-hosted on VPS)        self-hosted, unlimited vectors
+TTS / Audio             Piper TTS (self-hosted)     Free offline text-to-speech
+                                                    on VPS — narrate any passage
+                                                    in multiple voices/languages
+
+
+BIBLE TEXT SOURCING — ZERO COST STRATEGY
+-------------------------------------------------------------------------------
+  All three translations are PUBLIC DOMAIN — no licensing, no API fees:
+
+  1. KJV (King James Version, 1611) — Public domain. The most recognized
+     English translation. Sourced from open data JSON datasets on GitHub.
+
+  2. WEB (World English Bible, 2000) — Public domain. Modern English,
+     no copyright holder. Sourced from ebible.org free downloads or
+     bible-api.com (free, no API key required).
+
+  3. ASV (American Standard Version, 1901) — Public domain. Highly literal
+     word-for-word translation preferred by scholars. An excellent free
+     replacement for the Amplified Bible — same literal accuracy, zero
+     licensing cost.
+
+  BACKUP SOURCES:
+  - bible-api.com — Free REST API, no key needed (KJV, WEB, ASV)
+  - getbible.net/api — Free Bible API with 70+ translations
+  - Open source Bible JSON datasets on GitHub (verse-by-verse formatted)
+  - All text bundled into Supabase DB at build time — app works offline
+    with zero runtime API dependencies for scripture text
+
+
+DATA SCRAPING STRATEGY — FREE DATA ACQUISITION
+-------------------------------------------------------------------------------
+  We will scrape public domain and openly available data to populate the
+  entire application at zero cost. All scraped content is either public
+  domain (pre-1924, no copyright) or freely licensed for use.
+
+  SCRIPTURE TEXT SCRAPING:
+  - bible-api.com — Free REST API, scrape all KJV/WEB/ASV verse-by-verse
+  - ebible.org — Download complete WEB translation as USFX/XML
+  - kingjamesbibleonline.org — Scrape full KJV text (public domain)
+  - GitHub open Bible datasets — Clone pre-formatted JSON verse files
+
+  CHRISTIAN APOCRYPHA SCRAPING:
+  - sacred-texts.com — Public domain translations of Gospel of Thomas,
+    Gospel of Peter, Gospel of Mary, Protoevangelium of James, etc.
+  - earlychristianwritings.com — Full texts of early church documents
+    (Didache, 1 Clement, Gospel of Philip, Acts of Pilate, Church Fathers)
+  - gnosis.org/naghamm — Nag Hammadi Library texts (public domain translations)
+  - ccel.org — Christian Classics Ethereal Library (Church Fathers, free)
+
+  ISLAMIC SOURCES SCRAPING (Quran + Hadith):
+  - quran.com / api.quran.com — Free Quran API with Arabic text + English
+    translations (Sahih International, Pickthall, Yusuf Ali — all free)
+  - sunnah.com — Hadith collections API (Bukhari, Muslim, etc.) — free
+  - sacred-texts.com/isl — Full Quran translations (public domain)
+  - tanzil.net — Quran text download (multiple translations, free)
+  - altafsir.com — Tafsir (Quranic commentary) — free access
+  - Focus: All Quranic verses about Jesus (Isa), Mary (Maryam), disciples
+
+  JEWISH SOURCES SCRAPING:
+  - perseus.tufts.edu — Josephus (Antiquities, Wars) — public domain
+  - sacred-texts.com/jud — Babylonian Talmud (Sanhedrin 43a, 107b, etc.)
+  - sefaria.org — Open-source Jewish text library (Talmud, Midrash, etc.)
+    Free API access, Creative Commons licensed
+  - deadseascrolls.org.il — Dead Sea Scrolls digital library (free access)
+
+  ROMAN & GREEK HISTORICAL SCRAPING:
+  - perseus.tufts.edu — Tacitus (Annals), Pliny (Letters), Suetonius,
+    Lucian of Samosata — all public domain Loeb translations
+  - sacred-texts.com — Additional classical sources
+
+  MANDAEAN, BAHÁ'Í, EASTERN SOURCES SCRAPING:
+  - sacred-texts.com/man — Mandaean texts (Ginza Rabba fragments)
+  - bahai.org/library — Bahá'í Reference Library (Kitáb-i-Íqán,
+    Some Answered Questions) — freely available online
+  - sacred-texts.com/bhi — Additional Bahá'í texts
+  - sacred-texts.com/hin — Hindu texts (Bhavishya Purana)
+  - sacred-texts.com/gno — Manichaean texts and Gnostic sources
+
+  GREEK / HEBREW ORIGINAL LANGUAGE SCRAPING:
+  - blueletterbible.org — Strong's Concordance numbers (public domain, 1890)
+  - biblehub.com/interlinear — Greek interlinear text scraping
+  - openscriptures.org — Open-source Hebrew/Greek morphological data
+
+  GEOGRAPHIC DATA:
+  - OpenStreetMap — Free map tiles (ODbL license) for ancient Israel
+  - openbible.info/geo — Free Bible geocoding dataset (lat/lng for locations)
+
+  SCRAPING TOOLS (all free):
+  - Cheerio.js — HTML parser for Node.js scraping scripts
+  - Puppeteer — Headless Chrome for JavaScript-rendered pages
+  - node-fetch — HTTP requests for API scraping
+  - Custom Python scripts with BeautifulSoup as needed
+
+  LEGAL NOTE: All scraped content is either (a) public domain, (b) freely
+  licensed under Creative Commons, or (c) available through free APIs
+  designed for public consumption. No copyrighted material is scraped.
+
+
+FREE AI & SERVICES — ZERO-COST INTELLIGENCE LAYER
+-------------------------------------------------------------------------------
+  The Intelligence System uses THREE tiers: VPS-hosted AI (primary),
+  browser-side ML (instant/offline), and free cloud APIs (supplemental).
+  No paid API keys. No subscriptions. All open-source.
+
+  TIER 1: VPS-HOSTED AI (our server — unlimited, no rate limits):
+  ┌────────────────────────────────┬──────────────────────────────────┐
+  │ SERVICE                        │ WHAT IT PROVIDES                 │
+  ├────────────────────────────────┼──────────────────────────────────┤
+  │ Ollama                         │ Run full LLMs — Llama 3, Mistral│
+  │                                │ Phi-3, Gemma — unlimited queries │
+  │                                │ Chat, Q&A, summaries, insights   │
+  │ Piper TTS                      │ Text-to-speech — narrate every   │
+  │                                │ passage, multiple voices/langs   │
+  │ Meilisearch                    │ Instant full-text search engine  │
+  │                                │ with typo tolerance + filtering  │
+  │ ChromaDB / Qdrant              │ Vector database — unlimited      │
+  │                                │ semantic search, similarity      │
+  │ PostgreSQL + pgvector          │ Full database — no limits, with  │
+  │                                │ vector extension for embeddings  │
+  │ Redis                          │ Response caching — instant repeat│
+  │                                │ queries, session state           │
+  │ Umami                          │ Privacy-first analytics — full   │
+  │                                │ dashboard, unlimited data        │
+  │ Whisper.cpp (optional)         │ Speech-to-text — future voice    │
+  │                                │ search: "speak your question"    │
+  │ Strapi (optional)              │ Self-hosted CMS — unlimited      │
+  │                                │ users, content, API calls        │
+  └────────────────────────────────┴──────────────────────────────────┘
+
+  TIER 2: BROWSER-SIDE AI (runs on user's device — instant, offline):
+  ┌────────────────────────────────┬──────────────────────────────────┐
+  │ SERVICE                        │ WHAT IT PROVIDES                 │
+  ├────────────────────────────────┼──────────────────────────────────┤
+  │ Transformers.js (Hugging Face) │ Sentence embeddings, Q&A, text   │
+  │                                │ classification — all in browser  │
+  │ WebLLM (MLC AI)                │ Run TinyLlama / Phi-2 in browser │
+  │                                │ via WebGPU — offline fallback    │
+  │ TensorFlow.js                  │ Custom NLP models, text          │
+  │                                │ similarity, clustering           │
+  │ ONNX Runtime Web               │ Run optimized ML models in       │
+  │                                │ browser with GPU acceleration    │
+  └────────────────────────────────┴──────────────────────────────────┘
+
+  TIER 3: FREE CLOUD AI (supplemental — build-time, backup):
+  ┌────────────────────────────────┬──────────────────────────────────┐
+  │ SERVICE                        │ FREE TIER DETAILS                │
+  ├────────────────────────────────┼──────────────────────────────────┤
+  │ Hugging Face Inference API     │ Free tier — backup for embedding │
+  │ Groq Cloud                     │ Free tier — fast Llama/Mixtral   │
+  │ Cloudflare Workers AI          │ 10,000 neurons/day free          │
+  │ Google AI Studio (Gemini)      │ Free tier — 1M tokens/day       │
+  │ Cohere                         │ Free tier — embeddings, rerank   │
+  └────────────────────────────────┴──────────────────────────────────┘
+
+  STRATEGY:
+  - PRIMARY: Ollama on VPS handles all real-time AI — chat, Q&A, insights,
+    audio generation. Unlimited usage, no rate limits, full control.
+  - INSTANT: Browser-side models handle search, embeddings, offline mode.
+  - CACHED: Pre-generated insights stored in PostgreSQL + Redis for
+    instant page loads. AI only runs for new/custom queries.
+  - BACKUP: Free cloud APIs as fallback if VPS is under heavy load.
+
+
+VPS SETUP — COMPLETE SELF-HOSTED STACK
+-------------------------------------------------------------------------------
+  Recommended VPS specs: 4+ vCPU, 16GB+ RAM, 100GB+ SSD
+  (For Ollama with 7B-8B models + all services running simultaneously)
+
+  DOCKER COMPOSE SERVICES (all orchestrated via docker-compose.yml):
+  ┌──────────────────┬──────────────┬───────────────────────────────────┐
+  │ SERVICE          │ PORT         │ PURPOSE                           │
+  ├──────────────────┼──────────────┼───────────────────────────────────┤
+  │ caddy            │ 80, 443      │ Reverse proxy + auto-SSL          │
+  │ ollama           │ 11434        │ LLM inference (Llama 3, Mistral)  │
+  │ postgresql       │ 5432         │ Primary database + pgvector       │
+  │ redis            │ 6379         │ Caching + session store           │
+  │ meilisearch      │ 7700         │ Full-text search engine           │
+  │ chromadb         │ 8000         │ Vector database for embeddings    │
+  │ piper-tts        │ 5000         │ Text-to-speech — streaming output  │
+  │ whisper-cpp      │ 5001         │ Speech-to-text — voice input       │
+  │ umami            │ 3001         │ Analytics dashboard               │
+  │ api-server       │ 3000         │ His Voice API (Express/Fastify)   │
+  │ strapi (opt.)    │ 1337         │ Content management system         │
+  └──────────────────┴──────────────┴───────────────────────────────────┘
+
+  DOMAIN ROUTING (via Caddy):
+  - hisvoice.app          → Vercel (frontend)
+  - api.hisvoice.app      → VPS :3000 (API server)
+  - search.hisvoice.app   → VPS :7700 (Meilisearch)
+  - analytics.hisvoice.app → VPS :3001 (Umami)
+  - cms.hisvoice.app      → VPS :1337 (Strapi, if used)
+
+  SECURITY:
+  - Caddy handles SSL automatically (Let's Encrypt — free)
+  - API rate limiting via Redis
+  - Ollama exposed only internally (not public-facing)
+  - All services behind Caddy — no direct port exposure
+  - UFW firewall: only 80, 443 open to public
+
+
+4.2  SYSTEM ARCHITECTURE — HYBRID (Vercel + VPS)
+-------------------------------------------------------------------------------
+
+  ┌─────────────────────────────────────────────────────────────────────┐
+  │                    ARCHITECTURE OVERVIEW                            │
+  │                                                                     │
+  │  USER ──→ Cloudflare DNS (free) ──→ Vercel (frontend)              │
+  │                                  ──→ VPS (AI + API + DB + services)│
+  │                                                                     │
+  │  Frontend on Vercel (fast, global CDN, free tier)                   │
+  │  Backend brain on VPS (unlimited AI, unlimited DB, full control)    │
+  └─────────────────────────────────────────────────────────────────────┘
+
+CLIENT LAYER — Vercel (Next.js / Expo)
+  ├── pages/timeline              Timeline + era navigation
+  ├── pages/scene/[id]            Gospel harmony + words + gaps + sources
+  ├── pages/prophecies            OT prophecy browser with fulfillment threads
+  ├── pages/sources               World sources explorer (70+ sources)
+  ├── pages/sources/[category]    Sources by tradition (Islamic, Jewish, etc.)
+  ├── pages/matrix                Universal Jesus Matrix — cross-tradition grid
+  ├── pages/intelligence          AI chat & Q&A interface (Ollama-powered)
+  ├── pages/audio/[id]            AI-narrated audio player per scene
+  ├── components/Timeline         Animated scroll-driven timeline
+  ├── components/HarmonyGrid      Parallel gospel columns
+  ├── components/MapView          Ancient map with glow pins
+  ├── components/SearchOverlay    Fuzzy + semantic full-text search
+  ├── components/IntelligenceBar  AI insight panel — context-aware suggestions
+  ├── components/ThemeToggle      Dark / Light theme switcher
+  ├── components/LanguagePicker   Multi-language selector (8+ languages)
+  └── components/CuriosityWidget Floating AI discovery engine — walkthroughs,
+                                  voice input, live narration, evidence cards
+
+API LAYER — VPS (Express / Fastify behind Caddy reverse proxy)
+  ├── GET /api/scenes             List scenes by act / era
+  ├── GET /api/scenes/[id]        Full scene with all accounts
+  ├── GET /api/prophecies         List prophecies with fulfillments
+  ├── GET /api/search             Meilisearch-powered instant search
+  ├── GET /api/semantic-search    Vector similarity search via ChromaDB/Qdrant
+  ├── GET /api/translations       Bible text by reference + translation + language
+  ├── POST /api/intelligence/ask  Ollama-powered Q&A about any passage
+  ├── GET /api/intelligence/links Smart cross-reference suggestions for a scene
+  ├── POST /api/intelligence/chat Conversational AI — discuss any scene/passage
+  ├── GET /api/audio/[id]         Piper TTS-generated audio narration
+  ├── GET /api/insights/[id]      Pre-generated AI insights per scene
+  ├── POST /api/curiosity/walk    AI walkthrough for a question (streaming)
+  ├── POST /api/curiosity/followup Follow-up branching walkthrough
+  ├── POST /api/curiosity/synthesize Synthesis summary of exploration
+  └── GET /api/curiosity/presets  Context-aware preset questions per page
+
+VPS — SELF-HOSTED SERVICES (all free, open-source)
+  ├── Ollama                      Run LLMs locally — Llama 3, Mistral, Phi-3,
+  │                               Gemma — unlimited queries, zero API cost
+  ├── PostgreSQL                  Full database — no size limits, pgvector
+  │                               extension for embeddings
+  ├── Meilisearch                 Instant full-text search engine — typo-tolerant,
+  │                               filterable, ranked results
+  ├── ChromaDB or Qdrant          Vector database for semantic search —
+  │                               unlimited embeddings, similarity queries
+  ├── Piper TTS                   Text-to-speech — generate audio narration
+  │                               for every passage in multiple voices
+  ├── Umami                       Privacy-first analytics dashboard
+  ├── Caddy                       Reverse proxy + automatic HTTPS/SSL
+  ├── Redis                       Caching layer — fast response times
+  └── Strapi (optional)           Self-hosted CMS — unlimited users/content
+
+DATA LAYER
+  ├── PostgreSQL (VPS)            Primary content database — unlimited
+  ├── Bundled Bible Text          Public domain KJV/WEB/ASV + 5 more languages
+  │                               pre-loaded in DB
+  ├── ChromaDB / Qdrant (VPS)    Vector embeddings for all 113 scenes + 230
+  │                               sayings + 24 prophecies — semantic search
+  ├── Meilisearch (VPS)           Full-text search index — instant results
+  ├── Redis (VPS)                 Cache layer for frequently accessed scenes
+  └── Sanity.io / Strapi (VPS)   Content management for editors
+
+
+4.3  URL STRUCTURE
+-------------------------------------------------------------------------------
+ROUTE                       PAGE CONTENT
+--------------------------  ------------------------------------------------
+/                           Cinematic intro — map, stars, Enter button
+/timeline                   Full timeline — all 7 acts, era filter, cards
+/timeline?era=passion        Timeline filtered to Passion Week
+/scene/[id]                 Full scene — harmony, words, gaps, sources
+/prophecies                 All 24+ prophecies with fulfillment status
+/prophecies/[id]            Single prophecy — OT text + fulfillment scene
+/sources                    World sources index — 70+ sources, 10 categories
+/sources/[category]         Sources by tradition (islamic, jewish, roman, etc.)
+/sources/[category]/[slug]  Full text + annotations for one source
+/search?q=...               Search results across all content
+/matrix                     Universal Jesus Matrix — all traditions compared
+/matrix?event=crucifixion   Matrix filtered to one event across all traditions
+/intelligence               AI-powered Q&A, chat, cross-reference explorer
+/curiosity                  Curiosity Engine — full preset question library
+/curiosity/walk/[id]        Active walkthrough for a specific question
+/about                      Mission, methodology, translation sources
+
+
+================================================================================
+  SECTION 4.4 — THE INTELLIGENCE SYSTEM (FREE AI BRAIN)
+================================================================================
+
+  This is what sets His Voice apart from every other Bible app. A software
+  intelligence system that thinks, connects, and reveals — like having a
+  biblical scholar built into the app. ALL powered by FREE, open-source
+  technology running directly in the user's browser. No paid AI APIs.
+  No server costs. No API keys. Pure client-side intelligence.
+
+  "The most advanced free Bible intelligence system ever built."
+
+
+4.4.1  ARCHITECTURE — THE THREE BRAINS
+-------------------------------------------------------------------------------
+
+  BRAIN 1: THE PATTERN ENGINE (Rule-Based Intelligence)
+  ---------------------------------------------------------------------------
+  Technology: Custom TypeScript engine — zero external dependencies
+  Cost: $0 — pure code logic
+
+  What it does:
+  - Prophecy-to-fulfillment matching — automatically links OT prophecy text
+    to NT events using keyword matching, reference chains, and scored
+    relevance
+  - Gospel convergence detection — identifies where 2, 3, or 4 gospels
+    record the same event and flags differences, additions, omissions
+  - Chronological sequencing — resolves timeline conflicts between gospels
+    (e.g., John places Temple Clearing early; Synoptics place it late)
+  - Thematic threading — groups scenes by theme (healing, parables,
+    confrontation, prayer) across all gospels
+  - Cross-reference spider — when viewing any verse, automatically surfaces
+    every other verse in the database that quotes, alludes to, or parallels it
+  - Word frequency analysis — tracks recurring words of Jesus across His
+    ministry to show emphasis patterns
+
+  Data structures:
+  - keyword_index: Inverted index mapping every significant word → scenes
+  - reference_graph: Directed graph of verse → verse cross-references
+  - theme_clusters: Pre-computed thematic groupings with confidence scores
+  - prophecy_chains: Bidirectional prophecy ↔ fulfillment link chains
+
+
+  BRAIN 2: THE SEMANTIC ENGINE (AI-Powered Understanding)
+  ---------------------------------------------------------------------------
+  Technology: Transformers.js (Hugging Face) — runs ML models IN THE BROWSER
+  Cost: $0 — models downloaded once, cached locally, runs on user's device
+
+  Models used (all free, open-source):
+  - all-MiniLM-L6-v2 (~23MB) — Sentence embeddings for semantic search
+    Finds passages by MEANING, not just keywords. "Where does Jesus talk
+    about forgiveness?" returns relevant passages even if the word
+    "forgiveness" doesn't appear.
+  - distilbert-base-uncased-finetuned-sst-2 — Sentiment & tone analysis
+    Classifies Jesus's words by tone: teaching, warning, compassion,
+    authority, prophecy, prayer
+  - question-answering model (distilbert-base-cased-distilled-squad) —
+    Ask a question, get an answer sourced from the scripture database
+    "Who was present at the Transfiguration?" → "Peter, James, and John
+    (Matthew 17:1; Mark 9:2; Luke 9:28)"
+
+  How it works:
+  1. At first visit, models download (~50MB total) and cache in browser
+  2. All 113 scenes + 230 sayings are pre-embedded as vectors
+  3. User queries are embedded in real-time and matched via cosine similarity
+  4. Results ranked by semantic relevance + convergence score + era context
+  5. Zero server calls — everything happens on the user's device
+
+  Vector storage:
+  - Pre-computed embeddings stored as Float32Arrays in IndexedDB
+  - Supabase pgvector extension used for server-side backup search
+  - Both client and server search are FREE
+
+
+  BRAIN 3: THE INSIGHT ENGINE (Contextual Intelligence — VPS-Powered)
+  ---------------------------------------------------------------------------
+  Technology: Ollama on VPS (run FULL-SIZE language models server-side) +
+              WebLLM (browser fallback) + Custom rule templates
+  Cost: $0 software — models are free and open-source, runs on our VPS
+
+  What it does:
+  - Scene summaries — generates a 2-3 sentence summary of any scene
+    highlighting what makes it unique across the gospels
+  - Gap explanations — when a gospel omits an event recorded by others,
+    the engine generates a contextual note explaining possible reasons
+  - Prophecy probability — calculates and presents the mathematical
+    probability of coincidental fulfillment (Peter Stoner method)
+  - "Did You Know?" cards — auto-generated insight cards that appear
+    alongside each scene, surfacing non-obvious connections
+  - Harmony narrator — generates a unified narrative paragraph from
+    multiple gospel accounts of the same event
+  - Historical context — links scene events to secular history (Josephus,
+    Tacitus, etc.) with explanatory context
+  - CONVERSATIONAL AI — users can CHAT with the intelligence system about
+    any passage, ask follow-up questions, explore connections — powered
+    by Ollama running Llama 3 / Mistral on the VPS
+  - AUDIO NARRATION — Piper TTS on VPS generates spoken audio for every
+    passage in multiple voices and languages
+
+  Models on VPS via Ollama (all free, open-weight):
+  ┌────────────────────────────┬────────────┬─────────────────────────────┐
+  │ MODEL                      │ SIZE       │ PURPOSE                     │
+  ├────────────────────────────┼────────────┼─────────────────────────────┤
+  │ Llama 3.1 8B               │ ~4.7GB     │ Primary chat, Q&A, insights │
+  │ Mistral 7B                 │ ~4.1GB     │ Summarization, gap analysis │
+  │ Phi-3 Mini 3.8B            │ ~2.3GB     │ Fast inference, lightweight │
+  │ Gemma 2 9B                 │ ~5.4GB     │ Multilingual understanding  │
+  │ nomic-embed-text           │ ~275MB     │ Text embeddings for vectors │
+  │ all-minilm (sentence-tf)   │ ~23MB      │ Fast semantic similarity    │
+  └────────────────────────────┴────────────┴─────────────────────────────┘
+
+  Browser-side fallback (WebLLM for offline/instant features):
+  - TinyLlama-1.1B or Phi-2 via WebGPU — works when VPS is unreachable
+  - Transformers.js for client-side embeddings and instant search
+
+  HYBRID STRATEGY:
+  1. VPS handles heavy AI tasks — chat, long-form generation, audio TTS
+  2. Browser handles instant tasks — search, embeddings, basic Q&A
+  3. Pre-generated content cached in DB — instant load, zero latency
+  4. Redis on VPS caches AI responses — same question = instant answer
+  5. All AI content is pre-reviewed by content team before caching
+
+
+  BRAIN 4: THE VOICE ENGINE (Audio Intelligence — VPS-Powered)
+  ---------------------------------------------------------------------------
+  Technology: Piper TTS (self-hosted on VPS) — free, open-source
+  Cost: $0 — runs entirely on our VPS
+
+  What it does:
+  - Generates spoken audio narration for EVERY passage in the app
+  - Multiple voice options: male narrator, female narrator, dramatic
+  - Multi-language TTS — narrate in English, Spanish, French, Arabic, etc.
+  - Jesus's words spoken in a distinct, reverent voice style
+  - Audio files pre-generated and cached — instant playback, no waiting
+  - Streaming audio endpoint: GET /api/audio/[scene_id]?lang=en&voice=male
+
+  Implementation:
+  - Piper TTS runs as a service on VPS behind Caddy reverse proxy
+  - Pre-generate audio for all 113 scenes at build time
+  - Store as .mp3/.opus files on VPS filesystem (or S3-compatible free storage)
+  - Browser audio player with progress bar synced to scripture text
+  - Progressive loading — audio streams while text is displayed
+
+
+4.4.2  INTELLIGENCE FEATURES — USER-FACING
+-------------------------------------------------------------------------------
+
+  FEATURE 1: SMART SEARCH
+  - Type a natural language question: "When did Jesus cry?"
+  - Semantic engine finds: Lazarus (John 11:35), Jerusalem (Luke 19:41),
+    Gethsemane (Luke 22:44)
+  - Results ranked by relevance, with convergence scores and era labels
+  - Instant — runs locally, no server round-trip
+
+  FEATURE 2: CROSS-REFERENCE EXPLORER
+  - View any scene → sidebar shows all connected passages
+  - Color-coded: Gold = prophecy link, Blue/Green/Yellow/Purple = gospel
+    parallel, Red = external source, Gray = thematic connection
+  - Click any link to navigate directly to the connected scene
+
+  FEATURE 3: THE INSIGHT PANEL
+  - Floating panel on scene detail pages
+  - Shows: "This event is recorded in 3 of 4 gospels. Mark uniquely adds
+    that Jesus was sleeping on a cushion — likely Peter's eyewitness memory."
+  - Auto-generated by the Insight Engine, pre-verified by content team
+
+  FEATURE 4: ASK A QUESTION (Interactive Q&A)
+  - Text input on the /intelligence page
+  - "How many times did Jesus quote Deuteronomy?"
+  - Pattern Engine scans all jesus_words records for Deuteronomy references
+  - Returns: "Jesus quoted Deuteronomy at least 10 times, including all
+    3 temptation responses (Matt 4:4, 4:7, 4:10)..."
+  - Sources cited with clickable links to scenes
+
+  FEATURE 5: PROPHECY PROBABILITY CALCULATOR
+  - For each prophecy, displays the mathematical odds of coincidental
+    fulfillment
+  - Combined probability across all 24 prophecies presented visually
+  - Based on Peter Stoner's peer-reviewed calculations
+  - Interactive: user can toggle prophecies on/off to see how probability
+    changes
+
+  FEATURE 6: GOSPEL COMPARISON MODE
+  - Select 2-4 gospels → side-by-side diff view for any shared event
+  - AI highlights: additions (green), omissions (red), word differences (yellow)
+  - Pattern Engine labels each difference: perspective / emphasis / detail
+
+
+4.4.3  INTELLIGENCE SYSTEM — TECHNICAL IMPLEMENTATION
+-------------------------------------------------------------------------------
+
+  Dependencies (all free, open-source):
+  ┌────────────────────────────────┬──────────────┬──────────────────────┐
+  │ PACKAGE                        │ SIZE         │ PURPOSE              │
+  ├────────────────────────────────┼──────────────┼──────────────────────┤
+  │ @xenova/transformers           │ ~2MB (code)  │ ML model runner      │
+  │ all-MiniLM-L6-v2 (model)      │ ~23MB        │ Sentence embeddings  │
+  │ distilbert-qa (model)          │ ~65MB        │ Question answering   │
+  │ fuse.js                        │ ~20KB        │ Fuzzy text search    │
+  │ @anthropic-ai/sdk (optional)   │ ~50KB        │ Future Claude API    │
+  │ idb-keyval                     │ ~1KB         │ IndexedDB wrapper    │
+  └────────────────────────────────┴──────────────┴──────────────────────┘
+
+  Total first-load: ~90MB (models cached after first download)
+  Subsequent loads: 0MB (everything from browser cache)
+
+  Performance strategy:
+  - Models load LAZILY — only when user first uses an intelligence feature
+  - Core app (timeline, scenes, search) works instantly without models
+  - Loading indicator: "Activating Intelligence Engine... (one-time download)"
+  - Web Workers: All ML inference runs in a Web Worker — never blocks UI
+  - Progressive enhancement: App is fully functional without WebGPU/WebLLM;
+    intelligence features gracefully degrade to pre-generated content
+
+
+================================================================================
+  SECTION 5 — UI / UX DESIGN SYSTEM
+================================================================================
+
+5.1  VISUAL LANGUAGE
+-------------------------------------------------------------------------------
+The design must feel ancient but not archaic. Think of a museum-quality
+illuminated manuscript brought to life — parchment texture, gold ink, deep
+navy backgrounds — animated with precision and purpose.
+
+DESIGN TOKENS — DARK THEME (Default)
+TOKEN                   VALUE
+----------------------  --------------------------------------------------
+--bg-primary            #080604  —  Near-black warm background
+--bg-surface            #110e0a  —  Card / panel surfaces
+--gold                  #C9A96E  —  Primary accent — ancient gold
+--gold-bright           #F5C842  —  Jesus's direct words
+--parchment             #E8D5A3  —  Headings, titles
+--text-body             #D4C9B0  —  Body text
+--text-dim              #8A7D65  —  Metadata, labels
+--matthew               #5B8FD4  —  Matthew gospel column
+--mark                  #D4A853  —  Mark gospel column
+--luke                  #6BAE84  —  Luke gospel column
+--john                  #A67EC8  —  John gospel column
+--prophecy              #D4826B  —  OT prophecy thread color
+
+DESIGN TOKENS — LIGHT THEME
+TOKEN                   VALUE
+----------------------  --------------------------------------------------
+--bg-primary            #FAF6F0  —  Warm parchment white background
+--bg-surface            #FFFFFF  —  Clean white card / panel surfaces
+--gold                  #8B6914  —  Darker gold for contrast on light
+--gold-bright           #B8860B  —  Jesus's words — dark gold on light bg
+--parchment             #3D2B1F  —  Dark brown headings
+--text-body             #2C2416  —  Deep brown body text
+--text-dim              #7A6C5A  —  Muted brown metadata
+--matthew               #2B5EA7  —  Deeper Matthew blue
+--mark                  #A07B2E  —  Deeper Mark gold
+--luke                  #3A7A52  —  Deeper Luke green
+--john                  #7A4DA0  —  Deeper John purple
+--prophecy              #B35840  —  Deeper prophecy thread color
+
+THEME SYSTEM
+  - Dark theme is DEFAULT — matches the cinematic, ancient manuscript feel
+  - Light theme available for daytime reading and accessibility
+  - Toggle via sun/moon icon in top navigation bar
+  - Theme preference stored in localStorage — persists across sessions
+  - Respects OS-level preference via prefers-color-scheme media query
+  - All 4 gospel column colors, gold accents, and prophecy threads
+    adapt automatically to both themes
+  - Tailwind CSS dark: variant for implementation — zero runtime cost
+  - Smooth 300ms transition between themes with no flash of wrong theme
+    (CSS variables + next-themes library — free, MIT license)
+
+TYPOGRAPHY (all Google Fonts — FREE)
+font-display            Cinzel Decorative — logo, main title
+font-heading            Cinzel — section headers, navigation labels
+font-body               Crimson Text — all scripture and body text
+font-ui                 Inter — metadata, UI labels, numbers
+  NOTE: All fonts loaded from Google Fonts CDN (free) with font-display:
+  swap for performance. Self-hosted option available for zero external deps.
+
+
+5.1.1  MULTI-LANGUAGE INTERNATIONALIZATION (i18n)
+-------------------------------------------------------------------------------
+  His Voice will support MULTIPLE LANGUAGES from launch, making the life
+  of Jesus accessible to the entire world — completely free.
+
+  SUPPORTED LANGUAGES (Phase 1 — Launch):
+  ┌──────────────┬────────────────────────────────────────────────────────┐
+  │ LANGUAGE     │ BIBLE TRANSLATIONS AVAILABLE (all free/public domain) │
+  ├──────────────┼────────────────────────────────────────────────────────┤
+  │ English      │ KJV + WEB + ASV (all public domain)                   │
+  │ Spanish      │ Reina-Valera 1909 (public domain) + free modern       │
+  │ French       │ Louis Segond 1910 (public domain)                     │
+  │ Portuguese   │ Almeida Recebida (public domain)                      │
+  │ Chinese      │ Chinese Union Version 1919 (public domain)            │
+  │ Arabic       │ Smith & Van Dyke Arabic Bible (public domain)         │
+  │ Korean       │ Korean Revised Version (public domain editions)       │
+  │ Swahili      │ Swahili Union Version (public domain)                 │
+  └──────────────┴────────────────────────────────────────────────────────┘
+
+  SUPPORTED LANGUAGES (Phase 2 — Post-Launch):
+  - Hindi, Russian, Japanese, German, Italian, Tagalog, Amharic, Yoruba
+  - Additional translations sourced from ebible.org (1,600+ free translations)
+
+  UI TRANSLATION SYSTEM:
+  - next-intl or next-i18next (both free, MIT license) for UI strings
+  - All buttons, labels, menus, navigation translated per language
+  - URL-based locale: /en/timeline, /es/timeline, /fr/timeline, etc.
+  - Language selector in top nav — flag icons + language name
+  - User preference stored in localStorage
+  - RTL (right-to-left) support for Arabic and Hebrew UI
+  - SEO: Separate page metadata per language with hreflang tags
+
+  SCRIPTURE TEXT PER LANGUAGE:
+  - Each language has its own public domain Bible translation(s) bundled
+  - Scraped from ebible.org (free downloads for 1,600+ translations)
+  - bible-api.com supports multiple languages (free, no API key)
+  - All text pre-loaded into Supabase — works offline per language
+
+  INTELLIGENCE SYSTEM — MULTILINGUAL:
+  - Transformers.js supports multilingual models (e.g., paraphrase-multilingual-MiniLM-L12-v2)
+  - Semantic search works across languages — ask in Spanish, find in English
+  - Pre-generated insights translated via free AI services at build time
+
+
+5.2  SCREEN-BY-SCREEN UX SPEC
+-------------------------------------------------------------------------------
+
+SCREEN 1: THE INTRO (Cinematic Landing)
+Purpose: Orient the user to the epic scope before they interact with content.
+
+  Phase 1 (0–1.5s)    Starfield fades in. Ancient star patterns of Middle East.
+  Phase 2 (1.5–3s)    Parchment map of Israel materializes — location dots pulse.
+  Phase 3 (3–5s)      "HIS VOICE" shimmers in — gold shimmer animation.
+  Phase 4 (5–7s)      Subtitle fades: "From the first promise to the last word."
+  Phase 5 (7s+)       "BEGIN THE JOURNEY" button appears. John 1:1 below.
+  Skip option         Tap anywhere after 2 seconds to skip to timeline.
+
+SCREEN 2: THE TIMELINE (Main Navigation Hub)
+  - Horizontal era selector at top: 7 Acts as tabs with icons and colors
+  - Left panel (desktop): Animated ancient map — active era glows on map
+  - Main panel: Event cards stacked vertically, sorted chronologically
+  - Each card shows: Title, date, location, convergence badge (1–4 circles),
+    first word of Jesus preview, external source count
+  - Hover/tap: Card lifts, gold left border brightens
+  - Bottom quick nav: All events as small buttons grouped by era
+
+SCREEN 3: THE SCENE DETAIL (Core Experience)
+  - Header: Breadcrumb → timeline, title, location badge, convergence badge
+  - Translation switcher: KJV / WEB / ASV — applies to entire scene
+  - 4 Tabs:
+      GOSPEL HARMONY    Grid of gospel columns (1–4). Each column color-coded
+                        with gospel name, scripture ref, full text in translation.
+      WORDS OF JESUS    Each saying in gold blockquote. Ref + note below.
+      GAP ANALYSIS      Convergence score + numbered notes on what each gospel
+                        adds, omits, or uniquely preserves.
+      EXTERNAL SOURCES  Cards per non-canonical source — name, date, text.
+  - PROPHECY LINKS: Glowing thread appears at top when scene fulfills prophecy.
+
+SCREEN 4: THE PROPHECY BROWSER
+  - Full list of 24+ prophecies — Genesis to Malachi, chronological
+  - Each card: Book, date written, key phrase, fulfillment status badge
+  - Click prophecy: Split-screen — OT text left | Fulfillment scene right
+  - Gold SVG thread visually connects the two panels
+  - Filter by: Book, Prophet, Type, Convergence with secular history
+
+SCREEN 5: WORLD SOURCES EXPLORER (formerly "Removed Books")
+  - Tabbed navigation by category:
+      A. Christian Apocrypha (18 sources)
+      B. Early Church Fathers (7+ sources)
+      C. Islamic — Quran & Hadith (10+ sources)
+      D. Jewish — Josephus, Talmud, Dead Sea Scrolls (11+ sources)
+      E. Roman & Greek Historical (9+ sources)
+      F. Mandaean (3 sources)
+      G. Bahá'í (3 sources)
+      H. Eastern Religious (4 sources)
+      I. Manichaean (3 sources)
+      J. Zoroastrian Context (2 sources)
+  - Grid of 70+ source cards per category, color-coded by tradition
+  - Each card: Title, tradition, date, key content, reliability indicator
+  - Click: Full text with annotations. Passages that parallel canonical
+    events are hyperlinked to the scene.
+  - Quranic sources: Side-by-side Arabic + English translation; verse
+    parallels mapped to Gospel events (virgin birth, miracles, ascension)
+  - Editorial note at top of every source page:
+    "This text comes from [tradition name]. It is presented here as a
+     historical witness to the life of Jesus. His Voice does not endorse
+     or oppose any tradition — we present the fullest possible record."
+
+SCREEN 6: THE UNIVERSAL MATRIX (Core Differentiator — Nothing Else Has This)
+  - Interactive grid showing how EVERY tradition describes the SAME events
+  - Rows = events (virgin birth, miracles, crucifixion, resurrection, etc.)
+  - Columns = traditions (Gospels, Quran, Talmud, Gnostic, Roman, Bahá'í,
+    Mandaean, Manichaean, Eastern, Zoroastrian)
+  - Each cell: short summary + "Read Source" link to full text
+  - Color-coded by agreement: Green = confirms, Red = denies, Gray = silent,
+    Yellow = partial/ambiguous, Blue = unique claim
+  - Agreement Score badge on each row — "7/10 traditions confirm this event"
+  - Filter by: tradition, event type, agreement level, time period
+  - Click any cell: Expand to full source text with scholarly context
+  - Toggle view: Matrix mode (grid) / Narrative mode (story format) /
+    Map mode (geographic overlay showing where each tradition originated)
+  - "Unique Claims" tab: What ONLY one tradition says about Jesus
+  - Export: Download comparison as PDF / share as image
+  - This screen is THE reason people will share His Voice — no other tool
+    on earth shows this. It's the Rosetta Stone of Jesus across humanity.
+
+SCREEN 7: AI CHAT & Q&A (Intelligence Interface)
+  - Chat-style interface powered by Ollama on VPS
+  - "Ask anything about Jesus across all traditions"
+  - Example: "What do the Quran and Gospels agree on about Jesus?"
+  - AI responds with cited sources from all 70+ texts in the database
+  - Suggested questions per scene: "Ask about this event"
+  - Conversation history saved in localStorage
+  - Audio response option via Piper TTS on VPS
+
+
+================================================================================
+  SCREEN 8: THE CURIOSITY ENGINE — Interactive AI Discovery Walkthroughs
+================================================================================
+
+  This is the most ambitious feature in the app. A floating "Curiosity"
+  widget appears on EVERY page — a pulsing golden question mark icon in the
+  bottom-right corner. When clicked, it expands into an immersive,
+  AI-powered, voice-narrated, visual walkthrough experience that takes
+  the user on a JOURNEY through the evidence.
+
+  This is not a chatbot. This is not a FAQ page. This is a CINEMATIC,
+  INTERACTIVE, AI-GUIDED DISCOVERY EXPERIENCE — the most powerful
+  historian and debater on earth, using all 70+ sources, all 113 scenes,
+  all 230 sayings, and the entire Universal Matrix as its brain.
+
+  "Every hard question deserves a journey, not just an answer."
+
+
+8.1  THE CURIOSITY WIDGET (Floating UI Element)
+-------------------------------------------------------------------------------
+
+  APPEARANCE:
+  - Golden question mark icon (?) — pulsing glow animation
+  - Bottom-right corner of every page — fixed position
+  - Subtle label on hover: "Got questions? Start here."
+  - Badge counter shows number of preset questions available
+  - On scene pages, widget is CONTEXT-AWARE — shows questions relevant
+    to the current scene (e.g., on Crucifixion page: "Did Jesus really die?")
+
+  CLICK BEHAVIOR:
+  - Widget expands into a full-screen overlay (or side panel on desktop)
+  - Dark background with gold accents — matches the app's cinematic feel
+  - Header: "THE CURIOSITY ENGINE — Ask the Hard Questions"
+  - Subtitle: "Every question gets a journey. Powered by 70+ ancient sources."
+
+
+8.2  PRESET QUESTION LIBRARY — The Hard Questions
+-------------------------------------------------------------------------------
+
+  These are real questions that skeptics, atheists, agnostics, and curious
+  seekers actually ask. Organized by category. Each question is a gateway
+  into a full visual walkthrough.
+
+  CATEGORY: DID JESUS EXIST?
+  ┌──────────────────────────────────────────────────────────────────────┐
+  │ "Was Jesus a real person or a myth?"                                │
+  │ "What non-Christian sources confirm Jesus existed?"                 │
+  │ "Why should I trust sources written decades after Jesus died?"      │
+  │ "Could the gospels be made up?"                                    │
+  │ "How do we know the Bible wasn't changed over time?"               │
+  │ "What did the Romans actually write about Jesus?"                  │
+  │ "What did the Jews who opposed Jesus write about Him?"             │
+  │ "Why do hostile witnesses matter more than friendly ones?"         │
+  └──────────────────────────────────────────────────────────────────────┘
+
+  CATEGORY: THE CRUCIFIXION
+  ┌──────────────────────────────────────────────────────────────────────┐
+  │ "Did Jesus actually die on the cross?"                             │
+  │ "The Quran says Jesus wasn't crucified — who's right?"             │
+  │ "Could Jesus have survived the crucifixion (swoon theory)?"        │
+  │ "Why did the Romans bother to execute a carpenter from Galilee?"   │
+  │ "What do ALL the traditions say about the crucifixion?"            │
+  │ "What happened at the trial — was it legal?"                       │
+  │ "Why was there darkness during the crucifixion?"                   │
+  └──────────────────────────────────────────────────────────────────────┘
+
+  CATEGORY: THE RESURRECTION
+  ┌──────────────────────────────────────────────────────────────────────┐
+  │ "Did Jesus really rise from the dead?"                             │
+  │ "Could the disciples have stolen the body?"                        │
+  │ "Could they have hallucinated?"                                    │
+  │ "Why would the disciples die for a lie?"                           │
+  │ "What's the earliest evidence for the resurrection?"               │
+  │ "Why are the resurrection accounts different in each gospel?"      │
+  │ "What did non-Christians say about the empty tomb?"                │
+  └──────────────────────────────────────────────────────────────────────┘
+
+  CATEGORY: PROPHECY
+  ┌──────────────────────────────────────────────────────────────────────┐
+  │ "Could the prophecies have been written after the fact?"           │
+  │ "What are the odds of one person fulfilling all these prophecies?" │
+  │ "How do we know the Dead Sea Scrolls prove the prophecies are old?"│
+  │ "Did Jesus deliberately try to fulfill prophecies?"                │
+  │ "What prophecies are still unfulfilled?"                           │
+  └──────────────────────────────────────────────────────────────────────┘
+
+  CATEGORY: CONTRADICTIONS & RELIABILITY
+  ┌──────────────────────────────────────────────────────────────────────┐
+  │ "Why do the four gospels tell different stories?"                  │
+  │ "If the Bible is true, why are there contradictions?"              │
+  │ "Which gospel was written first and why does that matter?"         │
+  │ "Why was the Gospel of Thomas left out of the Bible?"              │
+  │ "Are the removed books being hidden from us?"                      │
+  │ "How do you explain the differences between the Quran and Gospels?"│
+  └──────────────────────────────────────────────────────────────────────┘
+
+  CATEGORY: MIRACLES
+  ┌──────────────────────────────────────────────────────────────────────┐
+  │ "Did Jesus really perform miracles?"                               │
+  │ "Even the enemies of Jesus admitted He did miracles — why?"        │
+  │ "The Quran confirms Jesus's miracles — does that matter?"          │
+  │ "Could the miracles have natural explanations?"                    │
+  │ "What miracle is confirmed by the most sources?"                   │
+  └──────────────────────────────────────────────────────────────────────┘
+
+  CATEGORY: JESUS IN OTHER RELIGIONS
+  ┌──────────────────────────────────────────────────────────────────────┐
+  │ "What does Islam really say about Jesus?"                          │
+  │ "Why does the Quran honor Jesus so much?"                          │
+  │ "Did Hindus and Buddhists know about Jesus?"                       │
+  │ "Why do the Mandaeans revere John the Baptist but not Jesus?"      │
+  │ "What is the Bahá'í view of Jesus?"                                │
+  │ "Why did the Manichaeans call Him 'Jesus the Luminous'?"           │
+  │ "Is there any religion that says Jesus DIDN'T exist?"              │
+  └──────────────────────────────────────────────────────────────────────┘
+
+  CATEGORY: THE BIG QUESTIONS
+  ┌──────────────────────────────────────────────────────────────────────┐
+  │ "If God exists, why is there suffering?"                           │
+  │ "Why would God become a human?"                                    │
+  │ "What makes Jesus different from every other religious figure?"    │
+  │ "Why do 10 completely separate traditions ALL write about Jesus?"  │
+  │ "What is the strongest single piece of evidence for Jesus?"        │
+  │ "What would change my mind if I'm a skeptic?"                      │
+  │ "Why should I care about someone who lived 2,000 years ago?"       │
+  └──────────────────────────────────────────────────────────────────────┘
+
+  CATEGORY: FOR THE PURE SKEPTIC (Level 0 — No Bible, No Religion)
+  ┌──────────────────────────────────────────────────────────────────────┐
+  │ "Why should I believe there's an afterlife?"                       │
+  │ "Is there any scientific evidence for life after death?"           │
+  │ "Religion was invented to control people — change my mind"         │
+  │ "I'm an atheist. Why should I even look at this?"                  │
+  │ "Prove to me something exists beyond death — without the Bible"    │
+  │ "What's the mathematical proof that prophecy can't be coincidence?"│
+  │ "Why do atheist scientists change their mind after studying NDEs?" │
+  │ "I don't believe in ANY holy book — now what?"                     │
+  │ "Could a man-made book really predict the future?"                 │
+  │ "If Jesus is real, why do I need science to prove it?"             │
+  └──────────────────────────────────────────────────────────────────────┘
+
+  CATEGORY: THE "RELIGION = CONTROL" CHALLENGE
+  ┌──────────────────────────────────────────────────────────────────────┐
+  │ "Wasn't the Bible written by the Romans to control the masses?"    │
+  │ "Why should I trust a book written by men with agendas?"           │
+  │ "Every religion claims to be the truth — why is yours different?"  │
+  │ "If the Bible is so true, why are there so many denominations?"    │
+  │ "The church has done terrible things — why trust Christianity?"    │
+  │ "Isn't belief in God just a psychological coping mechanism?"       │
+  └──────────────────────────────────────────────────────────────────────┘
+
+  Total: 70+ preset questions across 9 categories, expandable dynamically.
+  Users can also TYPE or SPEAK their own question — the AI handles it
+  with the same walkthrough experience, detecting their level automatically.
+
+
+8.3  THE WALKTHROUGH EXPERIENCE — How It Works
+-------------------------------------------------------------------------------
+
+  When a user clicks a question, they don't get a text answer. They get
+  a CINEMATIC, NARRATED, VISUAL JOURNEY through the evidence. The AI acts
+  as a guide — a brilliant historian, scholar, and debater who knows every
+  source in the database and walks the user through each data point.
+
+  STEP 1: THE OPENING (2–3 seconds)
+  ─────────────────────────────────────────────────────────────────────────
+  - Screen transitions to a focused, immersive view
+  - Background darkens. Gold particles float gently.
+  - The question appears in large serif font (Cinzel):
+    "Did Jesus really rise from the dead?"
+  - Below it: "Let's walk through the evidence together."
+  - AI voice begins narrating (Piper TTS from VPS):
+    "This is one of the most important questions in human history.
+     Let me show you what the evidence says — not just from the Bible,
+     but from every tradition that recorded it."
+
+  STEP 2: THE EVIDENCE CARDS (Main Experience)
+  ─────────────────────────────────────────────────────────────────────────
+  - The screen enters a scroll-driven walkthrough mode
+  - Evidence cards appear one at a time with entrance animations
+  - Each card represents ONE data point from the 70+ source library
+  - Cards are color-coded by tradition (gold=Gospel, green=Quran, etc.)
+
+  Example walkthrough for "Did Jesus really rise from the dead?":
+
+    CARD 1 — THE EARLIEST WRITTEN EVIDENCE
+    ┌────────────────────────────────────────────────────────────────┐
+    │  SOURCE: 1 Corinthians 15:3–8  (Paul, c. AD 53)              │
+    │  TRADITION: Canonical — Written ~20 years after crucifixion   │
+    │                                                                │
+    │  "For I delivered unto you first of all that which I also     │
+    │   received, how that Christ died for our sins... and that     │
+    │   he was buried, and that he rose again the third day...      │
+    │   and that he was seen of Cephas, then of the twelve...       │
+    │   After that, he was seen of above five hundred brethren."    │
+    │                                                                │
+    │  AI NARRATOR: "This is the earliest written account of the    │
+    │  resurrection — earlier than any of the four Gospels. Paul    │
+    │  is citing a creed that scholars date to within 3–5 years     │
+    │  of the crucifixion itself. 500 eyewitnesses named."          │
+    │                                                                │
+    │  [PLAY AUDIO]  [READ FULL PASSAGE]  [SEE ON TIMELINE]        │
+    └────────────────────────────────────────────────────────────────┘
+
+    CARD 2 — THE HOSTILE WITNESS
+    ┌────────────────────────────────────────────────────────────────┐
+    │  SOURCE: Babylonian Talmud — Toledot Yeshu                    │
+    │  TRADITION: Jewish — Written by people who OPPOSED Jesus      │
+    │                                                                │
+    │  "The body was taken by a gardener..."                        │
+    │                                                                │
+    │  AI NARRATOR: "Here's what's fascinating — the Jewish sources │
+    │  who rejected Jesus never claimed the tomb was still occupied.│
+    │  They tried to EXPLAIN the empty tomb, which means even His   │
+    │  opponents agreed the tomb was empty. That's a hostile witness│
+    │  confirming the most basic fact."                              │
+    └────────────────────────────────────────────────────────────────┘
+
+    CARD 3 — THE ISLAMIC PERSPECTIVE
+    ┌────────────────────────────────────────────────────────────────┐
+    │  SOURCE: Quran, Surah 4:157–158                               │
+    │  TRADITION: Islamic — Written c. 632 AD                       │
+    │                                                                │
+    │  "They did not kill him, nor did they crucify him, but it     │
+    │   was made to appear so... Allah raised him up."               │
+    │                                                                │
+    │  AI NARRATOR: "The Quran denies the crucifixion but AFFIRMS   │
+    │  that Jesus was raised to heaven by God. Even in the tradition│
+    │  that disagrees most with the Gospels on this point, Jesus    │
+    │  is still taken UP — not left dead. That's remarkable."       │
+    └────────────────────────────────────────────────────────────────┘
+
+    CARD 4 — THE ROMAN CONFIRMATION
+    ┌────────────────────────────────────────────────────────────────┐
+    │  SOURCE: Pliny the Younger — Letter X.96, c. 112 AD          │
+    │  TRADITION: Roman — Wrote as a government official            │
+    │                                                                │
+    │  "They sing hymns to Christ as to a god..."                   │
+    │                                                                │
+    │  AI NARRATOR: "Within 80 years of the crucifixion, a Roman   │
+    │  governor is reporting that Christians worship Jesus 'as a    │
+    │  god.' Something happened after the crucifixion that turned   │
+    │  terrified followers into people willing to die singing."     │
+    └────────────────────────────────────────────────────────────────┘
+
+    ... (6–12 cards per question, dynamically assembled by AI)
+
+  STEP 3: FOLLOW-UP PROMPTS (Interactive Branching)
+  ─────────────────────────────────────────────────────────────────────────
+  After each evidence card, the AI presents 2–3 FOLLOW-UP QUESTIONS that
+  naturally arise from the evidence just shown:
+
+    ┌──────────────────────────────────────────────────────────────────┐
+    │  Based on what you just saw, you might be wondering:            │
+    │                                                                  │
+    │  → "But couldn't the 500 witnesses be made up?"                 │
+    │  → "Why does the Quran disagree with everyone else on this?"    │
+    │  → "What about the differences between the gospel accounts?"    │
+    │                                                                  │
+    │  Click any question to continue the journey.                    │
+    │  Or type your own question below.                               │
+    └──────────────────────────────────────────────────────────────────┘
+
+  - Each follow-up launches a NEW mini-walkthrough (2–4 cards)
+  - This creates a BRANCHING DISCOVERY TREE — the user goes as deep
+    as they want, following their own curiosity
+  - The AI dynamically generates follow-ups based on:
+    a. The question asked
+    b. The evidence just presented
+    c. What the user has already seen (no repeats)
+    d. Common counter-arguments to the evidence shown
+  - Follow-ups are also voice-narrated with visual cards
+
+  STEP 4: THE SYNTHESIS (Closing Summary)
+  ─────────────────────────────────────────────────────────────────────────
+  When the user has explored enough (or clicks "Show me the full picture"):
+
+  - The AI generates a SYNTHESIS — a narrated summary that brings together
+    every data point the user just explored
+  - Visual: All evidence cards stack into a vertical timeline
+  - Voice: "You've just seen testimony from [X] independent sources,
+    spanning [Y] centuries, from [Z] different civilizations. Here's
+    what they agree on... and here's where they differ."
+  - Agreement Score displayed for the topic explored
+  - Links to: Related scenes on the timeline, the Universal Matrix for
+    this event, and deeper reading in the source library
+  - Final prompt: "What else would you like to explore?"
+
+  STEP 5: THE DISCOVERY MAP (Session Summary)
+  ─────────────────────────────────────────────────────────────────────────
+  After the walkthrough, the user sees a visual "map" of their journey:
+  - Tree diagram showing every question asked + branches explored
+  - Total sources encountered
+  - Traditions covered (Gospels, Quran, Talmud, Roman, etc.)
+  - Time span covered (e.g., "You explored evidence from 125 BC to 500 AD")
+  - "Share your journey" — generates a shareable link or image
+  - "Save for later" — bookmarks the entire walkthrough in localStorage
+
+
+8.4  THE AI AGENT — The Most Powerful Historian on Earth
+-------------------------------------------------------------------------------
+
+  The Curiosity Engine is powered by a specialized AI AGENT running on
+  the VPS via Ollama. This is not a generic chatbot. It is a PURPOSE-BUILT
+  historical debater and scholar with access to EVERY data point in the
+  system.
+
+  AGENT CAPABILITIES:
+  ┌──────────────────────────────────────────────────────────────────────┐
+  │ CAPABILITY              │ HOW IT WORKS                              │
+  ├─────────────────────────┼───────────────────────────────────────────┤
+  │ Source Retrieval         │ Queries all 70+ sources in real-time     │
+  │                         │ via vector search (ChromaDB/Qdrant) +     │
+  │                         │ keyword search (Meilisearch) to find the  │
+  │                         │ most relevant evidence for any question   │
+  ├─────────────────────────┼───────────────────────────────────────────┤
+  │ Cross-Tradition Logic   │ Compares how different traditions treat   │
+  │                         │ the same event. Highlights agreements,    │
+  │                         │ contradictions, and unique claims.        │
+  │                         │ Uses the Universal Matrix as its core     │
+  │                         │ reasoning framework.                      │
+  ├─────────────────────────┼───────────────────────────────────────────┤
+  │ Hostile Witness Priority│ Trained to prioritize HOSTILE witnesses   │
+  │                         │ — sources that oppose Jesus but still     │
+  │                         │ confirm key facts. These are the most     │
+  │                         │ powerful evidence points for skeptics.    │
+  ├─────────────────────────┼───────────────────────────────────────────┤
+  │ Timeline Awareness      │ Knows the exact date of every source.    │
+  │                         │ Can build chronological evidence chains:  │
+  │                         │ "Within 20 years... then 50 years...     │
+  │                         │ then 100 years... then 600 years..."     │
+  ├─────────────────────────┼───────────────────────────────────────────┤
+  │ Probability Reasoning   │ Calculates probability of coincidence    │
+  │                         │ for prophecy fulfillment (Stoner method). │
+  │                         │ Presents mathematical arguments visually. │
+  ├─────────────────────────┼───────────────────────────────────────────┤
+  │ Counter-Argument Engine │ For every claim, the agent knows the     │
+  │                         │ strongest counter-argument AND the        │
+  │                         │ response to that counter-argument.        │
+  │                         │ Presents both sides fairly, then lets     │
+  │                         │ the evidence speak.                       │
+  ├─────────────────────────┼───────────────────────────────────────────┤
+  │ Debater Mode            │ Can argue ANY position using only the    │
+  │                         │ historical evidence. Not preachy. Not     │
+  │                         │ apologetic. Just evidence-driven. The     │
+  │                         │ most powerful debater because it has the  │
+  │                         │ most data.                                │
+  ├─────────────────────────┼───────────────────────────────────────────┤
+  │ Dynamic Card Generation │ Assembles evidence cards on-the-fly      │
+  │                         │ based on the question. Selects the most   │
+  │                         │ compelling sources. Orders them for       │
+  │                         │ maximum narrative impact.                 │
+  ├─────────────────────────┼───────────────────────────────────────────┤
+  │ Follow-Up Prediction    │ Predicts what the user will ask NEXT     │
+  │                         │ based on the evidence just shown and      │
+  │                         │ common skeptic reasoning patterns.        │
+  │                         │ Always 2–3 steps ahead.                   │
+  ├─────────────────────────┼───────────────────────────────────────────┤
+  │ Voice Narration         │ Every response converted to natural      │
+  │                         │ speech via Piper TTS on VPS. Multiple    │
+  │                         │ voice options. Multilingual narration.    │
+  ├─────────────────────────┼───────────────────────────────────────────┤
+  │ Visual Generation       │ Triggers timeline animations, map pans,  │
+  │                         │ prophecy thread highlights, and source    │
+  │                         │ card entrance animations in sync with     │
+  │                         │ the narration.                            │
+  └──────────────────────────┴───────────────────────────────────────────┘
+
+  AGENT SYSTEM PROMPT (core instruction for the Ollama model):
+  ─────────────────────────────────────────────────────────────────────────
+  "You are the Curiosity Engine — the most knowledgeable historian of
+   Jesus of Nazareth ever created. You have access to 70+ primary sources
+   from 10 different civilizations spanning 3,000 years. You are not a
+   preacher. You are not an apologist. You are not a skeptic. You are a
+   scholar who lets the evidence speak.
+
+   CRITICAL RULE: You NEVER use the Bible to convince someone who rejects
+   the Bible. That is circular reasoning. Instead, you BUILD THE GROUND
+   FIRST — starting with evidence the questioner ALREADY accepts (science,
+   history, mathematics, philosophy, hostile witnesses, secular records)
+   and work your way toward the biblical evidence only AFTER the
+   foundation is undeniable.
+
+   You speak with authority because you have the data. You never dodge a
+   hard question. You never oversimplify. You always cite your sources
+   with dates and tradition labels. Your goal: help every human —
+   believer, skeptic, or curious — understand what ALL of humanity has
+   said about the most documented life in history."
+
+
+  AGENT DATA ACCESS:
+  ─────────────────────────────────────────────────────────────────────────
+  - Full text of all 70+ sources (vector-embedded in ChromaDB)
+  - All 113 scenes with gospel harmony data
+  - All 230 sayings of Jesus with cross-references
+  - All 24 prophecy chains with fulfillment links
+  - The complete Universal Matrix (all traditions × all events)
+  - Timeline metadata (dates, locations, convergence scores)
+  - The Agreement Score engine (how many traditions confirm each event)
+  - Probability calculations for prophecy fulfillment
+  - Secular historical evidence library (non-religious sources)
+  - Scientific studies database (NDEs, consciousness research, etc.)
+  - Philosophical arguments database (cosmological, moral, teleological)
+  - Archaeological evidence database (discoveries confirming events)
+  - Mathematical probability library (prophecy odds calculations)
+
+
+================================================================================
+  8.4.1  THE REASONING ENGINE — How the Agent THINKS
+================================================================================
+
+  The agent doesn't just retrieve data. It REASONS. It knows WHO it's
+  talking to and adapts its entire strategy. It never uses a source the
+  questioner would reject. It builds from ground the questioner stands on
+  and walks them step-by-step to ground they haven't considered.
+
+  This is the most important design decision in the entire app.
+
+  "You cannot convince a man who doesn't believe in the book by quoting
+   the book. You must first establish the ground he DOES stand on, then
+   show him what that ground inevitably points to."
+
+
+THE 5 REASONING LEVELS — The Agent's Strategic Framework
+─────────────────────────────────────────────────────────────────────────
+
+  The agent classifies every questioner into a level based on what they
+  currently accept, then starts its argument at THEIR level — never
+  above it. It walks them up one level at a time.
+
+  LEVEL 0: PURE ATHEIST / MATERIALIST
+  ───────────────────────────────────────────────────────────
+  What they accept: Science, mathematics, observable evidence only
+  What they reject: God, afterlife, scripture, supernatural, all of it
+
+  AGENT STRATEGY AT LEVEL 0:
+  DO NOT use: Bible, Quran, any religious text, any theological argument
+  DO use:
+  a. Scientific evidence for consciousness beyond the brain
+     - Peer-reviewed NDE (Near-Death Experience) studies:
+       * The AWARE Study (Parnia et al., 2014, University of Southampton)
+         — 2,060 cardiac arrest patients; verified cases of awareness
+         during clinical death when brain showed ZERO activity
+       * The Lancet NDE Study (van Lommel et al., 2001) — 344 cardiac
+         arrest patients in Netherlands; 18% reported NDE with verifiable
+         details of events they could not have physically witnessed
+       * AWARE II (2023) — continued study confirming consciousness
+         markers 20–60 seconds AFTER heart stops
+       * University of Virginia DOPS — 50+ years of research on 2,500+
+         cases of children with verified past-life memories
+     - Terminal lucidity studies — Alzheimer's patients with destroyed
+       brains suddenly regaining full consciousness moments before death
+       (Nahm et al., 2012, published in Archives of Gerontology)
+     - Quantum consciousness research — Penrose-Hameroff Orchestrated
+       Objective Reduction theory suggesting consciousness is fundamental
+       to physics, not a brain byproduct
+
+  b. Mathematical / philosophical arguments for design
+     - Fine-tuning of universal constants — the probability of a universe
+       capable of supporting life arising by chance: 1 in 10^10^123
+       (Roger Penrose calculation). Not a religious argument — pure math.
+     - DNA information theory — DNA contains 3.2 billion base pairs of
+       CODED INFORMATION. Information science has never observed
+       information arising from non-information. (Not creationism — this
+       is information theory, a branch of mathematics.)
+     - The Moral Argument — if morality is purely evolutionary, then
+       "murder is wrong" has no more truth value than "I prefer chocolate."
+       But every human civilization in history, independently, has
+       developed moral codes that converge on the same core principles.
+       Why? (C.S. Lewis, Mere Christianity — but the agent frames it as
+       philosophy, not theology.)
+
+  c. Historical evidence that something beyond death exists in human record
+     - Every civilization in history — Egyptian, Mesopotamian, Greek,
+       Roman, Chinese, Indian, African, Mesoamerican, Aboriginal — ALL
+       independently developed beliefs in an afterlife. This is not proof,
+       but it is evidence of a UNIVERSAL human experience that demands
+       explanation. What did all these separate civilizations independently
+       encounter?
+
+  THE AGENT'S LEVEL 0 WALKTHROUGH (example):
+  ┌────────────────────────────────────────────────────────────────────┐
+  │ USER: "Why should I believe in an afterlife? I'm an atheist."     │
+  │                                                                    │
+  │ AGENT: "Fair question. Let me show you something — and I won't    │
+  │ use a single religious text. Not the Bible. Not the Quran.        │
+  │ Nothing. Only peer-reviewed science."                              │
+  │                                                                    │
+  │ CARD 1: The AWARE Study (2014) — University of Southampton        │
+  │ "2,060 cardiac arrest patients studied. Some reported detailed     │
+  │  awareness of events during the time their brain showed zero       │
+  │  electrical activity. This was published in the journal            │
+  │  Resuscitation — one of the top medical journals in the world."   │
+  │                                                                    │
+  │ CARD 2: The Lancet Study (2001) — van Lommel                      │
+  │ "344 patients. 18% reported experiences during clinical death      │
+  │  that included verifiable details of events happening in other     │
+  │  rooms. The lead researcher was an atheist cardiologist who        │
+  │  began the study expecting to debunk NDEs. He couldn't."          │
+  │                                                                    │
+  │ CARD 3: Terminal Lucidity — Alzheimer's research                   │
+  │ "Patients whose brains were physically destroyed by disease        │
+  │  suddenly regained full consciousness, recognized family members,  │
+  │  and spoke clearly moments before death. If consciousness is       │
+  │  produced by the brain, this should be impossible."               │
+  │                                                                    │
+  │ CARD 4: Universal Human Experience                                 │
+  │ "Every civilization in history — Egyptian, Chinese, Greek, Indian, │
+  │  African, Mesoamerican — ALL independently developed beliefs in    │
+  │  an afterlife. Separated by oceans and millennia. What did they    │
+  │  all independently encounter?"                                     │
+  │                                                                    │
+  │ FOLLOW-UP: "Interesting — but even if consciousness survives       │
+  │  death, how does that connect to Jesus?"                           │
+  │ → Agent moves to Level 1...                                        │
+  └────────────────────────────────────────────────────────────────────┘
+
+
+  LEVEL 1: OPEN TO "SOMETHING" — Accepts Possible Afterlife/Design
+  ───────────────────────────────────────────────────────────────────────
+  What they accept: Something exists beyond death; maybe a creator
+  What they reject: Specific religions, Jesus as unique, the Bible
+
+  AGENT STRATEGY AT LEVEL 1:
+  DO NOT use: Bible as authority, Christian theology, church doctrine
+  DO use:
+  a. The prophecy probability argument — PURE MATHEMATICS
+     - The 24 Messianic prophecies were written 400–1,500 years before
+       Jesus. This is PROVEN by the Dead Sea Scrolls (discovered 1947,
+       carbon-dated to 125 BC minimum — before Jesus was born).
+     - The question is not "did Jesus fulfill these?" — it's "what are
+       the mathematical odds that ANY person could?"
+     - Peter Stoner (Science Speaks, peer-reviewed by the American
+       Scientific Affiliation) calculated:
+       * 8 prophecies fulfilled by one person: 1 in 10^17
+       * 16 prophecies: 1 in 10^45
+       * All 24+: beyond calculable probability
+     - To visualize 1 in 10^17: Cover the entire state of Texas two feet
+       deep in silver dollars. Mark ONE coin. Blindfold a person and tell
+       them to pick one coin. The odds of picking the marked coin are
+       better than the odds of one person fulfilling just 8 prophecies.
+     - No human could have engineered this. The prophecies were written
+       by different authors, in different centuries, in different
+       countries. No conspiracy is possible across 1,500 years.
+
+  b. Hostile witness confirmation — people who HATED Jesus confirming Him
+     - The Talmud (Jewish religious leaders who wanted Jesus dead):
+       CONFIRMS He existed, had followers, performed extraordinary acts
+       (called "sorcery"), and was executed on Passover eve.
+     - Tacitus (Roman historian, no sympathy for Christians):
+       CONFIRMS "Christus" was executed under Pontius Pilate during
+       Tiberius's reign. Written c. 116 AD.
+     - Josephus (Jewish historian working for Rome):
+       CONFIRMS Jesus existed, was called Christ, had followers, and
+       that His brother James was executed. Written c. 94 AD.
+     - Pliny the Younger (Roman governor who persecuted Christians):
+       CONFIRMS they worshipped Christ "as to a god" by 112 AD.
+     - The Quran (a separate religion founded 600 years later):
+       CONFIRMS Jesus existed, was born of a virgin, performed miracles,
+       had disciples, ascended to heaven, and will return.
+     - INSIGHT: When your enemies confirm your existence, your miracles,
+       and your execution — that is the strongest evidence in history.
+
+  c. The "religions didn't invent this" argument
+     - If Romans wrote the Bible to control people (common skeptic claim):
+       Why does the Bible portray Roman authority as the ones who executed
+       the hero? Why does it portray the religious establishment as
+       corrupt? Why does it elevate women, slaves, and the poor — the
+       people Rome oppressed? No empire writes propaganda that undermines
+       its own power structure.
+     - If Jews invented Jesus: Why did the Jewish establishment try to
+       destroy the movement? Why does the Talmud try to discredit Him
+       rather than deny His existence? You don't write counter-arguments
+       against someone who never existed.
+     - If the disciples made it up: All of them were tortured and killed
+       for their testimony. People die for things they BELIEVE are true.
+       Nobody dies for something they KNOW is a lie.
+
+  THE AGENT'S LEVEL 1 WALKTHROUGH (example):
+  ┌────────────────────────────────────────────────────────────────────┐
+  │ USER: "OK maybe something exists after death, but why Jesus?      │
+  │  Every religion claims to be true."                                │
+  │                                                                    │
+  │ AGENT: "Excellent question. Let me show you something no other    │
+  │ religion has — and I'll prove it with mathematics, not faith."    │
+  │                                                                    │
+  │ CARD 1: The Dead Sea Scrolls — Physical Proof                     │
+  │ "In 1947, a shepherd boy found ancient scrolls in caves near      │
+  │  the Dead Sea. Carbon-dated to 125 BC. They contain the complete  │
+  │  text of Isaiah — including chapter 53, which describes a man     │
+  │  who would be wounded for others' transgressions, pierced, silent │
+  │  before his accusers, buried in a rich man's tomb. Written 125    │
+  │  years BEFORE Jesus was born. No one disputes this date."         │
+  │                                                                    │
+  │ CARD 2: The Mathematics — Peter Stoner Calculation                 │
+  │ "24 specific prophecies, written across 1,500 years by different  │
+  │  authors in different countries. The odds of ANY one person        │
+  │  fulfilling just 8 of them: 1 in 100,000,000,000,000,000.        │
+  │  All 24? Beyond the number of atoms in the observable universe.   │
+  │  This isn't theology — it's probability theory."                  │
+  │  [VISUAL: Interactive probability calculator animates]             │
+  │                                                                    │
+  │ CARD 3: The Enemies Who Confirmed Him                              │
+  │ "The people who HATED Jesus and wanted Him destroyed — the         │
+  │  Jewish Talmud, Roman historians, Greek philosophers — they all   │
+  │  confirm He existed, had followers, and did extraordinary things.  │
+  │  You don't write counter-arguments against a myth."               │
+  │  [VISUAL: Hostile witness cards fan out — Talmud, Tacitus, Pliny] │
+  │                                                                    │
+  │ CARD 4: The Quran Confirms Key Facts                               │
+  │ "600 years later, a completely separate religion — Islam — also    │
+  │  confirms Jesus existed, was born of a virgin, performed miracles,│
+  │  and ascended to heaven. The Quran and the Gospels disagree on    │
+  │  some things — but they AGREE that Jesus was extraordinary."      │
+  │                                                                    │
+  │ FOLLOW-UP: "But couldn't Jesus have just been a good teacher      │
+  │  who got mythologized over time?"                                  │
+  │ → Agent addresses this with timeline evidence (Level 2)...         │
+  └────────────────────────────────────────────────────────────────────┘
+
+
+  LEVEL 2: ACCEPTS JESUS EXISTED — Questions His Divinity/Claims
+  ───────────────────────────────────────────────────────────────────────
+  What they accept: Jesus was real, possibly a great teacher
+  What they reject: Divinity, miracles, resurrection, salvation
+
+  AGENT STRATEGY AT LEVEL 2:
+  NOW we can start using some biblical evidence — but always PAIRED with
+  external confirmation. Never Bible-only arguments.
+
+  Key evidence chains:
+  a. The "Liar, Lunatic, or Lord" framework (C.S. Lewis)
+     - Jesus didn't claim to be a "good teacher." He claimed to be God
+       (John 10:30, but backed by hostile witness: the Talmud confirms
+       they charged Him with blasphemy for this very claim).
+     - A "good teacher" who claims to be God is either lying, insane,
+       or telling the truth. There is no fourth option.
+     - If lying: Why did He die for the lie? Liars recant under torture.
+     - If insane: His teachings are the most influential ethical
+       framework in human history. Insane people don't produce the
+       Sermon on the Mount.
+     - If telling the truth: Then everything changes.
+
+  b. The resurrection evidence — presented as a HISTORICAL CASE
+     - 1 Corinthians 15:3–8 (written c. AD 53 — just 20 years after):
+       500 eyewitnesses named. Written while they were still ALIVE and
+       could be cross-examined. No ancient document makes a claim this
+       bold this early unless it's true.
+     - The empty tomb is confirmed by hostile witnesses:
+       * The Talmud (Toledot Yeshu) tries to explain it — "the gardener
+         moved the body." They never claim the tomb was occupied.
+       * The Romans posted guards. If the body was stolen, where is
+         the Roman investigation? No record of it exists.
+     - The transformation of the disciples:
+       * Before the crucifixion: Peter denied Jesus three times out of
+         fear. Thomas doubted. They all fled.
+       * After: Every single one of them willingly faced torture and
+         execution proclaiming the resurrection. James was beheaded.
+         Peter was crucified upside down. Thomas went to India and
+         was speared to death. All of them could have recanted and
+         lived. None did.
+       * People die for beliefs. Nobody dies for something they
+         personally KNOW is a fabrication.
+
+  c. The "no prophecy from a man in existence before Christ could have
+     been 100% right" argument — THE UNDENIABLE CHAIN
+     - The Dead Sea Scrolls PROVE Isaiah 53 was written before Jesus
+     - Isaiah 53 describes: wounded for others, silent before accusers,
+       pierced, buried in a rich man's tomb, numbered with criminals
+     - Every detail matches the crucifixion accounts — written by
+       different gospel authors independently
+     - Even if someone argues "the Romans wrote the Gospels to control
+       people" — they cannot explain how the Romans also pre-wrote
+       Isaiah 53 in 700 BC and planted it in Dead Sea caves
+
+
+  LEVEL 3: ACCEPTS JESUS'S SIGNIFICANCE — Exploring Faith
+  ───────────────────────────────────────────────────────────────────────
+  What they accept: Jesus was real, extraordinary, possibly divine
+  What they're exploring: What it means for them personally
+
+  AGENT STRATEGY AT LEVEL 3:
+  Now the Bible is a valid source because the questioner accepts its
+  historical credibility. The agent can present:
+  - Jesus's own words about salvation
+  - The personal claims Jesus made
+  - The invitation Jesus extends
+  - Cross-references with how other traditions view His purpose
+  - Always gentle, never pushy — the evidence has done the heavy lifting
+
+
+  LEVEL 4: BELIEVER SEEKING DEPTH
+  ───────────────────────────────────────────────────────────────────────
+  What they accept: Everything
+  What they want: Deeper understanding, harmony, connections
+
+  AGENT STRATEGY AT LEVEL 4:
+  Full access to all features — gospel harmony, prophecy threads,
+  cross-tradition matrix, removed books, seminary-level analysis.
+
+
+THE AGENT'S GOLDEN RULES — NEVER VIOLATED
+─────────────────────────────────────────────────────────────────────────
+
+  RULE 1: NEVER USE THE BIBLE TO CONVINCE SOMEONE WHO REJECTS THE BIBLE
+  If the user shows skepticism toward scripture, the agent MUST start
+  with secular evidence, scientific studies, mathematical probability,
+  hostile witnesses, and cross-tradition confirmation. The Bible becomes
+  a valid source only AFTER its historical credibility has been
+  established through external evidence.
+
+  RULE 2: ALWAYS START WHERE THE QUESTIONER STANDS
+  Detect the user's current level from their question. "Why should I
+  believe in an afterlife?" = Level 0. "Was Jesus real?" = Level 1.
+  "Did He really rise?" = Level 2. Never jump levels.
+
+  RULE 3: HOSTILE WITNESSES FIRST, FRIENDLY WITNESSES SECOND
+  A Roman governor confirming Jesus's execution is more powerful to a
+  skeptic than a gospel account. The Talmud confirming Jesus's miracles
+  (calling them "sorcery") is more powerful than Matthew saying He healed
+  people. The Quran confirming the virgin birth is more powerful than
+  Luke saying it. ALWAYS lead with the sources your questioner would
+  least expect to support the claim.
+
+  RULE 4: NEVER BE PREACHY — LET THE EVIDENCE SPEAK
+  The agent never says "you should believe" or "the truth is." It says
+  "here's what the evidence shows" and "here's what 10 separate
+  civilizations independently recorded." The evidence is so overwhelming
+  that it speaks for itself. The agent's job is to PRESENT, not PERSUADE.
+
+  RULE 5: ALWAYS ACKNOWLEDGE THE STRONGEST COUNTER-ARGUMENT
+  Before presenting evidence, the agent acknowledges the strongest
+  objection the skeptic might raise — and addresses it head-on.
+  "You might say these are just ancient myths. Here's why that
+  explanation doesn't hold up..." This builds trust. The agent never
+  hides from hard questions.
+
+  RULE 6: THE "NO PROPHECY FROM A MAN" PRINCIPLE
+  No human being who existed before Christ could have written prophecies
+  that are 100% accurate about events 400–1,500 years in the future.
+  Even if someone claims the Bible was fabricated, they cannot explain:
+  a. The Dead Sea Scrolls (physically dated, independently verified)
+  b. 24 prophecies from different authors across 1,500 years
+  c. All fulfilled by one person who had no control over most of them
+     (birthplace, lineage, manner of execution, burial location)
+  d. Mathematical probability of coincidence: beyond calculable
+  This is the agent's STRONGEST card and it uses it strategically —
+  not too early (or the skeptic isn't ready) and not too late.
+
+  RULE 7: ADDRESS THE "CONTROL" ARGUMENT DIRECTLY
+  When someone says "religion was invented to control people":
+  a. Christianity was founded by executed prisoners and persecuted
+     minorities — the LEAST powerful people in the Roman Empire
+  b. The Bible commands giving away wealth, serving the poor, loving
+     enemies, and forgiving oppressors — the worst possible propaganda
+     for maintaining power
+  c. The first Christians GAINED nothing — they lost everything.
+     Homes, families, freedom, lives. No one invents a control mechanism
+     that costs them everything and gains them torture.
+  d. The religions that DID function as control mechanisms (state
+     religions, divine-right monarchies) look nothing like early
+     Christianity
+
+  RULE 8: THE EVIDENCE CHAIN MUST BE UNBREAKABLE
+  Each piece of evidence the agent presents must logically lead to the
+  next. The chain must be so tight that rejecting one piece requires
+  the skeptic to also reject principles they already accept (science,
+  mathematics, historical methodology, eyewitness testimony standards).
+
+  Example chain:
+  1. "You accept scientific studies?" → Yes
+  2. "The AWARE Study shows consciousness during brain death" → Evidence
+  3. "You accept mathematics?" → Yes
+  4. "The odds of 24 prophecies fulfilled by chance are 1 in 10^157" → Math
+  5. "You accept hostile witnesses?" → Yes
+  6. "The Talmud, Tacitus, and the Quran all confirm key facts" → Evidence
+  7. "You accept that people don't die for known lies?" → Yes
+  8. "All 12 disciples chose death over recanting" → Historical fact
+  9. Now the question isn't faith vs. evidence. The question is: what
+     CONCLUSION does all this evidence point to?
+
+
+THE AGENT'S DETECTION SYSTEM — Reading the User
+─────────────────────────────────────────────────────────────────────────
+
+  The agent detects the user's level automatically from their language:
+
+  LEVEL 0 SIGNALS (Pure skeptic/atheist):
+  - "There is no God" / "I don't believe in anything"
+  - "Why should I believe in an afterlife?"
+  - "Religion is made up to control people"
+  - "There's no evidence for anything supernatural"
+  - "Science proves there's no God"
+
+  LEVEL 1 SIGNALS (Open to something, not to Jesus specifically):
+  - "Why Jesus and not Buddha/Muhammad/etc.?"
+  - "Every religion claims to be true"
+  - "How is Jesus different from any other prophet?"
+  - "Maybe there's a God but the Bible isn't reliable"
+
+  LEVEL 2 SIGNALS (Accepts Jesus existed, questions claims):
+  - "Was Jesus actually divine or just a good teacher?"
+  - "Did the resurrection really happen?"
+  - "Could the miracles be exaggerated?"
+  - "Why should I believe ancient accounts?"
+
+  LEVEL 3 SIGNALS (Exploring faith):
+  - "What did Jesus actually teach about salvation?"
+  - "How do I know this is true for ME?"
+  - "What does the Bible say about forgiveness?"
+
+  LEVEL 4 SIGNALS (Believer seeking depth):
+  - "Show me the harmony between Matthew and Luke"
+  - "What do the removed books add to this scene?"
+  - "How does this prophecy connect to the crucifixion?"
+
+  The agent can also ASK a calibration question at the start:
+  "Before I take you on this journey — where are you coming from?
+   What do you currently believe?" This helps it calibrate perfectly.
+
+
+ADDITIONAL DATA SOURCES FOR LEVEL 0 (Secular Evidence Library)
+─────────────────────────────────────────────────────────────────────────
+
+  The agent needs access to evidence OUTSIDE the Bible and religious
+  texts — specifically for Level 0 and Level 1 conversations.
+
+  SCIENTIFIC STUDIES (pre-loaded in database, cited with journal names):
+  ┌──────────────────────────────────────────────────────────────────┐
+  │ STUDY                          │ JOURNAL / SOURCE    │ YEAR      │
+  ├────────────────────────────────┼─────────────────────┼───────────┤
+  │ AWARE Study (Sam Parnia)       │ Resuscitation       │ 2014      │
+  │ AWARE II                       │ Resuscitation       │ 2023      │
+  │ van Lommel NDE Study           │ The Lancet          │ 2001      │
+  │ Greyson NDE Scale              │ J. Nervous & Mental │ 1983      │
+  │ UVA DOPS Reincarnation Cases   │ Univ. of Virginia   │ 1966–now  │
+  │ Terminal Lucidity (Nahm)       │ Archives of Geront. │ 2012      │
+  │ Pam Reynolds Case              │ BBC / Medical lit.  │ 1991      │
+  │ Eben Alexander NDE             │ Newsweek / book     │ 2012      │
+  │ Penrose-Hameroff Orch-OR       │ Physics of Life Rev.│ 2014      │
+  │ Fine-Tuning Constants          │ Penrose / Rees      │ Various   │
+  │ DNA Information Content        │ Information Theory   │ Various   │
+  └──────────────────────────────────────────────────────────────────┘
+
+  ARCHAEOLOGICAL EVIDENCE:
+  ┌──────────────────────────────────────────────────────────────────┐
+  │ DISCOVERY                      │ CONFIRMS              │ DATE    │
+  ├────────────────────────────────┼───────────────────────┼─────────┤
+  │ Dead Sea Scrolls               │ OT text pre-dates     │ 1947    │
+  │                                │ Jesus by 125+ years   │         │
+  │ Pilate Stone (Caesarea)        │ Pontius Pilate existed│ 1961    │
+  │ Caiaphas Ossuary               │ High Priest existed   │ 1990    │
+  │ James Ossuary                  │ "James brother of     │ 2002    │
+  │                                │  Jesus" inscription   │         │
+  │ Pool of Siloam excavation      │ Pool Jesus sent blind │ 2004    │
+  │                                │  man to wash in       │         │
+  │ Pool of Bethesda excavation    │ Pool where Jesus      │ 19th c. │
+  │                                │  healed paralytic     │         │
+  │ Nazareth house (1st century)   │ Nazareth existed in   │ 2009    │
+  │                                │  Jesus's time         │         │
+  │ Crucifixion nail + heel bone   │ Roman crucifixion     │ 1968    │
+  │ (Jehohanan ossuary)            │  method confirmed     │         │
+  │ Shroud of Turin                │ Debated but studied — │ 1988    │
+  │                                │  3D image, blood type │         │
+  └──────────────────────────────────────────────────────────────────┘
+
+  PHILOSOPHICAL ARGUMENTS (for Level 0/1 — framed as logic, not theology):
+  - Cosmological: Why does anything exist rather than nothing?
+  - Teleological: Why are physical constants fine-tuned for life?
+  - Moral: Why do all civilizations converge on similar moral truths?
+  - Information: How does coded information arise without intelligence?
+  - Consciousness: Why does subjective experience exist at all?
+
+  All of this is stored in the database and indexed in ChromaDB/Qdrant
+  for instant retrieval by the agent during live walkthroughs.
+
+
+8.5  WALKTHROUGH VISUAL SYSTEM — Animations & Interactions
+-------------------------------------------------------------------------------
+
+  ANIMATION                     TRIGGER & BEHAVIOR
+  ────────────────────────────  ──────────────────────────────────────────
+  Widget pulse                  CSS: golden glow pulse every 3s, subtle
+  Widget expand                 Framer Motion: scale from icon to panel,
+                                backdrop blur, 0.4s spring
+  Question card entrance        Framer Motion: staggered fadeUp from bottom
+  Walkthrough transition        Screen darkens, gold particles float in,
+                                question text fades up in Cinzel font
+  Evidence card entrance        Framer Motion: slideInFromRight with scale
+                                0.95→1, staggered 0.3s per card
+  Source tradition badge        Color pulse on entrance — e.g., gold for
+                                Gospel, green for Quran, red for Roman
+  Voice narration sync          Text highlights word-by-word as AI speaks
+                                (karaoke-style, using TTS word timestamps)
+  Follow-up prompt appear       Framer Motion: fadeUp with slight bounce,
+                                after last evidence card exits view
+  Timeline pan                  When evidence references a date, the
+                                background timeline auto-scrolls to that era
+  Map highlight                 When evidence references a location, the
+                                map pans and pulses that location gold
+  Prophecy thread glow          When evidence references a prophecy, the
+                                gold thread animates on screen
+  Synthesis animation           All cards compress into a vertical stack,
+                                Agreement Score counter animates up
+  Discovery map draw            SVG tree diagram draws itself with
+                                strokeDashoffset animation — shows path taken
+  Share image generation        Canvas API captures walkthrough summary
+                                as a shareable image
+
+
+8.6  CONTEXT-AWARE CURIOSITY — Widget Adapts to Every Page
+-------------------------------------------------------------------------------
+
+  The widget doesn't show the same questions everywhere. It reads what
+  page the user is on and surfaces the most relevant questions:
+
+  PAGE                          CURIOSITY WIDGET SHOWS
+  ────────────────────────────  ──────────────────────────────────────────
+  /timeline (Act I)             "Could the prophecies have been faked?"
+                                "What are the odds of all this?"
+  /scene/crucifixion            "Did Jesus really die on the cross?"
+                                "Why does the Quran disagree?"
+                                "What did the Romans record about this?"
+  /scene/resurrection           "Did Jesus really rise from the dead?"
+                                "Could the disciples have stolen the body?"
+  /scene/sermon_mount           "Did Jesus really say these things?"
+                                "The Gospel of Thomas has a parallel — why?"
+  /matrix                       "Why do 10 traditions all mention Jesus?"
+                                "Is there any religion that denies He existed?"
+  /sources/islamic              "What does Islam really say about Jesus?"
+                                "Where do the Quran and Gospels agree?"
+  /prophecies                   "How do we know these weren't written after?"
+                                "What about the Dead Sea Scrolls?"
+  /scene/[any scene]            AI dynamically generates 2–3 questions
+                                based on the scene's content, gap notes,
+                                and cross-tradition data
+
+
+8.7  VOICE-FIRST INTERACTION — Speak, Listen, Discover
+-------------------------------------------------------------------------------
+
+  Users don't have to type. They can SPEAK their question, and the AI
+  agent SPEAKS BACK — live — while simultaneously rendering visual
+  evidence cards, timeline animations, and map highlights in real-time.
+  It's a LIVE CONVERSATION with the most powerful historian on earth.
+
+  VOICE INPUT (User speaks their question):
+  ─────────────────────────────────────────────────────────────────────────
+  - Microphone button on the Curiosity Widget AND in the global search bar
+  - Uses Web Speech API (SpeechRecognition) — FREE, built into every
+    modern browser (Chrome, Edge, Safari, Firefox)
+  - Real-time transcription displayed as the user speaks
+  - Supports multiple languages — speak in English, Spanish, Arabic, etc.
+  - Fallback: Whisper.cpp on VPS for browsers without Web Speech API
+    (audio recorded, sent to VPS, transcribed, returned in < 1 second)
+  - Visual feedback: microphone icon pulses gold while listening,
+    waveform animation shows audio input level
+  - "Tap to speak" or "Hold to speak" — configurable
+  - Auto-detect end of speech and begin processing immediately
+
+  VOICE OUTPUT (AI speaks the answer LIVE):
+  ─────────────────────────────────────────────────────────────────────────
+  - Piper TTS on VPS generates audio in real-time (streaming)
+  - Audio begins playing BEFORE the full response is generated
+    (sentence-by-sentence streaming — user hears first sentence while
+     AI is still generating the rest)
+  - Multiple voice options:
+    a. "The Scholar" — authoritative male voice, measured pace
+    b. "The Guide" — warm female voice, conversational tone
+    c. "The Narrator" — dramatic voice for cinematic walkthroughs
+  - Voice adapts to content:
+    - Scripture quotations: slower, reverent tone
+    - Historical facts: clear, authoritative
+    - Counter-arguments: fair, measured
+    - Synthesis: building, culminating
+  - Multilingual TTS — narrate in the user's selected language
+  - Volume control + speed control (0.75x, 1x, 1.25x, 1.5x)
+
+  LIVE INTERACTION FLOW (Voice Conversation Mode):
+  ─────────────────────────────────────────────────────────────────────────
+  This is not turn-based. The AI keeps the conversation ALIVE.
+
+  1. User speaks: "Did Jesus really exist?"
+  2. AI begins responding IMMEDIATELY (streaming):
+     - Voice starts narrating: "Let me walk you through 10 independent
+       sources that confirm Jesus existed..."
+     - SIMULTANEOUSLY: First evidence card slides in with animation
+     - SIMULTANEOUSLY: Timeline pans to 1st century AD
+     - SIMULTANEOUSLY: Map highlights Jerusalem and Galilee
+  3. While AI is still narrating Card 1, Card 2 is being pre-loaded
+  4. As voice finishes Card 1's narration, Card 2 slides in seamlessly
+  5. User can INTERRUPT at any time by speaking:
+     - "Wait — what about the Quran?"
+     - AI smoothly pivots: "Great question — let me show you what the
+       Quran says about this..." → new card slides in
+  6. User can ask follow-ups DURING the walkthrough:
+     - "But how do we know Tacitus wasn't lying?"
+     - AI addresses it inline, then continues the original walkthrough
+  7. The experience feels like a LIVE GUIDED TOUR with a brilliant scholar
+     who adapts in real-time to your curiosity
+
+  VISUAL RENDERING — LIVE AS AI SPEAKS:
+  ─────────────────────────────────────────────────────────────────────────
+  Everything renders in REAL-TIME, synchronized with the AI's voice:
+
+  - Evidence cards: Slide in as the AI introduces each source
+  - Source text: Highlights word-by-word as the AI reads it aloud
+    (karaoke-style sync using TTS word-level timestamps)
+  - Timeline: Auto-scrolls to the era being discussed
+  - Map: Pans and highlights locations mentioned in the narration
+  - Prophecy threads: Gold threads animate when prophecies are referenced
+  - Agreement Score: Counter animates up as traditions are cited
+  - Tradition badges: Flash/pulse when a new tradition is introduced
+  - Images: AI can trigger display of relevant ancient manuscript photos,
+    archaeological images, or map illustrations (from public domain sources
+    — Wikimedia Commons, Internet Archive, museum collections)
+
+  ALL OF THIS HAPPENS LIVE — not after the AI finishes speaking, but
+  WHILE it speaks. The visual and audio are one unified experience.
+
+  VOICE IN GLOBAL SEARCH:
+  ─────────────────────────────────────────────────────────────────────────
+  - The main search bar (top of every page) also supports voice input
+  - Click the microphone icon or press a keyboard shortcut
+  - "Search for the sermon on the mount" → navigates to the scene
+  - "What does the Quran say about Mary?" → launches a Curiosity walkthrough
+  - "Play the last words of Jesus" → plays audio narration of the 7 words
+  - Smart intent detection: search query vs. curiosity question vs. command
+  - Works in all 8+ supported languages
+
+  VOICE TECHNOLOGIES (all free):
+  ┌────────────────────────────────┬──────────────────────────────────────┐
+  │ COMPONENT                      │ TECHNOLOGY                           │
+  ├────────────────────────────────┼──────────────────────────────────────┤
+  │ Speech-to-Text (browser)       │ Web Speech API — free, built-in     │
+  │ Speech-to-Text (VPS fallback)  │ Whisper.cpp — free, open-source,    │
+  │                                │ runs on VPS, supports 90+ languages │
+  │ Text-to-Speech (VPS)           │ Piper TTS — free, open-source,      │
+  │                                │ streaming, multiple voices/languages │
+  │ Text-to-Speech (browser fallb.)│ Web Speech API (SpeechSynthesis) —  │
+  │                                │ free, built-in, less natural but    │
+  │                                │ works offline                        │
+  │ Word-level timestamps          │ Piper TTS with alignment output —   │
+  │                                │ enables karaoke-style text sync      │
+  │ Audio streaming                │ Server-Sent Events (SSE) or WebSocket│
+  │                                │ — stream audio chunks to browser     │
+  └────────────────────────────────┴──────────────────────────────────────┘
+
+
+8.8  TECHNICAL IMPLEMENTATION
+-------------------------------------------------------------------------------
+
+  ARCHITECTURE (Live Streaming — Voice In + Voice Out + Visuals):
+  ┌─────────────────────────────────────────────────────────────────────┐
+  │                                                                     │
+  │  USER SPEAKS OR TYPES QUESTION                                      │
+  │       │                                                             │
+  │       ├── Voice? ─→ Web Speech API (browser) ─→ text               │
+  │       │             OR: audio blob ─→ Whisper.cpp (VPS) ─→ text    │
+  │       │                                                             │
+  │       ▼                                                             │
+  │  POST /api/curiosity/walk (WebSocket / SSE stream)                 │
+  │       │                                                             │
+  │       ▼                                                             │
+  │  VPS API SERVER (streaming response)                                │
+  │       │                                                             │
+  │       ├─→ Ollama (LLM) — generates response sentence-by-sentence   │
+  │       ├─→ ChromaDB — retrieves relevant source vectors              │
+  │       ├─→ Meilisearch — keyword search across all sources           │
+  │       ├─→ Matrix Engine — cross-tradition comparison lookup         │
+  │       ├─→ Prophecy Engine — fulfillment chain lookup                │
+  │       │                                                             │
+  │       ▼ (STREAMING — each chunk sent as it's ready)                │
+  │  ┌─────────────────────────────────────────────────────┐           │
+  │  │  STREAM CHUNK 1:                                     │           │
+  │  │  { card: evidence_card_1, narration: "sentence 1",   │           │
+  │  │    animation: "timeline_pan_30AD", audio_url: "..." } │           │
+  │  ├─────────────────────────────────────────────────────┤           │
+  │  │  STREAM CHUNK 2:                                     │           │
+  │  │  { card: evidence_card_2, narration: "sentence 2",   │           │
+  │  │    animation: "map_highlight_jerusalem" }             │           │
+  │  ├─────────────────────────────────────────────────────┤           │
+  │  │  STREAM CHUNK N:                                     │           │
+  │  │  { follow_ups: [...], synthesis_prompt: true }        │           │
+  │  └─────────────────────────────────────────────────────┘           │
+  │       │                                                             │
+  │       ▼ (PARALLEL — audio generated as text streams)               │
+  │  Piper TTS ─→ audio chunks streamed via WebSocket                  │
+  │       │                                                             │
+  │       ▼                                                             │
+  │  FRONTEND RENDERS EVERYTHING LIVE:                                  │
+  │  - Evidence cards animate in as they arrive                         │
+  │  - Voice narration plays sentence-by-sentence (streaming audio)     │
+  │  - Text highlights word-by-word synced to voice (karaoke mode)      │
+  │  - Timeline auto-scrolls to referenced era                          │
+  │  - Map pans and highlights referenced locations                     │
+  │  - Prophecy threads glow when referenced                            │
+  │  - User can INTERRUPT with voice at ANY time                        │
+  │  - Interruption → new stream starts, previous gracefully fades      │
+  │                                                                     │
+  └─────────────────────────────────────────────────────────────────────┘
+
+  API ENDPOINTS:
+  - WS  /api/curiosity/walk        → STREAMING walkthrough via WebSocket
+    Send: { question, context_page, previous_cards, language, voice }
+    Streams: { card, narration_chunk, animation_cue, audio_chunk } per msg
+
+  - WS  /api/curiosity/interrupt    → User interrupts with new question
+    Send: { new_question, current_state }
+    Streams: new walkthrough (previous gracefully fades)
+
+  - POST /api/curiosity/followup   → Follow-up walkthrough (also streams)
+    Body: { follow_up_question, parent_question, seen_sources[] }
+    Streams: { cards[], narration, follow_ups[] }
+
+  - POST /api/curiosity/synthesize → Synthesis summary
+    Body: { all_cards_seen[], question_path[] }
+    Returns: { summary_text, agreement_scores, share_image_data }
+
+  - POST /api/voice/transcribe     → Speech-to-text via Whisper.cpp on VPS
+    Body: audio blob (webm/opus)
+    Returns: { text, language_detected, confidence }
+
+  - POST /api/voice/tts            → STREAMING text-to-speech via Piper TTS
+    Body: { text, voice, language, speed }
+    Streams: audio chunks (opus/mp3) — sentence by sentence
+
+  - GET /api/curiosity/presets     → Get preset questions for a page
+    Query: { page_context }
+    Returns: { categories[], questions[] }
+
+  CACHING STRATEGY:
+  - Preset questions: Pre-generated at build time, stored in DB
+  - Popular walkthroughs: Cached in Redis after first generation
+  - Audio narrations: Pre-generated for all preset questions, cached on VPS
+  - Custom questions: Generated live, cached after first ask
+  - Follow-ups: Generated live (fast — Ollama on VPS is instant)
+
+  PERFORMANCE:
+  - First evidence card appears within 1–2 seconds (streaming response)
+  - Audio narration begins streaming immediately (not waiting for full gen)
+  - Cards animate in as they arrive — progressive rendering
+  - Full walkthrough (6–12 cards) completes within 8–15 seconds
+  - Cached walkthroughs: instant (< 200ms)
+
+
+5.3  ANIMATION SYSTEM
+-------------------------------------------------------------------------------
+ANIMATION               TRIGGER & BEHAVIOR
+----------------------  -------------------------------------------------------
+Intro starfield         CSS: opacity + scale pulse, random delay per star
+Map materialization     SVG strokeDashoffset 100%→0% over 2 seconds
+Title shimmer           CSS gradient animation across text, 4s infinite loop
+Timeline card entrance  Framer Motion: staggered fadeUp, 0.1s delay per card
+Era tab switch          Framer Motion layout animation — smooth reflow
+Card hover              translateX(4px) + border brightens, 0.25s ease
+Prophecy thread         SVG path draw animation on mount + gold glow pulse
+Tab content switch      AnimatePresence: opacity + slight Y slide
+Gospel column entry     Staggered scale 0.95→1 with opacity 0→1
+Search overlay          Backdrop blur fade in, content slides up
+Map location pulse      SVG circle radius animation on active era
+Convergence badge       Each gospel circle drops in with spring physics
+
+
+5.4  RESPONSIVE BREAKPOINTS
+-------------------------------------------------------------------------------
+BREAKPOINT              LAYOUT BEHAVIOR
+----------------------  -------------------------------------------------------
+< 480px (mobile sm)     Single column. Full-width cards. No map panel.
+                        Harmony tabs scroll horizontally.
+480–768px (mobile lg)   Single column, wider cards. Search as bottom sheet.
+768–1024px (tablet)     Map panel hidden. 2-column harmony grid max.
+1024–1440px (desktop)   Map panel visible (180px). 4-column harmony. Full nav.
+> 1440px (large)        Map panel 240px. Max-width container (1400px centered).
+                        Reading mode available.
+
+
+================================================================================
+  SECTION 6 — BUILD PHASES & MILESTONES
+================================================================================
+
+PHASE 0 — FOUNDATION  (Week 1–2)
+Goal: Environment configured, DB seeded with Acts I–II, basic routing working.
+-------------------------------------------------------------------------------
+  1. Initialize Next.js 14 + TypeScript + Tailwind + ESLint
+  2. Configure Supabase (FREE tier) — create all tables per Section 3 schema
+  3. Set up Prisma ORM — generate types from schema
+  4. Build Bible text scraper/importer — scrape KJV, WEB, ASV from public
+     domain sources (bible-api.com, ebible.org, public GitHub datasets)
+     and bulk-load into Supabase database
+  5. Seed database: All 24 prophecies + Acts I–II (15 events)
+  6. Deploy to Vercel (FREE tier) — establish CI/CD pipeline
+  7. Set up Sanity.io CMS (FREE tier) — schema matching DB structure
+  8. Set up Transformers.js — test model loading + caching in browser
+
+
+PHASE 1 — CORE EXPERIENCE  (Week 3–6)
+Goal: Full timeline, scene detail working for 10+ events, search functional.
+-------------------------------------------------------------------------------
+  1. Build Timeline component — era filtering + animated cards
+  2. Build Scene Detail page — all 4 tabs (Harmony/Words/Gaps/Sources)
+  3. Build Gospel Harmony grid — translation switcher (KJV/WEB/ASV)
+  4. Implement Convergence Badge component
+  5. Build Search overlay — Fuse.js fuzzy search
+  6. Seed Acts III–V data (30+ events)
+  7. Build Intro cinematic landing — starfield + map + shimmer title
+  8. Responsive layout — mobile-first implementation
+
+
+PHASE 2 — INTELLIGENCE LAYER  (Week 7–10)
+Goal: Prophecy engine, all 7 Acts seeded, removed books, AI brain online.
+-------------------------------------------------------------------------------
+  1. Build Prophecy Browser — OT text + fulfillment thread visualization
+  2. Build prophecy → fulfillment linking UI (split-screen + SVG thread)
+  3. Seed Acts VI–VII data (Passion Week + Resurrection — 20 events)
+  4. Build Removed Books Explorer — all 15 sources with annotations
+  5. Build External Sources indexer — cross-link scenes ↔ sources
+  6. Implement Gap Analysis engine — flag unique/parallel/absent accounts
+  7. Add Supabase full-text search for server-side queries
+  8. Build location map — react-three-fiber with era-linked glow pins
+  9. BUILD THE INTELLIGENCE SYSTEM:
+     a. Pattern Engine — cross-reference spider, keyword index, theme clusters
+     b. Semantic Engine — Transformers.js embeddings + semantic search
+     c. Insight Engine — pre-generate scene insights, cache in DB
+     d. Q&A interface — natural language question → cited answer
+     e. Cross-Reference Explorer — visual connection map per scene
+  10. Scrape and import all removed book texts from public domain sources
+      (sacred-texts.com, earlychristianwritings.com, etc.)
+
+
+PHASE 3 — MOBILE & POLISH  (Week 11–14)
+Goal: PWA / React Native, share features, performance, SEO.
+-------------------------------------------------------------------------------
+  1. Convert to Expo + React Native Web — shared web/iOS/Android codebase
+  2. PWA manifest — installable on mobile from browser
+  3. Share-a-verse — copy formatted quote + reference to clipboard
+  4. Bookmark system — localStorage save scenes and sayings
+  5. Reading mode — distraction-free full-screen passage view
+  6. SEO: OpenGraph images per scene, Schema.org structured data
+  7. Performance: Image optimization, lazy loading, route prefetching
+  8. Umami analytics (self-hosted FREE) or Vercel Analytics (FREE tier)
+  9. Intelligence system optimization — model caching, lazy loading,
+     progressive enhancement for older devices
+
+
+PHASE 4 — ADVANCED FEATURES  (Week 15+)
+-------------------------------------------------------------------------------
+  - Audio narration — FREE browser TTS (Web Speech API) for all passages
+  - Parallel reading mode — 12-column (4 gospels × 3 translations)
+  - AI-powered comparison — FREE via Transformers.js / Hugging Face
+    Inference API (free tier) / Groq (free tier) — summarizes harmony
+    differences per scene
+  - User notes — annotate scenes (Supabase auth — FREE tier)
+  - Print / export — PDF gospel harmony for any scene
+  - Seminary mode — footnotes, Greek/Hebrew original words (scraped from
+    public domain Strong's Concordance + interlinear texts)
+  - Multi-language — Spanish and French UI translations
+  - Enhanced AI: Integrate free AI services as they become available
+    (Groq free tier, Hugging Face Inference free, Cloudflare Workers AI
+    free tier) for more advanced natural language features
+
+
+================================================================================
+  SECTION 7 — CONTENT INVENTORY
+================================================================================
+
+7.1  TOTAL SCENE COUNT BY ACT
+-------------------------------------------------------------------------------
+ACT                                                        ESTIMATED SCENES
+---------------------------------------------------------  ----------------
+Act I — The Promise (Prophecies, 1500 BC – 5 BC)          24 prophecy nodes
+                                                           + 8 context scenes
+Act II — The Arrival (Nativity & Childhood, 5 BC–AD 12)   9 scenes
+Act III — The Preparation (Forerunner & Baptism, AD 26)    5 scenes
+Act IV — The Ministry (Galilean Phase, AD 27–29)           28 scenes
+Act V — The Confrontation (Judean & Perean, AD 29–30)      14 scenes
+Act VI — The Passion (Holy Week, AD 30)                    16 scenes
+Act VII — The Victory (Resurrection, AD 30)                9 scenes
+                                                           ----------------
+TOTAL                                                      ~113 scenes/nodes
+
+
+7.2  WORDS OF JESUS — COUNT ESTIMATE
+-------------------------------------------------------------------------------
+CATEGORY                                                   EST. SAYING UNITS
+---------------------------------------------------------  -----------------
+Sermon on the Mount / Plain (Matt 5–7, Luke 6)             45+
+Parables (Matthew, Mark, Luke combined)                    38 distinct
+Olivet Discourse (Matt 24–25, Mark 13, Luke 21)            12 prophetic blocks
+Upper Room Discourse (John 13–17)                          35+
+The 7 Last Words from the Cross                            7
+Post-Resurrection appearances                              12
+Scattered individual sayings and dialogues                 80+
+                                                           -----------------
+TOTAL (approximate)                                        ~230 saying units
+
+
+================================================================================
+  SECTION 8 — TEAM ROLES & PROJECT TIMELINE
+================================================================================
+
+8.1  RECOMMENDED TEAM
+-------------------------------------------------------------------------------
+ROLE                          RESPONSIBILITY
+----------------------------  -------------------------------------------------
+Lead Full-Stack Developer     Next.js, API routes, database, auth, deployment
+Frontend / Animation Dev      Framer Motion, Three.js map, responsive UI
+Content / Data Engineer       Scripture entry, JSON structuring, CMS management
+Biblical Scholar              Prophecy mapping, gap analysis, source annotation
+UI/UX Designer                Design system, component specs, mobile UX
+QA Tester (mobile focus)      Cross-browser, iOS/Android, accessibility
+
+
+8.2  14-WEEK TIMELINE
+-------------------------------------------------------------------------------
+WEEKS        DELIVERABLE
+-----------  ------------------------------------------------------------------
+Week 1–2     Phase 0 complete — infra live, DB seeded, CI/CD running
+Week 3–4     Timeline UI + 10 scenes live on staging
+Week 5–6     Scene detail + harmony grid + search functional
+Week 7–8     All 7 acts seeded — full journey accessible end-to-end
+Week 9–10    Prophecy engine + Removed Books section live
+Week 11–12   Mobile responsive polish — PWA installable
+Week 13      Soft launch — invite-only beta testing
+Week 14      Public launch on custom domain
+
+
+8.3  BUDGET ESTIMATES — VPS + DOMAIN (Minimal Cost, Maximum Power)
+-------------------------------------------------------------------------------
+  CORE PRINCIPLE: We own the infrastructure. A VPS gives us UNLIMITED AI,
+  UNLIMITED database, UNLIMITED everything — for a fixed monthly cost.
+  Every piece of SOFTWARE is free and open-source. We only pay for the
+  hardware (VPS) and the domain name.
+
+  This is the most advanced application ever built on this budget.
+
+MONTHLY COSTS
+SERVICE                                MONTHLY COST (USD)
+-------------------------------------  ------------------
+VPS (4 vCPU, 16GB RAM, 200GB SSD)     $20–40/mo *
+Domain (hisvoice.app or similar)       ~$1.25/mo ($15/yr)
+Cloudflare DNS + CDN (free tier)       $0
+Vercel frontend hosting (free tier)    $0
+SSL certificates (Let's Encrypt)       $0
+-------------------------------------  ------------------
+TOTAL INFRASTRUCTURE                   ~$21–41/month
+
+  * VPS PROVIDERS (cheapest for this spec):
+    - Hetzner Cloud: CX32 — 4 vCPU, 16GB RAM, 160GB — ~$15/mo (best value)
+    - Contabo: VPS M — 6 vCPU, 16GB RAM, 400GB — ~$12/mo
+    - DigitalOcean: 4 vCPU, 16GB RAM — $48/mo (more expensive, easier UI)
+    - Vultr: 4 vCPU, 16GB RAM — $48/mo
+    - OVH: Essential — 4 vCPU, 16GB RAM — ~$25/mo
+    RECOMMENDATION: Hetzner or Contabo — best price-to-performance ratio
+
+ALL SOFTWARE ON VPS — $0
+  Ollama (AI models)                   $0 — open-source
+  Llama 3 / Mistral / Phi-3           $0 — open-weight models
+  PostgreSQL + pgvector                $0 — open-source database
+  Meilisearch                          $0 — open-source search
+  ChromaDB / Qdrant                    $0 — open-source vector DB
+  Redis                                $0 — open-source cache
+  Piper TTS                            $0 — open-source text-to-speech
+  Umami                                $0 — open-source analytics
+  Caddy                                $0 — open-source reverse proxy
+  Strapi CMS                           $0 — open-source CMS
+  Docker + Docker Compose              $0 — open-source containerization
+
+ALL DATA — $0
+  Bible translations (KJV/WEB/ASV)     $0 — public domain
+  Removed books / Apocrypha            $0 — public domain, scraped
+  Secular historical sources           $0 — public domain, scraped
+  Greek/Hebrew concordance             $0 — public domain (Strong's 1890)
+  AI models (Hugging Face)             $0 — open-weight, free download
+  Geographic data (OpenStreetMap)       $0 — open data
+  Multilingual Bible texts             $0 — public domain via ebible.org
+
+ALL LIBRARIES — $0
+  Next.js, Tailwind, Framer Motion     MIT license
+  Three.js, React Three Fiber          MIT license
+  Prisma, Zustand, Fuse.js             MIT / Apache 2.0
+  Transformers.js, WebLLM              MIT / Apache 2.0
+  Cheerio, Puppeteer (scraping)        MIT license
+
+COST COMPARISON:
+  Traditional approach (paid APIs + services):   $200–500/month
+  His Voice approach (VPS + all free software):  ~$25/month
+  SAVINGS:                                       90–95% less
+
+ONE-TIME COSTS (if hiring external help):
+  Content entry (contractor)           $1,500 – $3,000
+  Design (one-time)                    $2,000 – $5,000
+  Development (one-time)               $15,000 – $35,000
+
+  NOTE: With Claude Code as the development partner, the development
+  cost is reduced to $0 — built in-house by GCS.
+
+
+================================================================================
+  SECTION 9 — CONTENT PHILOSOPHY & EDITORIAL STANDARDS
+================================================================================
+
+9.1  SCHOLARLY INTEGRITY
+-------------------------------------------------------------------------------
+  - All Gospel Harmony cross-references must cite established harmonies
+    (e.g., A.T. Robertson's Harmony of the Gospels)
+  - Gap analysis notes must distinguish between:
+      (a) Different perspectives on the same event
+      (b) Possibly different events recorded similarly
+      (c) Theological emphasis differences between writers
+  - External sources must be labeled: canonical / deuterocanonical /
+    apocryphal / secular historical
+  - No denominational bias in gap notes — present evidence, let reader conclude
+  - Dates labeled as 'c.' (circa) where precise dating is uncertain
+  - Prophecy fulfillments labeled by type:
+      Direct Fulfillment / Typological / Allusion / Verbal Echo
+
+
+9.2  TRANSLATION INTEGRITY — ALL PUBLIC DOMAIN
+-------------------------------------------------------------------------------
+  ALL THREE TRANSLATIONS ARE FREE AND PUBLIC DOMAIN — ZERO LICENSING:
+
+  - KJV (King James Version, 1611): Public domain (pre-1924). The most
+    recognized English translation. No licensing required.
+  - WEB (World English Bible, 2000): Public domain. Modern English, no
+    copyright holder. No licensing required.
+  - ASV (American Standard Version, 1901): Public domain. Highly literal
+    word-for-word translation. Preferred by scholars for accuracy. No
+    licensing required.
+
+  NOTE: The Amplified Bible was removed from the plan because it requires
+  a commercial license from Zondervan. The ASV provides equivalent literal
+  accuracy at zero cost, keeping the entire app 100% free.
+
+  - All references: Standard notation — Book Chapter:Verse (e.g., John 3:16)
+  - Jesus's words: Gold styling consistently across all translations
+
+
+9.3  WORLD SOURCES EDITORIAL STANDARD
+-------------------------------------------------------------------------------
+Every source page must open with a clear editorial statement covering:
+  - The religious or historical tradition it belongs to
+  - Historical date of composition and authorship
+  - Scholarly consensus on its reliability and historical value
+  - Which canonical gospel events it parallels, confirms, or contradicts
+  - What unique perspective or information it contributes
+  - Why it was excluded from the canonical Bible (if applicable)
+  - Which traditions still consider it authoritative (if applicable)
+
+STANDARDS BY CATEGORY:
+  - Christian apocrypha: Explain why excluded from canon, what value remains
+  - Islamic sources: Present Quranic text with Arabic + English, note
+    parallels and differences respectfully, cite Islamic scholarly context
+  - Jewish sources: Present in historical context; note hostile vs neutral
+    tone where applicable; acknowledge Josephus interpolation debates
+  - Roman/Greek: Note that these are non-Christian confirmations of key
+    events — hostile witnesses are especially valuable historically
+  - Eastern/Other: Present as comparative context; note scholarly consensus
+    on whether references are genuine or later interpolations
+
+The goal is not to argue for or against any tradition — it is to present
+the fullest possible historical picture of how Jesus is attested across
+ALL of human civilization. We are not limited by any single tradition.
+
+  "Every voice that spoke of Him, from every nation and tongue and time,
+   belongs in this record."
+
+
+================================================================================
+  SECTION 10 — LAUNCH CHECKLIST
+================================================================================
+
+TECHNICAL
+  [ ] All 113 scenes seeded and reviewed
+  [ ] All 24 prophecy links tested — thread visualization working
+  [ ] All 70+ world sources formatted and linked to scenes
+  [ ] Quranic sources: Arabic + English side-by-side verified
+  [ ] Jewish, Roman, Mandaean, Bahá'í, Eastern sources imported
+  [ ] Search returns accurate results across all content types
+  [ ] All 3 translations loading correctly (KJV / WEB / ASV)
+  [ ] All translations confirmed PUBLIC DOMAIN — no licensing needed
+  [ ] Mobile tested: iPhone 12, iPhone 14, Samsung Galaxy S22
+  [ ] Page load < 2 seconds on 4G mobile
+  [ ] Core Web Vitals: LCP < 2.5s, FID < 100ms, CLS < 0.1
+  [ ] Lighthouse score > 90 (Performance, Accessibility, SEO)
+  [ ] 404 and error pages designed and live
+  [ ] Custom domain purchased and SSL configured
+  [ ] Verify ALL services on free tiers — zero monthly charges
+
+INTELLIGENCE SYSTEM
+  [ ] Transformers.js models load and cache correctly in browser
+  [ ] Semantic search returns relevant results for natural language queries
+  [ ] Cross-reference engine links prophecies ↔ fulfillments correctly
+  [ ] Q&A engine answers questions with cited scripture references
+  [ ] Insight panels display pre-verified content on all 113 scenes
+  [ ] WebLLM fallback works — pre-generated content loads on old devices
+  [ ] ML models run in Web Worker — no UI blocking
+  [ ] First-time model download < 90MB with progress indicator
+  [ ] Intelligence features degrade gracefully without WebGPU
+
+CONTENT
+  [ ] Biblical scholar has reviewed all gap analysis notes
+  [ ] All prophecy fulfillment types labeled
+  [ ] Editorial disclaimers on all Removed Books pages
+  [ ] About page written — mission, methodology, team
+  [ ] All external source quotations accurate to original texts
+  [ ] Jesus's words highlighted correctly across all scenes
+  [ ] All AI-generated insights reviewed and approved by content team
+
+
+================================================================================
+  APPENDIX A — RECOMMENDED READING FOR DEVELOPERS
+================================================================================
+
+RESOURCE                                        PURPOSE
+----------------------------------------------  --------------------------------
+A Harmony of the Gospels — A.T. Robertson       Classic academic harmony (public
+(1922)                                          domain)
+The NT Documents: Are They Reliable? — F.F.     External source credibility ref.
+Bruce
+Science Speaks — Peter Stoner                   Probability math of prophecy
+The Complete Gospels — Robert J. Miller (ed.)   All canonical + non-canonical
+Jesus and the Eyewitnesses — R. Bauckham        Eyewitness origins of gospels
+The Historical Jesus — John P. Meier (5 vols)   Comprehensive scholarly analysis
+
+
+================================================================================
+  APPENDIX B — RESURRECTION APPEARANCES HARMONY
+================================================================================
+
+  NOTE: This is the most complex harmony challenge in the Gospels — multiple
+  appearances in different locations. The app must handle this with care.
+
+APPEARANCE                          ACCOUNT(S)                  LOCATION
+----------------------------------  --------------------------  ----------------
+Women at empty tomb                 All 4 Gospels               Jerusalem — tomb
+Mary Magdalene alone                John 20:11–18               The garden
+Two on Emmaus road                  Luke 24:13–35               Road to Emmaus
+To Peter alone                      Luke 24:34; 1 Cor 15:5      Jerusalem (no
+                                                                narrative given)
+To ten disciples (no Thomas)        Luke 24:36–49; John 20      Jerusalem —
+                                                                locked room
+To eleven (with Thomas)             John 20:24–29               Same room, +1 wk
+Breakfast on the beach              John 21:1–14                Sea of Tiberias
+Commissioning on a mountain         Matt 28:16–20               A mountain,
+                                                                Galilee
+To 500 at once                      1 Corinthians 15:6          Unknown
+To James alone                      1 Corinthians 15:7          Unknown
+Final commission + Ascension        Luke 24:50–53; Acts 1:6–11  Mount of Olives
+
+
+================================================================================
+
+                "Heaven and earth shall pass away, but my words shall not."
+                                                          — Matthew 24:35
+
+================================================================================
+              End of Developer Master Plan — His Voice v1.0
+              General Computing Solutions  |  Prepared for Development Team
+================================================================================
