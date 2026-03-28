@@ -147,6 +147,19 @@ function analyzeQuestion(question: string): QuestionAnalysis {
     searchTerms.push("persecution", "martyr");
   }
 
+  // CRITICAL: If no specific topic detected, do a broad search
+  // Every question MUST get data. Never return empty.
+  if (topics.includes("general") || searchTerms.length === 0) {
+    toolPlan.push("searchScenes", "searchSources", "searchProphecies", "getArchaeologicalEvidence");
+    // Extract key words from the question for search
+    const words = question.toLowerCase()
+      .replace(/[^a-z\s]/g, "")
+      .split(/\s+/)
+      .filter((w) => w.length > 3 && !["what", "does", "that", "this", "with", "from", "have", "been", "they", "about", "there", "where", "when", "which", "would", "could", "should"].includes(w));
+    searchTerms.push(...words.slice(0, 4));
+    if (searchTerms.length === 0) searchTerms.push("Jesus", "Christ");
+  }
+
   return { topics, level, toolPlan: Array.from(new Set(toolPlan)), searchTerms };
 }
 

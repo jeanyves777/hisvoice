@@ -1,8 +1,26 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
+import { generateIllustrationDataUri } from "@/lib/illustrations";
+
+function WalkthroughIllustration({ topic }: { topic: string }) {
+  const src = useMemo(() => generateIllustrationDataUri(topic, 800, 300), [topic]);
+  return (
+    <motion.div
+      initial={{ opacity: 0, scale: 0.95 }}
+      animate={{ opacity: 1, scale: 1 }}
+      className="rounded-xl overflow-hidden"
+    >
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img src={src} alt="" className="w-full h-auto" role="presentation" />
+      <p className="text-[9px] font-ui text-dim/40 text-right mt-1">
+        SVG illustration &middot; Stable Diffusion AI art available on VPS
+      </p>
+    </motion.div>
+  );
+}
 
 interface DataStats {
   scenes: number;
@@ -194,16 +212,46 @@ export function CuriosityExperience({
         </div>
       )}
 
-      {/* Results */}
+      {/* Results — Full Walkthrough */}
       {response && !loading && (
         <div>
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-center mb-6">
-            <p className="font-heading text-xl text-parchment">&ldquo;{response.question}&rdquo;</p>
-            <p className="text-dim font-ui text-xs mt-2">
-              {response.dataPoints} data points searched &middot; {response.toolsUsed.length} tools used &middot;
-              Level {response.level}/4 &middot; {response.aiPowered ? "Ollama-enhanced" : "Agent reasoning"}
-            </p>
+          {/* Walkthrough header with illustration */}
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="mb-8">
+            {/* Illustration */}
+            <WalkthroughIllustration topic={response.question} />
+
+            <div className="text-center mt-4">
+              <p className="font-heading text-xl text-parchment">&ldquo;{response.question}&rdquo;</p>
+              <p className="text-dim font-body text-sm mt-2 italic">
+                Let&apos;s walk through the evidence together.
+              </p>
+            </div>
           </motion.div>
+
+          {/* Walkthrough steps indicator */}
+          <div className="flex items-center justify-center gap-2 mb-6">
+            {response.cards.map((_, i) => (
+              <div key={i} className="flex items-center gap-2">
+                <span className="w-6 h-6 rounded-full bg-[rgb(var(--gold)/.15)] text-gold text-[10px] font-ui flex items-center justify-center">
+                  {i + 1}
+                </span>
+                {i < response.cards.length - 1 && (
+                  <span className="w-4 h-0.5 bg-[rgb(var(--gold)/.2)]" />
+                )}
+              </div>
+            ))}
+            <div className="flex items-center gap-2">
+              <span className="w-4 h-0.5 bg-[rgb(var(--gold)/.2)]" />
+              <span className="w-6 h-6 rounded-full bg-[rgb(var(--gold)/.15)] text-gold text-[10px] font-ui flex items-center justify-center">
+                ✓
+              </span>
+            </div>
+          </div>
+
+          <p className="text-dim font-ui text-[10px] text-center mb-6">
+            {response.dataPoints} data points &middot; {response.toolsUsed.length} tools &middot;
+            Level {response.level}/4 &middot; {response.aiPowered ? "Ollama AI" : "Agent reasoning"}
+          </p>
 
           {/* Evidence cards */}
           <AnimatePresence>

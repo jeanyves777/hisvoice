@@ -37,6 +37,7 @@ services:
       - SMTP_PASS=${SMTP_PASS}
       - EMAIL_FROM=${EMAIL_FROM}
       - OLLAMA_URL=http://ollama:11434
+      - SD_API_URL=http://stable-diffusion:7860
       - OLLAMA_MODEL=${OLLAMA_MODEL:-llama3.1}
       - GEO_API_URL=http://ip-api.com/json
       - NODE_ENV=production
@@ -97,6 +98,32 @@ services:
     volumes:
       - ollama-data:/root/.ollama
     # Uncomment for GPU support:
+    # deploy:
+    #   resources:
+    #     reservations:
+    #       devices:
+    #         - driver: nvidia
+    #           count: 1
+    #           capabilities: [gpu]
+    networks:
+      - hisvoice-net
+
+  # ============================================================
+  # IMAGE AI — Stable Diffusion (Self-hosted via ComfyUI)
+  # Generates biblical illustrations for walkthroughs
+  # ============================================================
+  stable-diffusion:
+    image: ghcr.io/ai-dock/comfyui:pytorch-latest
+    container_name: hisvoice-sd
+    restart: unless-stopped
+    environment:
+      - COMMANDLINE_ARGS=--listen --api
+    ports:
+      - "7860:7860"
+    volumes:
+      - sd-models:/opt/ComfyUI/models
+      - sd-output:/opt/ComfyUI/output
+    # GPU required for image generation:
     # deploy:
     #   resources:
     #     reservations:
@@ -181,6 +208,8 @@ volumes:
   piper-data:
   caddy-data:
   caddy-config:
+  sd-models:
+  sd-output:
 
 networks:
   hisvoice-net:
