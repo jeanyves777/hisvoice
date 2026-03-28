@@ -4,6 +4,8 @@ import { db } from "@/lib/db";
 import { TopNav } from "@/components/nav/top-nav";
 import { ConvergenceBadge } from "@/components/ui/convergence-badge";
 import { BookmarkButton } from "@/components/ui/bookmark-button";
+import { ShareButton } from "@/components/ui/share-button";
+import { SceneNavigation } from "@/components/scene/scene-navigation";
 import { SceneTabs } from "./scene-tabs";
 
 export async function generateMetadata({ params }: { params: { id: string } }) {
@@ -40,7 +42,18 @@ export default async function ScenePage({
 
   if (!scene) notFound();
 
+  // Get previous and next scenes in the same act
+  const siblings = await db.scene.findMany({
+    where: { actId: scene.actId },
+    select: { slug: true, title: true, sortOrder: true },
+    orderBy: { sortOrder: "asc" },
+  });
+  const currentIndex = siblings.findIndex((s) => s.slug === scene.slug);
+  const prevScene = currentIndex > 0 ? siblings[currentIndex - 1] : null;
+  const nextScene = currentIndex < siblings.length - 1 ? siblings[currentIndex + 1] : null;
+
   const gospels = scene.accounts.map((a) => a.gospel);
+  const firstJesusWord = scene.jesusWords[0];
 
   return (
     <>
@@ -88,6 +101,9 @@ export default async function ScenePage({
               {scene.convergenceScore}/4 Gospels
             </span>
             <BookmarkButton sceneId={scene.id} label="Bookmark Scene" />
+            {firstJesusWord && (
+              <ShareButton text={firstJesusWord.text} reference={firstJesusWord.reference} />
+            )}
           </div>
         </div>
 
@@ -139,6 +155,9 @@ export default async function ScenePage({
             note: sp.note,
           }))}
         />
+
+        {/* Scene Navigation */}
+        <SceneNavigation prevScene={prevScene} nextScene={nextScene} />
       </main>
     </>
   );

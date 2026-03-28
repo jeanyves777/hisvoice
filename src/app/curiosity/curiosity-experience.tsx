@@ -34,6 +34,43 @@ const EVIDENCE_LIBRARY: Record<string, { cards: EvidenceCard[]; synthesis: strin
     ],
     synthesis: "6 of 10 traditions confirm the crucifixion. Only the Quran (written 600 years later) and some Gnostic texts deny it. The hostile witnesses — Romans and Jews who had no reason to fabricate this — independently confirm it happened.",
   },
+  "Did Jesus really rise from the dead?": {
+    cards: [
+      { tradition: "Gospels", color: "#C9A96E", title: "1 Corinthians 15:3-8 — The Earliest Account (c. AD 53)", text: "Written just 20 years after the crucifixion, Paul cites a creed dating to within 3-5 years of the event: 'He was seen of Cephas, then of the twelve... then of above 500 brethren at once.' 500 named witnesses, written while they were still alive.", type: "primary" },
+      { tradition: "Jewish", color: "#5B8FD4", title: "Toledot Yeshu — The Jewish Counter-Explanation", text: "The Jewish tradition doesn't claim the tomb was occupied — it tries to EXPLAIN the empty tomb by saying a gardener moved the body. Even Jesus's opponents agreed the tomb was empty.", type: "hostile" },
+      { tradition: "Roman", color: "#D4826B", title: "Pliny — Christians Worship 'As to a God' (112 AD)", text: "Within 80 years, Christians across the Roman Empire were singing hymns to Christ before dawn. Something extraordinary happened after the crucifixion to transform terrified followers into people willing to die singing.", type: "hostile" },
+      { tradition: "Gospels", color: "#C9A96E", title: "The Transformation of the Disciples", text: "Before: Peter denied Jesus 3 times in fear. After: Peter was crucified upside down rather than recant. All 12 disciples chose death over denying the resurrection. People die for beliefs — nobody dies for something they personally KNOW is a lie.", type: "primary" },
+      { tradition: "Islamic", color: "#6BAE84", title: "Quran — Raised to God (Surah 4:158)", text: "Even the Quran, which denies the crucifixion, confirms Jesus was 'raised up' to God. The tradition that disagrees MOST with Christianity on this point still affirms Jesus was taken UP, not left dead.", type: "independent" },
+    ],
+    synthesis: "The resurrection is the most uniquely Christian claim. But even hostile witnesses confirm the tomb was empty, and even Islam confirms Jesus was raised to God. The earliest written evidence (1 Cor 15) names 500 eyewitnesses within 20 years. Every disciple chose death over recanting their testimony.",
+  },
+  "What are the odds of one person fulfilling all these prophecies?": {
+    cards: [
+      { tradition: "Archaeological", color: "#D4A853", title: "Dead Sea Scrolls — Proof the Prophecies Are Old", text: "The Great Isaiah Scroll (1QIsa), carbon-dated to 125 BC, contains the complete text of Isaiah 53 — 'wounded for our transgressions, led as a lamb to slaughter.' This PROVES the prophecies were written at least 125 years before Jesus. No one disputes this.", type: "archaeological" },
+      { tradition: "Mathematical", color: "#5B8FD4", title: "Peter Stoner — 8 Prophecies: 1 in 10^17", text: "Mathematician Peter Stoner calculated the odds of ONE person fulfilling just 8 prophecies by chance: 1 in 100,000,000,000,000,000. That's like covering Texas two feet deep in silver dollars, marking one, and blindfolding someone to pick it on the first try.", type: "independent" },
+      { tradition: "Mathematical", color: "#5B8FD4", title: "16 Prophecies: 1 in 10^45", text: "For 16 prophecies: 1 in 10^45. For all 24+: beyond the number of atoms in the observable universe. These calculations were peer-reviewed by the American Scientific Affiliation.", type: "independent" },
+      { tradition: "Historical", color: "#D4826B", title: "No Human Could Engineer This", text: "The prophecies were written by different authors, in different centuries, in different countries. Jesus had no control over his birthplace (Bethlehem), lineage (Judah/David), manner of execution (crucifixion), or burial (rich man's tomb). No conspiracy is possible across 1,500 years.", type: "primary" },
+    ],
+    synthesis: "The Dead Sea Scrolls prove the prophecies predate Jesus by at least 125 years. The mathematical probability of one person fulfilling even 8 of them by chance is 1 in 10^17. For all 24+, it's beyond calculation. These aren't faith claims — this is information theory and probability mathematics.",
+  },
+  "Why should I believe there's an afterlife?": {
+    cards: [
+      { tradition: "Scientific", color: "#5B8FD4", title: "AWARE Study — University of Southampton (2014)", text: "2,060 cardiac arrest patients studied across 15 hospitals. Verified cases of consciousness during clinical death when the brain showed ZERO electrical activity. Published in the journal Resuscitation — one of the top medical journals.", type: "independent" },
+      { tradition: "Scientific", color: "#5B8FD4", title: "The Lancet NDE Study — van Lommel (2001)", text: "344 cardiac arrest patients in the Netherlands. 18% reported experiences with verifiable details of events in other rooms. The lead researcher was an atheist cardiologist who began the study expecting to debunk NDEs. He couldn't.", type: "independent" },
+      { tradition: "Scientific", color: "#5B8FD4", title: "Terminal Lucidity — Alzheimer's Research (2012)", text: "Patients whose brains were physically destroyed by Alzheimer's suddenly regained full consciousness, recognized family, and spoke clearly moments before death. If consciousness is produced by the brain, this should be impossible.", type: "independent" },
+      { tradition: "Historical", color: "#D4826B", title: "Every Civilization in History", text: "Egyptian, Chinese, Greek, Indian, African, Mesoamerican, Aboriginal — ALL independently developed beliefs in an afterlife. Separated by oceans and millennia. What did all these separate civilizations independently encounter?", type: "independent" },
+    ],
+    synthesis: "This answer uses zero religious texts. Peer-reviewed science shows consciousness during brain death. Terminal lucidity shows awareness without brain function. And every civilization in history independently arrived at the same conclusion. The evidence doesn't require faith — it requires an explanation.",
+  },
+  "Religion was invented to control people — change my mind": {
+    cards: [
+      { tradition: "Historical", color: "#D4826B", title: "Christianity Was Founded by the Powerless", text: "The first Christians were executed prisoners, persecuted minorities, and impoverished fishermen — the LEAST powerful people in the Roman Empire. Nobody invents a control mechanism that costs them everything and gains them torture.", type: "primary" },
+      { tradition: "Historical", color: "#D4826B", title: "The Worst Propaganda Ever Written", text: "If Romans wrote the Bible to control people, why does it command giving away wealth, serving the poor, loving enemies, and forgiving oppressors? Why does it portray Roman authority as corrupt executioners? This is the worst control propaganda in history.", type: "primary" },
+      { tradition: "Historical", color: "#D4826B", title: "The Disciples Gained Nothing", text: "Peter: crucified upside down. James: beheaded. Paul: beheaded. Thomas: speared in India. All could have recanted and lived. Every single one chose death. People die for things they BELIEVE are true. Nobody dies for something they KNOW is a lie.", type: "primary" },
+      { tradition: "Jewish", color: "#5B8FD4", title: "The Jewish Establishment Tried to Destroy It", text: "The Talmud (Sanhedrin 43a) records that the Jewish religious leaders executed Jesus and tried to stamp out his movement. You don't write counter-arguments against an invention you control. The movement spread DESPITE every powerful institution opposing it.", type: "hostile" },
+    ],
+    synthesis: "Religions invented for control look like state religions and divine-right monarchies — they empower the powerful. Christianity did the opposite: it elevated the poor, commanded the powerful to serve, and cost its founders their lives. The first 300 years of Christianity were defined by persecution, not power.",
+  },
 };
 
 interface EvidenceCard {
