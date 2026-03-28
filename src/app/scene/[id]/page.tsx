@@ -5,7 +5,9 @@ import { TopNav } from "@/components/nav/top-nav";
 import { ConvergenceBadge } from "@/components/ui/convergence-badge";
 import { BookmarkButton } from "@/components/ui/bookmark-button";
 import { ShareButton } from "@/components/ui/share-button";
+import { ReadingModeToggle } from "@/components/ui/reading-mode";
 import { SceneNavigation } from "@/components/scene/scene-navigation";
+import { SceneInsights } from "@/components/scene/scene-insights";
 import { SceneTabs } from "./scene-tabs";
 
 export async function generateMetadata({ params }: { params: { id: string } }) {
@@ -104,8 +106,28 @@ export default async function ScenePage({
             {firstJesusWord && (
               <ShareButton text={firstJesusWord.text} reference={firstJesusWord.reference} />
             )}
+            <ReadingModeToggle
+              title={scene.title}
+              accounts={scene.accounts.map((a) => ({
+                gospel: a.gospel,
+                reference: a.reference,
+                text: a.translations.find((t) => t.version === "kjv")?.text || "",
+              }))}
+              jesusWords={scene.jesusWords.map((w) => ({ text: w.text, reference: w.reference, note: w.note }))}
+            />
           </div>
         </div>
+
+        {/* Auto-generated Insights */}
+        <SceneInsights
+          convergenceScore={scene.convergenceScore}
+          gospels={gospels}
+          prophecyCount={scene.fulfillments.length}
+          sourceCount={scene.sourceParallels.length}
+          wordsCount={scene.jesusWords.length}
+          gapNotesCount={scene.gapNotes.length}
+          hasLocation={!!scene.location}
+        />
 
         {/* Prophecy Links */}
         {scene.fulfillments.length > 0 && (
