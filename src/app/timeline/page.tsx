@@ -1,6 +1,7 @@
 import { db } from "@/lib/db";
 import { TopNav } from "@/components/nav/top-nav";
 import { TimelineView } from "./timeline-view";
+import { AncientMap } from "@/components/map/ancient-map";
 
 export const metadata = { title: "Timeline" };
 
@@ -36,6 +37,21 @@ export default async function TimelinePage() {
     })),
   }));
 
+  // Collect all locations for the map
+  const locations = acts.flatMap((act) =>
+    act.scenes
+      .filter((s) => s.location)
+      .map((s) => ({
+        slug: s.slug,
+        title: s.title,
+        label: s.location!.label,
+        lat: s.location!.lat,
+        lng: s.location!.lng,
+        sceneCount: 1,
+        era: s.era || "galilean",
+      }))
+  );
+
   return (
     <>
       <TopNav />
@@ -46,6 +62,17 @@ export default async function TimelinePage() {
         <p className="text-dim text-center font-body mb-8">
           From the first prophecy to the resurrection — every event, every word
         </p>
+
+        {/* Interactive Map */}
+        {locations.length > 0 && (
+          <div className="mb-10">
+            <h2 className="font-heading text-lg text-parchment mb-3">
+              Map of the Journey
+            </h2>
+            <AncientMap locations={locations} />
+          </div>
+        )}
+
         <TimelineView acts={data} />
       </main>
     </>

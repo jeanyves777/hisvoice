@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useTheme } from "next-themes";
-import { useSession } from "next-auth/react";
+import { useSession, signOut } from "next-auth/react";
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { SearchOverlay } from "@/components/ui/search-overlay";
@@ -23,6 +23,7 @@ export function TopNav() {
   const { theme, setTheme } = useTheme();
   const { data: session } = useSession();
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [userMenuOpen, setUserMenuOpen] = useState(false);
   const [searchItems, setSearchItems] = useState<
     Array<{ type: "scene" | "prophecy" | "source"; slug: string; title: string; subtitle?: string; href: string }>
   >([]);
@@ -89,12 +90,46 @@ export function TopNav() {
             {/* Auth buttons — desktop */}
             <div className="hidden md:flex items-center gap-2">
               {session?.user ? (
-                <Link
-                  href="/portal/dashboard"
-                  className="px-3 py-1.5 text-sm font-ui bg-[rgb(var(--gold))] text-white rounded-md hover:opacity-90 transition-opacity"
-                >
-                  {session.user.name?.split(" ")[0] || "Dashboard"}
-                </Link>
+                <div className="relative">
+                  <button
+                    onClick={() => setUserMenuOpen(!userMenuOpen)}
+                    className="flex items-center gap-2 px-3 py-1.5 text-sm font-ui bg-[rgb(var(--gold))] text-white rounded-md hover:opacity-90 transition-opacity"
+                  >
+                    {session.user.name?.split(" ")[0] || "User"}
+                    <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </button>
+                  <AnimatePresence>
+                    {userMenuOpen && (
+                      <motion.div
+                        initial={{ opacity: 0, y: -5 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -5 }}
+                        className="absolute right-0 top-full mt-1 w-48 bg-surface rounded-lg border shadow-lg py-1 z-50"
+                      >
+                        <Link href="/portal/dashboard" className="block px-4 py-2 text-sm font-ui text-dim hover:text-parchment hover:bg-primary/50" onClick={() => setUserMenuOpen(false)}>
+                          Dashboard
+                        </Link>
+                        <Link href="/portal/settings" className="block px-4 py-2 text-sm font-ui text-dim hover:text-parchment hover:bg-primary/50" onClick={() => setUserMenuOpen(false)}>
+                          Settings
+                        </Link>
+                        {(session.user.role === "ADMIN" || session.user.role === "STAFF") && (
+                          <Link href="/portal/admin/users" className="block px-4 py-2 text-sm font-ui text-dim hover:text-parchment hover:bg-primary/50" onClick={() => setUserMenuOpen(false)}>
+                            Admin Panel
+                          </Link>
+                        )}
+                        <hr className="my-1" />
+                        <button
+                          onClick={() => { setUserMenuOpen(false); signOut({ callbackUrl: "/" }); }}
+                          className="block w-full text-left px-4 py-2 text-sm font-ui text-prophecy hover:bg-primary/50"
+                        >
+                          Sign Out
+                        </button>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
               ) : (
                 <>
                   <Link href="/auth/login" className="px-3 py-1.5 text-sm font-ui text-gold hover:underline">
