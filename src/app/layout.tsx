@@ -3,6 +3,7 @@ import { Cinzel_Decorative, Cinzel, Crimson_Text, Inter } from "next/font/google
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import { SessionProvider } from "@/components/providers/session-provider";
 import { Toaster } from "sonner";
+import { CuriosityWidget } from "@/components/curiosity/curiosity-widget";
 import "./globals.css";
 
 const cinzelDecorative = Cinzel_Decorative({
@@ -70,6 +71,7 @@ export default function RootLayout({
         >
           <SessionProvider>
             {children}
+            <CuriosityWidget />
             <Toaster
               position="bottom-right"
               richColors
