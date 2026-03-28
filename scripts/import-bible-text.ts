@@ -16,7 +16,7 @@ const TRANSLATIONS = ["kjv", "web"] as const;
 // ASV not directly on bible-api.com — we'll use web as second and note ASV for later
 
 const API_BASE = "https://bible-api.com";
-const DELAY_MS = 600; // Rate limit: ~1.5 req/sec
+const DELAY_MS = 1200; // Rate limit: ~0.8 req/sec to avoid 429s
 
 function sleep(ms: number) {
   return new Promise((resolve) => setTimeout(resolve, ms));
