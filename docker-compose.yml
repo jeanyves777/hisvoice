@@ -1,0 +1,187 @@
+# ============================================================
+# HIS VOICE — Production Docker Compose (VPS Deployment)
+# All services self-hosted. No cloud APIs. 100% independent.
+# ============================================================
+#
+# Usage:
+#   docker compose up -d          # Start all services
+#   docker compose logs -f app    # Follow app logs
+#   docker compose down           # Stop all services
+#
+# Requirements: Docker + Docker Compose on VPS
+# Recommended VPS: 4+ vCPU, 16GB+ RAM, 100GB+ SSD
+
+version: "3.9"
+
+services:
+  # ============================================================
+  # APPLICATION
+  # ============================================================
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: hisvoice-app
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      - DATABASE_URL=postgresql://hisvoice:${DB_PASSWORD}@postgres:5432/hisvoice
+      - NEXTAUTH_SECRET=${NEXTAUTH_SECRET}
+      - NEXTAUTH_URL=${NEXTAUTH_URL}
+      - TELEGRAM_BOT_TOKEN=${TELEGRAM_BOT_TOKEN}
+      - TELEGRAM_CHAT_ID=${TELEGRAM_CHAT_ID}
+      - SMTP_HOST=${SMTP_HOST}
+      - SMTP_PORT=${SMTP_PORT}
+      - SMTP_USER=${SMTP_USER}
+      - SMTP_PASS=${SMTP_PASS}
+      - EMAIL_FROM=${EMAIL_FROM}
+      - OLLAMA_URL=http://ollama:11434
+      - OLLAMA_MODEL=${OLLAMA_MODEL:-llama3.1}
+      - GEO_API_URL=http://ip-api.com/json
+      - NODE_ENV=production
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    networks:
+      - hisvoice-net
+
+  # ============================================================
+  # DATABASE — PostgreSQL with pgvector
+  # ============================================================
+  postgres:
+    image: pgvector/pgvector:pg16
+    container_name: hisvoice-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: hisvoice
+      POSTGRES_USER: hisvoice
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U hisvoice"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    networks:
+      - hisvoice-net
+
+  # ============================================================
+  # CACHE — Redis
+  # ============================================================
+  redis:
+    image: redis:7-alpine
+    container_name: hisvoice-redis
+    restart: unless-stopped
+    command: redis-server --maxmemory 256mb --maxmemory-policy allkeys-lru
+    volumes:
+      - redis-data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    networks:
+      - hisvoice-net
+
+  # ============================================================
+  # AI — Ollama (Self-hosted LLM)
+  # ============================================================
+  ollama:
+    image: ollama/ollama:latest
+    container_name: hisvoice-ollama
+    restart: unless-stopped
+    volumes:
+      - ollama-data:/root/.ollama
+    # Uncomment for GPU support:
+    # deploy:
+    #   resources:
+    #     reservations:
+    #       devices:
+    #         - driver: nvidia
+    #           count: 1
+    #           capabilities: [gpu]
+    networks:
+      - hisvoice-net
+
+  # ============================================================
+  # SEARCH — Meilisearch
+  # ============================================================
+  meilisearch:
+    image: getmeili/meilisearch:v1.10
+    container_name: hisvoice-meilisearch
+    restart: unless-stopped
+    environment:
+      MEILI_MASTER_KEY: ${MEILI_MASTER_KEY:-hisvoice-search-key}
+      MEILI_ENV: production
+    volumes:
+      - meilisearch-data:/meili_data
+    networks:
+      - hisvoice-net
+
+  # ============================================================
+  # TTS — Piper Text-to-Speech
+  # ============================================================
+  piper:
+    image: rhasspy/wyoming-piper:latest
+    container_name: hisvoice-piper
+    restart: unless-stopped
+    command: --voice en_US-lessac-medium
+    volumes:
+      - piper-data:/data
+    networks:
+      - hisvoice-net
+
+  # ============================================================
+  # ANALYTICS — Umami (Self-hosted)
+  # ============================================================
+  umami:
+    image: ghcr.io/umami-software/umami:postgresql-latest
+    container_name: hisvoice-umami
+    restart: unless-stopped
+    environment:
+      DATABASE_URL: postgresql://hisvoice:${DB_PASSWORD}@postgres:5432/umami
+      DATABASE_TYPE: postgresql
+      APP_SECRET: ${UMAMI_SECRET:-umami-secret-change-me}
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - hisvoice-net
+
+  # ============================================================
+  # REVERSE PROXY — Caddy (Auto-SSL)
+  # ============================================================
+  caddy:
+    image: caddy:2-alpine
+    container_name: hisvoice-caddy
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile
+      - caddy-data:/data
+      - caddy-config:/config
+    depends_on:
+      - app
+      - umami
+      - meilisearch
+    networks:
+      - hisvoice-net
+
+volumes:
+  postgres-data:
+  redis-data:
+  ollama-data:
+  meilisearch-data:
+  piper-data:
+  caddy-data:
+  caddy-config:
+
+networks:
+  hisvoice-net:
+    driver: bridge

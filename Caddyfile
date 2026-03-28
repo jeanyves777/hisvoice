@@ -1,0 +1,32 @@
+# ============================================================
+# HIS VOICE — Caddy Reverse Proxy Configuration
+# Automatic HTTPS via Let's Encrypt. Zero config SSL.
+# Replace {$DOMAIN} with your actual domain (e.g., hisvoice.app)
+# ============================================================
+
+{$DOMAIN:localhost} {
+	# Main app
+	reverse_proxy app:3000
+
+	# Security headers
+	header {
+		X-Content-Type-Options nosniff
+		X-Frame-Options DENY
+		Referrer-Policy strict-origin-when-cross-origin
+		X-XSS-Protection "1; mode=block"
+		Strict-Transport-Security "max-age=63072000; includeSubDomains; preload"
+	}
+
+	# Gzip compression
+	encode gzip
+}
+
+# Analytics subdomain
+analytics.{$DOMAIN:localhost} {
+	reverse_proxy umami:3000
+}
+
+# Search API subdomain (internal only — not public-facing)
+# search.{$DOMAIN:localhost} {
+# 	reverse_proxy meilisearch:7700
+# }
