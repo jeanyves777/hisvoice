@@ -40,15 +40,28 @@ export const metadata: Metadata = {
     template: "%s | His Voice",
   },
   description:
-    "The most comprehensive interactive harmony of Jesus Christ across all world traditions. 70+ sources from 10 civilizations.",
+    "The most comprehensive interactive harmony of Jesus Christ across all world traditions. 70+ sources from 10 civilizations spanning 3,000 years.",
   keywords: [
-    "Jesus",
-    "Gospel Harmony",
-    "Bible",
-    "Quran",
-    "Historical Jesus",
-    "Prophecy",
+    "Jesus", "Gospel Harmony", "Bible", "Quran", "Historical Jesus",
+    "Prophecy", "Messianic Prophecy", "Dead Sea Scrolls", "Josephus",
+    "Tacitus", "Bible Study", "Cross-tradition", "Jesus in Islam",
   ],
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    siteName: "His Voice",
+    title: "His Voice — Every Word He Spoke",
+    description: "From the first prophecy to the last word. 70+ sources, 10 civilizations, the most documented life in history.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "His Voice — Every Word He Spoke",
+    description: "The most comprehensive interactive harmony of Jesus Christ across all world traditions.",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({

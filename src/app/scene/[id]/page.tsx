@@ -3,6 +3,7 @@ import Link from "next/link";
 import { db } from "@/lib/db";
 import { TopNav } from "@/components/nav/top-nav";
 import { ConvergenceBadge } from "@/components/ui/convergence-badge";
+import { BookmarkButton } from "@/components/ui/bookmark-button";
 import { SceneTabs } from "./scene-tabs";
 
 export async function generateMetadata({ params }: { params: { id: string } }) {
@@ -86,6 +87,7 @@ export default async function ScenePage({
             <span className="font-ui text-xs text-gold">
               {scene.convergenceScore}/4 Gospels
             </span>
+            <BookmarkButton sceneId={scene.id} label="Bookmark Scene" />
           </div>
         </div>
 
