@@ -45,8 +45,12 @@ export function TopNav() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 shrink-0">
-            <span className="font-display text-xl text-gold tracking-wider">
+          <Link href="/" className="flex items-center gap-2.5 shrink-0">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/logo-icon.svg" alt="" className="w-8 h-8 rounded hidden dark:block" />
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/logo-icon-white.svg" alt="" className="w-8 h-8 rounded dark:hidden" />
+            <span className="font-display text-lg text-gold tracking-wider hidden sm:inline">
               HIS VOICE
             </span>
           </Link>

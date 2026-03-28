@@ -69,6 +69,17 @@ export function CinematicHero() {
       <Starfield />
 
       <div className="relative z-10 text-center px-4 max-w-2xl">
+        {/* Logo icon */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.5 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 0.2, duration: 1, ease: "easeOut" }}
+          className="mb-6"
+        >
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/logo-icon.svg" alt="" className="w-20 h-20 sm:w-24 sm:h-24 mx-auto rounded-2xl" />
+        </motion.div>
+
         {/* Title with shimmer */}
         <motion.h1
           initial={{ opacity: 0, scale: 0.9 }}

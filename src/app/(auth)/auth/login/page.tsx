@@ -37,7 +37,11 @@ export default function LoginPage() {
     <div className="min-h-screen flex items-center justify-center bg-primary px-4">
       <div className="w-full max-w-md">
         <div className="text-center mb-8">
-          <Link href="/" className="font-display text-3xl text-gold">HIS VOICE</Link>
+          <Link href="/" className="inline-flex flex-col items-center gap-2">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/logo-icon.svg" alt="His Voice" className="w-14 h-14 rounded-xl" />
+            <span className="font-display text-3xl text-gold">HIS VOICE</span>
+          </Link>
           <p className="text-dim font-body mt-2">Sign in to your account</p>
         </div>
 

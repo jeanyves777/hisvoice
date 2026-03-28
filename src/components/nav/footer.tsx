@@ -7,7 +7,11 @@ export function Footer() {
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
           {/* Brand */}
           <div>
-            <Link href="/" className="font-display text-lg text-gold">HIS VOICE</Link>
+            <Link href="/" className="flex items-center gap-2">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/logo-icon.svg" alt="His Voice" className="w-7 h-7 rounded" />
+              <span className="font-display text-lg text-gold">HIS VOICE</span>
+            </Link>
             <p className="text-dim font-body text-xs mt-2 leading-relaxed">
               The most comprehensive interactive harmony of Jesus Christ
               across all world traditions. 70+ sources. 10 civilizations.
