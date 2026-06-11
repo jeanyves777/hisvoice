@@ -1,0 +1,13 @@
+Src/
+  App.fx.yaml
+  Screen1.fx.yaml
+  Screens.json
+  Templates.json
+  ControlTemplates.json
+  PowerAppsManifest.json
+  Properties.json
+  EditorState.json
+  App.json
+  Resources.json
+  Entropy.json
+  DataSources.json
